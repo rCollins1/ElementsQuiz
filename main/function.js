@@ -22,16 +22,12 @@
  	 		title.appendChild(document.createTextNode(json[i - 1].H1));
  	 		slide.appendChild(title);
 
- 	 		var subTitle = document.createElement("p");
- 	 		subTitle.appendChild(document.createTextNode(json[i - 1].H2));
- 	 		slide.appendChild(subTitle);
-
  	 		var intro = document.createElement("p");
  	 		intro.appendChild(document.createTextNode(json[i - 1].H3));
  	 		slide.appendChild(intro);
 
  	 		var nextButton = document.createElement("button");
-			nextButton.appendChild(document.createTextNode("Take the questionnaire >>"));
+			nextButton.appendChild(document.createTextNode("Take Questionnaire"));
 			nextButton.className = "next";
 			nextButton.id = "questionnaire";
 			slide.appendChild(nextButton);
@@ -44,12 +40,12 @@
  	 		slide.appendChild(intro);
 
  	 		var previouButton = document.createElement("button");
-			previouButton.appendChild(document.createTextNode("PREVIOUS"));
+			previouButton.appendChild(document.createTextNode("Previous"));
 			previouButton.className = "previous";
 			slide.appendChild(previouButton);
 
 			var nextButton = document.createElement("button");
-			nextButton.appendChild(document.createTextNode("NEXT"));
+			nextButton.appendChild(document.createTextNode("Next"));
 			nextButton.className = "next";
 			slide.appendChild(nextButton);
 
@@ -109,12 +105,12 @@
 
 	        // Previous and Next button 
 	        var previouButton = document.createElement("button");
-			previouButton.appendChild(document.createTextNode("PREVIOUS"));
+			previouButton.appendChild(document.createTextNode("Previous"));
 			previouButton.className = "previous";
 			slide.appendChild(previouButton);
 
 			var nextButton = document.createElement("button");
-			nextButton.appendChild(document.createTextNode("NEXT"));
+			nextButton.appendChild(document.createTextNode("Next"));
 			nextButton.className = "next";
 			slide.appendChild(nextButton);
    
@@ -123,7 +119,7 @@
  	 	else if (json[i - 1].type == "report"){
  	 		// Previous and Next button 
 	        var previouButton = document.createElement("button");
-			previouButton.appendChild(document.createTextNode("PREVIOUS"));
+			previouButton.appendChild(document.createTextNode("Previous"));
 			previouButton.className = "previous";
 			slide.appendChild(previouButton);
 
@@ -163,9 +159,9 @@
  			pagination.appendChild(document.createTextNode(i));
  		}
 
-		pagination.className = "bt";
+/*		pagination.className = "bt";
 		pagination.id = i;
-		footer.appendChild(pagination);
+		footer.appendChild(pagination);*/
 		
 	 }
 
@@ -174,11 +170,28 @@
 	$(".next").click(function(){ 
 	    $("#all-slides").animate({marginLeft: "-=745px"}, 500);
 	    currSlide++;
+
+	  	var $bar = $(".ProgressBar");
+
+  		if ($bar.children(".is-current").length > 0) {
+    		$bar.children(".is-current").removeClass("is-current").addClass("is-complete").next().addClass("is-current");
+  		} else {
+    		$bar.children().first().addClass("is-current");
+  }
 	});
 
-    $(".previous").click(function(){ 
-        $("#all-slides").animate({marginLeft: "+=745px"}, 500);
-         currSlide--;
+    $(".previous").click(function(){
+    	$("#all-slides").animate({marginLeft: "+=745px"}, 500);
+        currSlide--;
+
+   		var $bar = $(".ProgressBar");
+
+  		if ($bar.children(".is-current").length > 0) {
+    		$bar.children(".is-current").removeClass("is-current").prev().removeClass("is-complete").addClass("is-current");
+  		} else {
+    		$bar.children(".is-complete").last().removeClass("is-complete").addClass("is-current");
+  }
+        
     });
 
 	
