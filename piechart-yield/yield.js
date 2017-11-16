@@ -1,8 +1,8 @@
-// Dynamic pie chart 
+// Cecile's Famous Humbleberry Pie (version YIELD)
 
 $( document ).ready(function() {
 	$.ajax({
-		url: 'https://api.myjson.com/bins/1f8pxj', //currently sourced from yield.json that is hosted on an http server
+		url: 'https://api.myjson.com/bins/nsm8z', //currently sourced from yield.json that is hosted on an http server
 		dataType: 'json',
 		type: 'get',
 		cache: false,
@@ -14,8 +14,12 @@ $( document ).ready(function() {
 			var chartColour = []; //declaring variable to store chart colours
 			var chartTitle = []; //declaring variable to store chart title
 			var fundNames = []; //declaring variable to store each label's fund name(s)
+			var objHeading = []; //declaring variable to store the objective heading
+			var objDescription = []; //declaring variable to store the objective description 
 
-			chartTitle.push(jsonData.title); //load chartTitle array with chart title
+			chartTitle.push(jsonData.title); //load chartTitle "array" with chart title
+			objHeading.push(jsonData.heading); //load objHeading "array" with objective heading 
+			objDescription.push(jsonData.description); //load objDescription "array" with objective description
 
 			for (i = 0; i < jsonData.yield.length; i++){
 				chartLabel.push(jsonData.yield[i].label); //load chartLabel array with label values
@@ -29,6 +33,8 @@ $( document ).ready(function() {
 			console.log(chartValue); //console-display array of chart values (!FOR TESTING!)
 			console.log(chartColour); //console-display array of chart colours (!FOR TESTING!)
 			console.log(fundNames); //console-display array of array of fund names (!FOR TESTING!)
+			console.log(objHeading); //console-display objective heading (!FOR TESTING!)
+			console.log(objDescription); //console-display objective description (!FOR TESTING!)
 
 			$(chartTitle).each(function(index, value){ //console-display chart title (!FOR TESTING!)
 				console.log(value);
@@ -46,7 +52,7 @@ $( document ).ready(function() {
 				console.log(value);
 			})
 
-			for (i = 0; i < jsonData.yield.length; i++){ //console-display each value of from each index of fundName (go through each array index within each array index)
+			for (i = 0; i < jsonData.yield.length; i++){ //console-display each value of from each index of fundName (go through each array index within each array index) (!FOR TESTING!)
 				$(fundNames[i]).each(function(index, value){ 
 					console.log(value);
 				})
