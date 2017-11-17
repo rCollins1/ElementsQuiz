@@ -1,33 +1,34 @@
-{
-	"benefits" : ["a target asset mix of approximately 60% fixed income exposure offers stability, while the approximately 40% equity portion offers moderate capital appreciation", 
+{	
+	"reportProfolioTitle": "AGF ELEMENTS CONSERVATIVE PORTFOLIO/CLASS HOLDINGS",
+	"benefits": ["a target asset mix of approximately 60% fixed income exposure offers stability, while the approximately 40% equity portion offers moderate capital appreciation", 
 				"the Portfolio is diversified by asset class, region and management style, with exposure to core holdings and specialty funds",
 				"the Portfolio is fine-tuned quarterly to ensure you are always positioned to capitalize on current market trends"],
-	"funds-chart" : [{
-						"income-type" : "DOMESTIC FIXED INCOME",
-						"income-percentage" : 11,
-						"fund-type" : [{
-											"fund-name": "AGF Fixed Income Plus Fund",
-											"fund-percentage": 11
+	"fundsChart" : [{
+						"incomeType" : "DOMESTIC FIXED INCOME",
+						"incomePercentage" : 11,
+						"fundType" : [{
+											"fundName": "AGF Fixed Income Plus Fund",
+											"fundPercentage": 11
 										}]
 					},
 					{
-						"income-type" : "FOREIGN FIXED INCOME",
-						"income-percentage" : 44,
-						"fund-type" : [{
-											"fund-name": "AGF Global Bond Fund",
-											"fund-percentage": 27
+						"incomeType" : "FOREIGN FIXED INCOME",
+						"incomePercentage" : 44,
+						"fundType" : [{
+											"fundName": "AGF Global Bond Fund",
+											"fundPercentage": 27
 										},
 										{
-											"fund-name": "AGF Total Return Bond Fund",
-											"fund-percentage": 9
+											"fundName": "AGF Total Return Bond Fund",
+											"fundPercentage": 9
 										},
 										{
-											"fund-name": "AGF Emerging Markets Bond Fund",
-											"fund-percentage": 4
+											"fundName": "AGF Emerging Markets Bond Fund",
+											"fundPercentage": 4
 										},
 										{
-											"fund-name": "AGF High Yield Bond Fund&sup1;",
-											"fund-percentage": 4
+											"fundName": "AGF High Yield Bond Fund&sup1;",
+											"fundPercentage": 4
 										}]
 					}]
 }
