@@ -21,11 +21,11 @@ $( document ).ready(function() {
 			objHeading.push(jsonData.heading); //load objHeading "array" with objective heading 
 			objDescription.push(jsonData.description); //load objDescription "array" with objective description
 
-			for (i = 0; i < jsonData.piechart.length; i++){
-				chartLabel.push(jsonData.piechart[i].label); //load chartLabel array with label values
-				chartValue.push(jsonData.piechart[i].value); //load chartValue array with value values
-				chartColour.push(jsonData.piechart[i].colour); //load chartColour array with colour values
-				fundNames.push(jsonData.piechart[i].funds); //load fundNames array with ARRAYS of each label's fund name(s); an array of arrays
+			for (j = 0; j < jsonData.piechart.length; j++){
+				chartLabel.push(jsonData.piechart[j].label); //load chartLabel array with label values
+				chartValue.push(jsonData.piechart[j].value); //load chartValue array with value values
+				chartColour.push(jsonData.piechart[j].colour); //load chartColour array with colour values
+				fundNames.push(jsonData.piechart[j].funds); //load fundNames array with ARRAYS of each label's fund name(s); an array of arrays
 			}
 			
 			console.log(chartTitle); //console-display chart title (!FOR TESTING!)
@@ -52,8 +52,8 @@ $( document ).ready(function() {
 				console.log(value);
 			})
 
-			for (i = 0; i < jsonData.piechart.length; i++){ //console-display each value of from each index of fundName (go through each array index within each array index) (!FOR TESTING!)
-				$(fundNames[i]).each(function(index, value){ 
+			for (j = 0; j < jsonData.piechart.length; j++){ //console-display each value of from each index of fundName (go through each array index within each array index) (!FOR TESTING!)
+				$(fundNames[j]).each(function(index, value){ 
 					console.log(value);
 				})
 			}
@@ -109,8 +109,8 @@ $( document ).ready(function() {
 								var tooltipLabel = data.labels[tooltipItem.index];
 								var tooltipData = allData[tooltipItem.index];
 								var total = 0;
-								for (var i in allData) {
-									total += allData[i];
+								for (var j in allData) {
+									total += allData[j];
 								}
 								var tooltipPercentage = Math.round((tooltipData/total) * 100); //calculate the percentage of each slice
 								return tooltipLabel + ' (' + tooltipPercentage + '%)';
@@ -152,8 +152,8 @@ $( document ).ready(function() {
 
 								if (fundNames[selectedIndex].length > 1) {
 									var fundString = "";
-									for (i = 0; i < fundNames[selectedIndex].length; i++){
-									fundString = fundString + fundNames[selectedIndex][i] + "<br>";
+									for (j = 0; j < fundNames[selectedIndex].length; j++){
+									fundString = fundString + fundNames[selectedIndex][j] + "<br>";
 									} 
 									document.getElementById("funds").innerHTML = "<b><u>" + chartLabel[selectedIndex] + "</u></b><p>" + fundString;
 								}
