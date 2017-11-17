@@ -1,4 +1,4 @@
-var jsonSource = "https://api.myjson.com/bins/b13t7";
+var jsonSource = "https://api.myjson.com/bins/wwlcj";
 
 function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	
@@ -42,6 +42,12 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 		var fundName = document.createElement("div");
 		fundName.classList.add("fund-name");
 		fundName.appendChild(document.createTextNode(incomeObject.fundType[i].fundName));
+
+		if ("undefined" !== typeof(incomeObject.fundType[i]["superscript"])) {
+			var superNumber = document.createElement("sup");
+			superNumber.appendChild(document.createTextNode(incomeObject.fundType[i].superscript));
+			fundName.appendChild(superNumber);
+		}
 
 		incomeFund.appendChild(fundPercentage);
 		incomeFund.appendChild(fundName);
