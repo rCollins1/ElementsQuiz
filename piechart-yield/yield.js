@@ -58,6 +58,31 @@ $( document ).ready(function() {
 				})
 			}
 
+			//--------------------------------------CREATING INVESTMENT OBJECTIVES SECTION--------------------------------------------------------------
+
+			var heading = document.createElement("h2"); //create new <h2> element
+			heading.setAttribute("id", "objectiveTitle"); //assigning id; <p id="objectiveTitle"></p>
+
+			var objTitle = document.createTextNode(objHeading); //creating text node for heading: text is jSON's objHeading
+			heading.appendChild(objTitle); //append the text node to the <h2> element
+
+			document.getElementById("objectiveBox").appendChild(heading); //append heading to objectiveBox div; same as two last lines in section
+
+			console.log(heading); //console-log heading (tags and all) (!FOR TESTING!)
+
+			//--------------------------------------------
+
+			var description = document.createElement("p"); //create new <p> element
+			description.setAttribute("id", "objectiveText"); //assigning id; <p id="objectiveText"></p>
+
+			var objText = document.createTextNode(objDescription); //creating text node for description: text is jSON's objDescription
+			description.appendChild(objText); //append the text node to the <p> element
+
+			var objBox = document.getElementById("objectiveBox"); //finding an existing element (div ID: objectiveBox) to append the new <p> element to
+			objBox.appendChild(description); //append <p> element to the objectiveBox div
+
+			console.log(description); //console-log description (tags and all) (!FOR TESTING!)
+
 
 			//--------------------------------------BUILDING THE PIE CHART------------------------------------------------------------------------------
 
@@ -100,7 +125,7 @@ $( document ).ready(function() {
 							fontFamily: 'Segoe UI',
 							fontSize: 16,
 							padding: 0,
-							boxWidth: 75,
+							boxWidth: 25,
 							fontStyle: 'normal'
 						}
 					},
