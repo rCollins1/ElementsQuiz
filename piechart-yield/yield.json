@@ -1,3 +1,5 @@
+// AGF Elements Yield Portfolio
+
 {
 	"heading": "Investment Objective",
 
@@ -5,7 +7,7 @@
 
 	"title": "Targeted Asset Location",
 
-	"yield": [
+	"piechart": [
 		{
 			"label": "Domestic equities",
 			"value": 13,
@@ -45,4 +47,4 @@
 }
 
 
-//https://api.myjson.com/bins/nsm8z
+//https://api.myjson.com/bins/1as7gj
