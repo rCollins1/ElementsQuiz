@@ -27,7 +27,8 @@
 											"fundPercentage": 4
 										},
 										{
-											"fundName": "AGF High Yield Bond Fund&sup1;",
+											"fundName": "AGF High Yield Bond Fund",
+											"superscript": 1,
 											"fundPercentage": 4
 										}]
 					}]
