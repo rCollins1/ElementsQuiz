@@ -1,0 +1,70 @@
+// AGF Elements Conservative Portfolio
+
+{
+	"heading": "Investment Objective",
+
+	"description": "The Portfolio's objective is to provide long-term returns with lower risk by investing primarily in a diversified mix of income, bond, money market and equity mutual funds.",
+
+	"title": "Targeted Asset Location",
+
+	"piechart": [
+		{
+			"label": "Domestic equities",
+			"value": 13,
+			"colour": "#7C4496",
+			"funds": [
+				"5% AGF Canadian Stock Fund",
+				"6% AGF Dividend Income Fund",
+				"1% AGF Canadian Small Cap Fund",
+				"1% QuantShares Enhanced Core Canadian Equity ETF"
+			]
+		},
+		{
+			"label": "Foreign equities",
+			"value": 24,
+			"colour": "#D02259",
+			"funds": [
+				"8% AGF Global Equity Fund",
+				"5% AGF Global Dividend Fund",
+				"1% AGF U.S. Risked Managed Fund",
+				"4% AGF American Growth Fund",
+				"1% AGF EAFE Equity Fund",
+				"1% AGF Emerging Markets Fund",
+				"2% AGF Global Resources Class/Fund",
+				"1% QuantShares Enhanced Core U.S. Equity ETF",
+				"1% QuantShares Enhanced Core International Equity ETF"
+			]
+		},
+		{
+			"label": "Domestic fixed income",
+			"value": 11,
+			"colour": "#ED5A36",
+			"funds": [
+				"11% AGF Fixed Income Plus Fund"
+			]
+		},
+		{
+			"label": "Foreign fixed income",
+			"value": 44,
+			"colour": "#F47E20",
+			"funds": [
+				"27% AGF Global Bond Fund",
+				"9% AGF Total Return Bond Fund",
+				"4% AGF Emerging Markets Bond Fund",
+				"4% AGF High Yield Bond Fund"
+			]
+		},
+		{
+			"label": "Tactical",
+			"value": 8,
+			"colour": "#FFB819",
+			"funds": [
+				"8% AGF Tactical Fund"
+			]
+		}
+
+	]
+}
+
+
+//https://api.myjson.com/bins/104jqb

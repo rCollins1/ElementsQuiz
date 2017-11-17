@@ -1,8 +1,8 @@
-// Cecile's Famous Humbleberry Pie (version YIELD)
+// Cecile's Famous Humbleberry Pie
 
 $( document ).ready(function() {
 	$.ajax({
-		url: 'https://api.myjson.com/bins/nsm8z', //currently sourced from yield.json that is hosted on an http server
+		url: 'https://api.myjson.com/bins/1as7gj', //currently sourced from yield.json that is hosted on an http server
 		dataType: 'json',
 		type: 'get',
 		cache: false,
@@ -21,11 +21,11 @@ $( document ).ready(function() {
 			objHeading.push(jsonData.heading); //load objHeading "array" with objective heading 
 			objDescription.push(jsonData.description); //load objDescription "array" with objective description
 
-			for (i = 0; i < jsonData.yield.length; i++){
-				chartLabel.push(jsonData.yield[i].label); //load chartLabel array with label values
-				chartValue.push(jsonData.yield[i].value); //load chartValue array with value values
-				chartColour.push(jsonData.yield[i].colour); //load chartColour array with colour values
-				fundNames.push(jsonData.yield[i].funds); //load fundNames array with ARRAYS of each label's fund name(s); an array of arrays
+			for (i = 0; i < jsonData.piechart.length; i++){
+				chartLabel.push(jsonData.piechart[i].label); //load chartLabel array with label values
+				chartValue.push(jsonData.piechart[i].value); //load chartValue array with value values
+				chartColour.push(jsonData.piechart[i].colour); //load chartColour array with colour values
+				fundNames.push(jsonData.piechart[i].funds); //load fundNames array with ARRAYS of each label's fund name(s); an array of arrays
 			}
 			
 			console.log(chartTitle); //console-display chart title (!FOR TESTING!)
@@ -52,7 +52,7 @@ $( document ).ready(function() {
 				console.log(value);
 			})
 
-			for (i = 0; i < jsonData.yield.length; i++){ //console-display each value of from each index of fundName (go through each array index within each array index) (!FOR TESTING!)
+			for (i = 0; i < jsonData.piechart.length; i++){ //console-display each value of from each index of fundName (go through each array index within each array index) (!FOR TESTING!)
 				$(fundNames[i]).each(function(index, value){ 
 					console.log(value);
 				})
