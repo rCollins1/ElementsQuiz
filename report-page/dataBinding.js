@@ -43,6 +43,7 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 		fundName.classList.add("fund-name");
 		fundName.appendChild(document.createTextNode(incomeObject.fundType[i].fundName));
 
+		//check if the fund has superscript. If has, add it to the end of its fund name
 		if ("undefined" !== typeof(incomeObject.fundType[i]["superscript"])) {
 			var superNumber = document.createElement("sup");
 			superNumber.appendChild(document.createTextNode(incomeObject.fundType[i].superscript));
