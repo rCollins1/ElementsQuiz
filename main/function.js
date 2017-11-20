@@ -1,5 +1,5 @@
 
-$.getJSON("data.json", function(json) {
+$.getJSON("https://api.myjson.com/bins/1clgav", function(json) {
 
 	function createCoverPageSlide(slide, i){
 
