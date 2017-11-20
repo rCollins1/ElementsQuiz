@@ -1,0 +1,52 @@
+// AGF Elements Global Portfolio
+
+{
+	"heading": "Investment Objective",
+
+	"description": "The Portfolio's objective is to provide superior long-term returns by investing in equity mutual funds from around the globe.",
+
+	"title": "Targeted Asset Location",
+
+	"piechart": [
+		{
+			"label": "Domestic equities",
+			"value": 4,
+			"colour": "#7C4496",
+			"funds": [
+				"2% AGF Canadian Stock Fund",
+				"2% AGF Canadian Small Cap Fund"
+			]
+		},
+		{
+			"label": "Foreign equities",
+			"value": 78,
+			"colour": "#D02259",
+			"funds": [
+				"24% AGF Global Equity Fund",
+				"15% AGF American Growth Fund",
+				"8% AGF U.S. Risked Managed Fund",
+				"10% AGF Global Dividend Fund",
+				"4% AGF European Equity Fund",
+				"3% AGF EAFE Equity Fund",
+				"3% AGF Global Resources Class/Fund",
+				"2% AGF Asian Growth Class/Fund",
+				"3% AGF Emerging Markets Fund",
+				"3% QuantShares Enhanced Core U.S. Equity ETF",
+				"2% QuantShares Enhanced Core International Equity ETF",
+				"1% QuantShares Enhanced Core Emerging Markets Equity ETF"
+			]
+		},
+		{
+			"label": "Tactical",
+			"value": 18,
+			"colour": "#FFB819",
+			"funds": [
+				"18% AGF Tactical Fund"
+			]
+		}
+
+	]
+}
+
+
+//https://api.myjson.com/bins/hvhhj
