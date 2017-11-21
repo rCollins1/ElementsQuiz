@@ -29,7 +29,7 @@ $.getJSON("data.json", function(json) {
 	// add options to drop-down 
 	for (var j = 0; j < numOfOptions; j++) {
 		var option = document.createElement("option");
-		option.appendChild(document.createTextNode(json[i].dropDown[j]));
+		option.appendChild(document.createTextNode(json[i].dropDown[j].name));
 		dropDown.appendChild(option);
 	}
 
@@ -129,162 +129,139 @@ function createQuestionSlide(slide, i){
 
 function createPieChart(slide, i, portfolio) {
 
-	// console.log(portfolio.title);
-
-	var slideTitle = document.getElementById("results-slide-title");
-	slideTitle.appendChild(document.createTextNode(portfolio.title));
-
-	var leftColumn = document.getElementById("leftColumn");
-	leftColumn.appendChild(document.createTextNode(portfolio.left_column.subtitle));
-	leftColumn.appendChild(document.createTextNode(portfolio.left_column.intro));
-	var rightColumn = document.getElementById('rightColumn');
-	// rightColumn.appendChild(document.createTextNode(json[i].portfolio.right_column.subtitle));
-
-	var fundBox = document.createElement("div");
-	fundBox.id = "fundBox"; 
-	rightColumn.appendChild(fundBox);
-	var funds = document.createElement("p");
-	funds.id = "funds";
-	fundBox.appendChild(funds);
-
-
-/*	var rightColumn = document.getElementById("rightColumn");
-	rightColumn.appendChild(document.createTextNode(json[i].portfolio.right_column.subtitle));*/
+	var slideTitle = document.getElementById("results-slide-title").innerHTML = portfolio.title;
+	var leftColumn = document.getElementById("leftColumn").innerHTML = portfolio.left_column.intro;
 	
+	var chartLabel = []; //declaring variable to store chart labels
+	var chartValue = []; //declaring variable to store chart valuese
+	var chartColour = []; //declaring variable to store chart colours
+	var chartTitle = []; //declaring variable to store chart title
+	var fundNames = []; //declaring variable to store each label's fund name(s)
+	var objHeading = []; //declaring variable to store the objective heading
+	var objDescription = []; //declaring variable to store the objective description 
+
 	
-			var chartLabel = []; //declaring variable to store chart labels
-			var chartValue = []; //declaring variable to store chart valuese
-			var chartColour = []; //declaring variable to store chart colours
-			var chartTitle = []; //declaring variable to store chart title
-			var fundNames = []; //declaring variable to store each label's fund name(s)
-			var objHeading = []; //declaring variable to store the objective heading
-			var objDescription = []; //declaring variable to store the objective description 
+	chartTitle.push(portfolio.right_column.subtitle); //load chartTitle "array" with chart title
+		
 
-			/*var leftColumn = json[i].portfolio.left_column;
-			var rightColumn = json[i].portfolio.right_column;
-*/
-			// console.log(leftColumn);
-			// console.log(rightColumn);
+	var pie_Chart = portfolio.right_column.pieChart;
 
-			// console.log(rightColumn.subtitle);
-			// console.log(rightColumn.pieChart);
-
-			// objHeading.push(leftColumn.subtitle); //load objHeading "array" with objective heading 
-			chartTitle.push(portfolio.right_column.subtitle); //load chartTitle "array" with chart title
-			// objDescription.push(leftColumn.intro); //load objDescription "array" with objective description
-
-			// console.log(objHeading);
-			// console.log(chartTitle);
-			// console.log(objDescription);
-
-
-			var pie_Chart = portfolio.right_column.pieChart;
-
-			for (j = 0; j < pie_Chart.length; j++){
-				chartLabel.push(pie_Chart[j].label); //load chartLabel array with label values
-				chartValue.push(pie_Chart[j].value); //load chartValue array with value values
-				chartColour.push(pie_Chart[j].colour); //load chartColour array with colour values
-				fundNames.push(pie_Chart[j].funds); //load fundNames array with ARRAYS of each label's fund name(s); an array of arrays
-			}
-
-			// console.log(chartLabel);
-			// console.log(chartValue);
-			// console.log(chartColour);
-			// console.log(fundNames);
-
-
-
+	for (j = 0; j < pie_Chart.length; j++){
+		chartLabel.push(pie_Chart[j].label); //load chartLabel array with label values
+		chartValue.push(pie_Chart[j].value); //load chartValue array with value values
+		chartColour.push(pie_Chart[j].colour); //load chartColour array with colour values
+		fundNames.push(pie_Chart[j].funds); //load fundNames array with ARRAYS of each label's fund name(s); an array of arrays
+	}
 
 			//--------------------------------------BUILDING THE PIE CHART------------------------------------------------------------------------------
 
+	var ctx = document.getElementById("pieChart").getContext('2d'); //declaring variable 'ctx' (context) for div to display pie chart
+	var selectedIndex = null; //declaring variable to represent index selected for separation animation
+	var selectedIndexFunds = null;
 
-			var ctx = document.getElementById("pieChart").getContext('2d'); //declaring variable 'ctx' (context) for div to display pie chart
-			var selectedIndex = null; //declaring variable to represent index selected for separation animation
-			var selectedIndexFunds = null;
-
-			var pieChart = new Chart(ctx, { //creating chart with the below attributes
-				type: 'pie',
-				data: {
-					labels: chartLabel, //setting labels for the legend 
-					datasets: [{
-						backgroundColor: chartColour, //setting background colour of each slice with chartColour array
-						data: chartValue, //setting values of each slice with chartValue array
-						borderWidth: 2, //setting value of the border around each slice
-					}]
-				},
-				options: { //options is an object of objects of objects of attributes... very meta
-					tooltips: {
-						callbacks: { //invoked after you hover over a slice
-							label: function(tooltipItem, data){ //function alters the tooltip so that it displays label + percentage of slice instead of value
-								var allData = data.datasets[tooltipItem.datasetIndex].data;
-								var tooltipLabel = data.labels[tooltipItem.index];
-								var tooltipData = allData[tooltipItem.index];
-								var total = 0;
-								for (var j in allData) {
-									total += allData[j];
-								}
-								var tooltipPercentage = Math.round((tooltipData/total) * 100); //calculate the percentage of each slice
-								return tooltipLabel + ' (' + tooltipPercentage + '%)';
-							}
+	var pieChart = new Chart(ctx, { //creating chart with the below attributes
+		type: 'pie',
+		data: {
+			labels: chartLabel, //setting labels for the legend 
+			datasets: [{
+				backgroundColor: chartColour, //setting background colour of each slice with chartColour array
+				data: chartValue, //setting values of each slice with chartValue array
+				borderWidth: 2, //setting value of the border around each slice
+			}]
+		},
+		options: { //options is an object of objects of objects of attributes... very meta
+			tooltips: {
+				callbacks: { //invoked after you hover over a slice
+					label: function(tooltipItem, data){ //function alters the tooltip so that it displays label + percentage of slice instead of value
+						var allData = data.datasets[tooltipItem.datasetIndex].data;
+						var tooltipLabel = data.labels[tooltipItem.index];
+						var tooltipData = allData[tooltipItem.index];
+						var total = 0;
+						for (var j in allData) {
+							total += allData[j];
 						}
-					},
-					legend: { //settings for the legend within the canvas
-						display: true, //show or hide the library's default legend
-						position: 'right',
-						labels: {
-							fontColor: 'black',
-							fontFamily: 'Segoe UI',
-							fontSize: 11,
-							padding: 0,
-							boxWidth: 20,
-							fontStyle: 'normal'
-						}
-					},
-					cutoutPercentage: 0, //set radius of circle to cut out to create donut chart
-					title: {
-						display: true,
-						// padding: 0,
-						text: chartTitle, //title of the graph
-						// fontColor: '#333',
-						fontSize: 16,
-						fontFamily: 'Segoe UI'
-					},
-					layout: {
-						padding: 5//padding necessary so that the exploded slice fits within the canvas div
-					},
-					onClick: function (evt, elements) { //function to create exploded slice upon click
-						if (elements && elements.length) {
-							var segment = elements[0];
-							pieChart.update();
-
-							if (selectedIndex !== segment["_index"]) {
-								selectedIndex = segment["_index"];
-								segment._model.outerRadius += 6;
-								console.log(selectedIndex); //console output the index of selected piece. use this to decide which funds to show!
-
-								if (fundNames[selectedIndex].length > 1) {
-									var fundString = "";
-									for (j = 0; j < fundNames[selectedIndex].length; j++){
-									fundString = fundString + fundNames[selectedIndex][j] + "<br>";
-									} 
-
-									document.getElementById("funds").innerHTML = "<b><u>" + chartLabel[selectedIndex] + "</u></b><p>" + fundString;
-								}
-								else {
-									var funds = fundNames[selectedIndex][0];
-									console.log(funds);
-									document.getElementById("funds").innerHTML = "<b><u>" + chartLabel[selectedIndex] + "</u></b><p>" + funds;
-								} 
-							}
-							else {
-								selectedIndex = null;
-							}
-						}
-					},
-
+						var tooltipPercentage = Math.round((tooltipData/total) * 100); //calculate the percentage of each slice
+						return tooltipLabel + ' (' + tooltipPercentage + '%)';
+					}
 				}
-			})
+			},
+			legend: { //settings for the legend within the canvas
+				display: true, //show or hide the library's default legend
+				position: 'right',
+				labels: {
+					fontColor: 'black',
+					fontFamily: 'Segoe UI',
+					fontSize: 11,
+					padding: 0,
+					boxWidth: 20,
+					fontStyle: 'normal'
+				}
+			},
+			cutoutPercentage: 0, //set radius of circle to cut out to create donut chart
+			title: {
+				display: true,
+				// padding: 0,
+				text: chartTitle, //title of the graph
+				// fontColor: '#333',
+				fontSize: 16,
+				fontFamily: 'Segoe UI'
+			},
+			layout: {
+				padding: 5//padding necessary so that the exploded slice fits within the canvas div
+			},
+			onClick: function (evt, elements) { //function to create exploded slice upon click
+				if (elements && elements.length) {
+					var segment = elements[0];
+					pieChart.update();
 
+					if (selectedIndex !== segment["_index"]) {
+						selectedIndex = segment["_index"];
+						segment._model.outerRadius += 6;
+						console.log(selectedIndex); //console output the index of selected piece. use this to decide which funds to show!
+
+						if (fundNames[selectedIndex].length > 1) {
+							var fundString = "";
+							for (j = 0; j < fundNames[selectedIndex].length; j++){
+							fundString = fundString + fundNames[selectedIndex][j] + "<br>";
+							} 
+
+							document.getElementById("funds").innerHTML = "<b><u>" + chartLabel[selectedIndex] + "</u></b><p>" + fundString;
+						}
+						else {
+							var funds = fundNames[selectedIndex][0];
+							console.log(funds);
+							document.getElementById("funds").innerHTML = "<b><u>" + chartLabel[selectedIndex] + "</u></b><p>" + funds;
+						} 
+					}
+					else {
+						selectedIndex = null;
+					}
+				}
+			},
+
+		}
+	})
+
+
+}
+
+
+function createModal(){
+
+	var modal = document.getElementById("myModal");
+    var btn_report = document.getElementById("report");
+    var btn_close = document.getElementsByClassName("close")[0];
+
+    btn_report.onclick = function() {
+        console.log("report button is clicked");
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    btn_close.onclick = function() {
+        console.log("close button is clicked");
+        modal.style.display = "none";
+    }
 
 }
 
@@ -311,7 +288,6 @@ function createResultsSlide(slide, i, arr, sum){
 	rightColumn.className = "column";
 	rightColumn.id = "rightColumn";
 	slide.appendChild(rightColumn);
-
 	
 
 	var pieChart = document.createElement("div");
@@ -322,6 +298,13 @@ function createResultsSlide(slide, i, arr, sum){
 	canvas.id = "pieChart";
 	pieChart.appendChild(canvas);
 
+	var fundBox = document.createElement("div");
+	fundBox.id = "fundBox"; 
+	rightColumn.appendChild(fundBox);
+	var funds = document.createElement("p");
+	funds.id = "funds";
+	fundBox.appendChild(funds);
+
 	
 	$("#next" + (i-1)).click(function(){
 
@@ -329,8 +312,6 @@ function createResultsSlide(slide, i, arr, sum){
 			sum = sum + parseInt(arr[j]);
 		}
 		console.log("the sum is: " + sum);
-
-
 
 		if (sum < 18) {
 			createPieChart(slide, i, json[i].yield);
@@ -347,6 +328,9 @@ function createResultsSlide(slide, i, arr, sum){
 			createPieChart(slide, i, json[i].global);
 		}
 
+		// display REPORT button 
+		$("#report").show();
+
 	});
 
 
@@ -359,11 +343,14 @@ function createResultsSlide(slide, i, arr, sum){
 	// add options to drop-down 
 	for (var j = 0; j < numOfOptions; j++) {
 		var option = document.createElement("option");
-		option.appendChild(document.createTextNode(json[i].dropDown[j]));
+		option.appendChild(document.createTextNode(json[i].dropDown[j].name));
+		option.value = json[i].dropDown[j].value;
 		dropDown.appendChild(option);
 	}
 	slide.appendChild(dropDown);
 
+
+	
 
  	// Previous and Next button 
     var previouButton = document.createElement("button");
@@ -371,17 +358,42 @@ function createResultsSlide(slide, i, arr, sum){
 	previouButton.className = "previous";
 	slide.appendChild(previouButton);
 
- 	var reportButton = document.createElement("button");
-	reportButton.appendChild(document.createTextNode("report"));
-	reportButton.id = "report";
-	slide.appendChild(reportButton);
-
 
 	var modal = document.createElement("div");
 	modal.id = "myModal";
 	slide.appendChild(modal);
 
-	// createModal();
+	var reportContent = document.getElementById("report-window");
+	modal.appendChild(reportContent);
+
+
+	createModal(); // pop-up modal window 
+
+
+
+
+		//
+	//
+	console.log("the value of i before click dropdown: " + i);
+
+	$(".drop-down").change(function(){
+
+		console.log("dropdown is clicked !!!!!!!!!!");
+
+		$(this).find("option:selected").each(function(){
+
+			console.log("option is selected !!!!!!!");
+
+            var optionValue = $(this).attr("value");
+
+            console.log("the value of i after click dropdown: " + i);
+            //console.log("json[i].optionValue:  " + json[i].optionValue);
+
+            createPieChart(slide, i, json[i].optionValue);
+        });
+	});
+
+
 }
 
 
@@ -408,6 +420,32 @@ function createResultsSlide(slide, i, arr, sum){
  	var footer = document.getElementById("footer");
 
 
+ 	// add pagination 
+	for (var i = 0; i < (numOfSlides); i++) {
+			var pagination = document.createElement("button");
+			
+			pagination.id = "pagination" + i;
+			footer.appendChild(pagination);
+
+			if (i == (numOfSlides - 2)) {
+				pagination.appendChild(document.createTextNode("RESULTS"));
+			} else if (i == (numOfSlides - 1)) {
+				pagination.appendChild(document.createTextNode("report"));
+				pagination.id = "report";
+				pagination.hidden = "true";
+				break;
+			} else {
+				pagination.appendChild(document.createTextNode(i + 1));
+			}
+
+			pagination.className = "bt";
+			pagination.value = i + 1;
+			pagination.disabled = false; ///////////////////////////////////////////////////////// enable pagination 
+			
+		
+	} // pagination 
+
+
  	for (var i = 0; i < numOfSlides; i++) {
 
  	 	// create the slide                                                                      
@@ -429,21 +467,7 @@ function createResultsSlide(slide, i, arr, sum){
 	}
 
 
-	// add pagination 
-	for (var i = 0; i < (numOfSlides - 1); i++) {
-			var pagination = document.createElement("button");
-
-	if (i == (numOfSlides - 2)) {
-		pagination.appendChild(document.createTextNode("RESULTS"));
-	} else {
-		pagination.appendChild(document.createTextNode(i + 1));
-	}
-		pagination.className = "bt";
-		pagination.id = "pagination" + i;
-		pagination.value = i + 1;
-		pagination.disabled = false; ///////////////////////////////////////////////////////// enable pagination 
-		footer.appendChild(pagination);
-	} // pagination 
+	
 
 
 	// enable next button 
@@ -500,9 +524,16 @@ function createResultsSlide(slide, i, arr, sum){
     });
 
 
-
-
-
+/*	//
+	//
+	//console.log("the value of i before click dropdown: " + i);
+	$(".drop-down").change(function(){
+		$(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            console.log("the value of i after click dropdown: " + i);
+               createPieChart(slide, i, json[i].optionValue);
+        });
+	});*/
 
 
 
