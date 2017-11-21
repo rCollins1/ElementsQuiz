@@ -1,5 +1,10 @@
 @media print
 {
+    @page {
+        size: auto;
+        margin-top: 0mm;
+        margin-bottom: 0mm;
+    }
     .page-break  { display:block; page-break-before:always; }
     
     .header-line {
@@ -26,6 +31,7 @@
     }
 
     .logo img {
+        margin-top: 5mm;
     	width:200px;
     	margin-left: 6%;
     }
