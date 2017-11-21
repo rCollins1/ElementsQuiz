@@ -3,9 +3,11 @@
 	"benefits": ["a target asset mix of approximately 60% fixed income exposure offers stability, while the approximately 40% equity portion offers moderate capital appreciation", 
 				"the Portfolio is diversified by asset class, region and management style, with exposure to core holdings and specialty funds",
 				"the Portfolio is fine-tuned quarterly to ensure you are always positioned to capitalize on current market trends"],
+	"date": "APRIL 24, 2017",
 	"fundsChart" : [{
 						"incomeType" : "DOMESTIC FIXED INCOME",
 						"incomePercentage" : 11,
+						"colour": "#ED5A36",
 						"fundType" : [{
 											"fundName": "AGF Fixed Income Plus Fund",
 											"fundPercentage": 11
@@ -14,6 +16,7 @@
 					{
 						"incomeType" : "FOREIGN FIXED INCOME",
 						"incomePercentage" : 44,
+						"colour": "#F47E20",
 						"fundType" : [{
 											"fundName": "AGF Global Bond Fund",
 											"fundPercentage": 27
@@ -31,5 +34,83 @@
 											"superscript": 1,
 											"fundPercentage": 4
 										}]
-					}]
+					},
+					{
+						"incomeType" : "DOMESTIC EQUITIES",
+						"incomePercentage" : 13,
+						"colour": "#7C4496",
+						"fundType" : [{
+											"fundName": "AGF Dividend Income Fund",
+											"fundPercentage": 6
+										},
+										{
+											"fundName": "AGF Canadian Stock Fund",
+											"fundPercentage": 5
+										},
+										{
+											"fundName": "AGF Canadian Small Cap Fund",
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "QuantShares Enhanced Core Canadian Equity ETF",
+											"superscript": 3,
+											"fundPercentage": 1
+										}]
+					},
+					{
+						"incomeType" : "FOREIGN EQUITIES",
+						"incomePercentage" : 24,
+						"colour": "#D02259",
+						"fundType" : [{
+											"fundName": "AGF Global Equity Fund",
+											"superscript": 2,
+											"fundPercentage": 8
+										},
+										{
+											"fundName": "AGF Global Dividend Fund",
+											"fundPercentage": 5
+										},
+										{
+											"fundName": "AGF American Growth Fund",
+											"fundPercentage": 4
+										},
+										{
+											"fundName": "AGF Global Resources Class/Fund",
+											"fundPercentage": 2
+										},
+										{
+											"fundName": "AGF EAFE Equity Fund",
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "AGF Emerging Markets Fund",
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "AGF U.S. Risk Managed Fund",
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "QuantShares Enhanced Core U.S. Equity ETF",
+											"superscript": 3,
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "QuantShares Enhanced Core International ETF",
+											"superscript": 3,
+											"fundPercentage": 1
+										}]
+					},
+					{
+						"incomeType" : "TACTICAL",
+						"incomePercentage" : 8,
+						"colour": "#FFB819",
+						"fundType" : [{
+											"fundName": "AGF Tactical Fund",
+											"fundPercentage": 8
+									    }]
+					}],
+	"footNote" : [ "On April 10, 2012, unitholders approved a change in the investment objective providing the Fund with greater flexibility to invest in high-yield bonds issued or guaranteed by corporations around the world.",
+					"On April 18, 2008, the Fund changed its investment objective to provide long-term capital growth and invest primarily in shares of companies around the world. The Fund may invest up to 25% of its assets in companies in emerging markets.",
+					"QuantShares are ETFs offered by AGF Investments Inc. and managed by Highstreet Asset Management. QuantShares ETFs are listed on the Toronto Stock Exchange and may only be bought and sold through licensed dealers."]
 }

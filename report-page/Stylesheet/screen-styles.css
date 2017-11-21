@@ -32,10 +32,10 @@
     }
 
     .page {
-        margin-left:50px;
-        margin-right: 50px;
+        margin-left:10%;
         display:inline-block;
         margin-top: 50px;
+        width:1000px;
     }
     .report-name1 {
         color: #0b2e66;
@@ -258,4 +258,113 @@
         width: 10%;
         float:left;
     }
+
+    #pie-chart-0 {
+        height: 60% !important;
+        width: 60% !important;
+        margin-left: 15%;
+    }
+
+    .income-div {
+        border-collapse: collapse;
+    }
+
+    .color-0 {
+        background-color: #ED5A36;
+        
+    }
+
+    .color-0 .income-percentage {
+        border-right:10px solid #ED5A36;
+    }
+
+    .color-1 {
+        background-color: #F47E20;
+    }
+    .color-1 .income-percentage {
+        border-right:10px solid #F47E20;
+    }
+
+    .color-2 {
+        background-color: #7C4496;
+    }
+    .color-2 .income-percentage {
+        border-right:10px solid #7C4496;
+    }
+
+    .color-3 {
+        background-color: #D02259;
+    }
+    .color-3 .income-percentage {
+        border-right:10px solid #D02259;
+    }
+
+    .color-4 {
+        background-color: #FFB819;
+    }
+    .color-4 .income-percentage {
+        border-right:10px solid #FFB819;
+    }
+
+    .income-div {
+        width: 350px;
+    }
+    .income-title {
+        color: white;
+        height:30px;
+    }
+
+    .income-fund {
+        background-color: #f4f5f5;
+        height:25px;
+    }
+
+    .fund-percentage {
+        border-right:10px solid #f4f5f5;
+    }
+    .income-percentage {
+        width:50px;
+        text-align: right;
+    }
+
+    .fund-percentage {
+        text-align: right;
+    }
+
+
+    #report-protofolio-type {
+        font-size:30px;
+        text-align: center;
+    }
+    .left-section {
+        float:left;
+        width:40%;
+        margin-left:10%;
+    }
+    .right-section {
+        float: left;
+        width:50%;
+    }
+
+    .up-section {
+        margin-top:50px;
+        height:700px;
+    }
+
+    .key-benefits {
+        margin-top: 50px;
+        padding: 20px;
+        background-color: #dbdfdf; 
+        width:90%;
+    }
+    #table-section-0 {
+        background-color: #f4f5f5;
+        width:350px;
+        margin-left: 20%;
+    }
+
+    #pie-chart-holder-0 {
+        margin-top:25px;
+    }
+
 }
