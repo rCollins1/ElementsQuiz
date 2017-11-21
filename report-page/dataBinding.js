@@ -1,4 +1,4 @@
-var jsonSource = "https://api.myjson.com/bins/qwug7";
+var jsonSource = "https://api.myjson.com/bins/15xmtb";
 
 function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	
@@ -94,6 +94,12 @@ $(document).ready(function() {
 			}
 
 			//----------------------------------------------------- Pie Chart Section -------------------------------------------------------- 
+			
+			//Pie chart date
+			var pieChartDate = document.getElementById("pie-chart-date-0");
+			pieChartDate.appendChild(document.createTextNode("CURRENT ASSET MIX AS OF " + json.date));
+
+			//pie chart
 			var chartValue = []; //declaring variable to store chart valuese
 			var chartColour = []; //declaring variable to store chart colours
 
@@ -121,6 +127,20 @@ $(document).ready(function() {
     				//maintainAspectRatio: false
 				}
 			})
+
+
+			//------------------------------------------------------- Foot Note Section -------------------------------------------------------
+			//Get the foot-note array from json (json.footNote),use for loop to add <li> one by one.
+			var footNoteSection = document.getElementById("foot-note");
+
+			var footNoteLength = json.footNote.length;
+
+			for (var i = 0; i < footNoteLength; ++i) {
+				//appendChild won't work if the object is null, have to create an element.
+				var footNoteItem = document.createElement("li");
+				footNoteItem.appendChild(document.createTextNode(json.footNote[i]));
+				footNoteSection.appendChild(footNoteItem);
+			}
 		}
 	})
 });

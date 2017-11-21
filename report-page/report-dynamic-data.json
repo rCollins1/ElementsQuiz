@@ -3,6 +3,7 @@
 	"benefits": ["a target asset mix of approximately 60% fixed income exposure offers stability, while the approximately 40% equity portion offers moderate capital appreciation", 
 				"the Portfolio is diversified by asset class, region and management style, with exposure to core holdings and specialty funds",
 				"the Portfolio is fine-tuned quarterly to ensure you are always positioned to capitalize on current market trends"],
+	"date": "APRIL 24, 2017",
 	"fundsChart" : [{
 						"incomeType" : "DOMESTIC FIXED INCOME",
 						"incomePercentage" : 11,
@@ -108,5 +109,8 @@
 											"fundName": "AGF Tactical Fund",
 											"fundPercentage": 8
 									    }]
-					}]
+					}],
+	"foot-note" : [ "On April 10, 2012, unitholders approved a change in the investment objective providing the Fund with greater flexibility to invest in high-yield bonds issued or guaranteed by corporations around the world.",
+					"On April 18, 2008, the Fund changed its investment objective to provide long-term capital growth and invest primarily in shares of companies around the world. The Fund may invest up to 25% of its assets in companies in emerging markets.",
+					"QuantShares are ETFs offered by AGF Investments Inc. and managed by Highstreet Asset Management. QuantShares ETFs are listed on the Toronto Stock Exchange and may only be bought and sold through licensed dealers."]
 }
