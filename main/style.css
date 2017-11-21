@@ -49,7 +49,7 @@ label {
 
 button.bt:disabled,
 button.bt[disabled]{
-    color: #efb310;
+    color: #ffffff;
     background-color: #efb310;
 }
 .bt, #report{
@@ -79,7 +79,7 @@ button.bt[disabled]{
     box-sizing: border-box;
     float: left;
     width: 50%;
-    height: 250px; /* Should be removed. Only for demonstration */
+    height: 200px; /* Should be removed. Only for demonstration */
 }
 
 #canvas-holder {

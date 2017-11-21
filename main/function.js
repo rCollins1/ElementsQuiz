@@ -1,7 +1,7 @@
 
 $.getJSON("data.json", function(json) {
 
-	function createCoverPageSlide(slide, i, last_slide_index){
+	function createCoverPageSlide(slide, i, last_slide_index, footer){
 
 	// add quiz title 
 	var title = document.createElement("h2");
@@ -44,11 +44,10 @@ $.getJSON("data.json", function(json) {
 
 	
 	// change content on RESULTS slide by changing dropdown options 
+	var flag = false; 
 	$(".drop-down").change(function(){
-
-
-		var flag; 
-		if (!flag) { // remove old elements once 
+		
+		if (flag == false) { // remove old elements once 
 								//create new elements once 
 			flag=true;
 
@@ -91,6 +90,15 @@ $.getJSON("data.json", function(json) {
 			var funds = document.createElement("p");
 			funds.id = "funds";
 			fundBox.appendChild(funds);
+
+			var refreshButton = document.createElement("button");
+			refreshButton.appendChild(document.createTextNode("Go back to quiz"));
+			refreshButton.id = "refresh";
+			footer.appendChild(refreshButton);
+			$("#refresh").click(function(){
+				window.location.reload();
+			});
+			
 
 			$("#move_dropDown").css({top: 300, left: 0, position: 'relative'});
 		}
@@ -495,7 +503,7 @@ function createResultsSlide(slide, i, arr, sum){
 
 
  	// add pagination 
-	for (var i = 0; i <= (numOfSlides); i++) {
+	for (var i = 1; i <= (numOfSlides); i++) {
 
 		var pagination = document.createElement("button");
 			
@@ -532,7 +540,7 @@ function createResultsSlide(slide, i, arr, sum){
 
 
  	 	if (json[i].type == "coverPage") { 
- 	 		createCoverPageSlide(slide, i, (numOfSlides - 1)); // the index of last slide 
+ 	 		createCoverPageSlide(slide, i, (numOfSlides - 1), footer); // the index of last slide 
  	 	} else if (json[i].type == "section") {
  	 		createSectionSlide(slide, i);
  	 	} else if (json[i].type == "question"){
