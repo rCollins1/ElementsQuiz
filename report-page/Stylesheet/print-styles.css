@@ -1,5 +1,11 @@
 @media print
 {
+    @page {
+        size: auto;
+        margin-top: 0mm;
+        margin-bottom: 0mm;
+    }
+
     .page-break  { display:block; page-break-before:always; }
     
     .header-line {
