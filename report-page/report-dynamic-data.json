@@ -6,6 +6,7 @@
 	"fundsChart" : [{
 						"incomeType" : "DOMESTIC FIXED INCOME",
 						"incomePercentage" : 11,
+						"colour": "#ED5A36",
 						"fundType" : [{
 											"fundName": "AGF Fixed Income Plus Fund",
 											"fundPercentage": 11
@@ -14,6 +15,7 @@
 					{
 						"incomeType" : "FOREIGN FIXED INCOME",
 						"incomePercentage" : 44,
+						"colour": "#F47E20",
 						"fundType" : [{
 											"fundName": "AGF Global Bond Fund",
 											"fundPercentage": 27
@@ -31,5 +33,80 @@
 											"superscript": 1,
 											"fundPercentage": 4
 										}]
+					},
+					{
+						"incomeType" : "DOMESTIC EQUITIES",
+						"incomePercentage" : 13,
+						"colour": "#7C4496",
+						"fundType" : [{
+											"fundName": "AGF Dividend Income Fund",
+											"fundPercentage": 6
+										},
+										{
+											"fundName": "AGF Canadian Stock Fund",
+											"fundPercentage": 5
+										},
+										{
+											"fundName": "AGF Canadian Small Cap Fund",
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "QuantShares Enhanced Core Canadian Equity ETF",
+											"superscript": 3,
+											"fundPercentage": 1
+										}]
+					},
+					{
+						"incomeType" : "FOREIGN EQUITIES",
+						"incomePercentage" : 24,
+						"colour": "#D02259",
+						"fundType" : [{
+											"fundName": "AGF Global Equity Fund",
+											"superscript": 2,
+											"fundPercentage": 8
+										},
+										{
+											"fundName": "AGF Global Dividend Fund",
+											"fundPercentage": 5
+										},
+										{
+											"fundName": "AGF American Growth Fund",
+											"fundPercentage": 4
+										},
+										{
+											"fundName": "AGF Global Resources Class/Fund",
+											"fundPercentage": 2
+										},
+										{
+											"fundName": "AGF EAFE Equity Fund",
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "AGF Emerging Markets Fund",
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "AGF U.S. Risk Managed Fund",
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "QuantShares Enhanced Core U.S. Equity ETF",
+											"superscript": 3,
+											"fundPercentage": 1
+										},
+										{
+											"fundName": "QuantShares Enhanced Core International ETF",
+											"superscript": 3,
+											"fundPercentage": 1
+										}]
+					},
+					{
+						"incomeType" : "TACTICAL",
+						"incomePercentage" : 8,
+						"colour": "#FFB819",
+						"fundType" : [{
+											"fundName": "AGF Tactical Fund",
+											"fundPercentage": 8
+									    }]
 					}]
 }
