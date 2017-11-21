@@ -1,4 +1,4 @@
-var jsonSource = "https://api.myjson.com/bins/15xmtb";
+var jsonSource = "https://api.myjson.com/bins/12m8z3";
 
 function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	
@@ -14,12 +14,14 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	//build the sub-div of income-title: percentage
 	var incomePercentage = document.createElement("td");
 	incomePercentage.classList.add("income-percentage");
-	incomePercentage.appendChild(document.createTextNode(incomeObject.incomePercentage + "%"));
+	incomePercentage.appendChild(document.createTextNode(incomeObject.percentage + "%"));
 
 	//build the sub-div of income-title: income name
 	var incomeName = document.createElement("td");
 	incomeName.classList.add("income-name");
-	incomeName.appendChild(document.createTextNode(incomeObject.incomeType));
+	if ("undefined" !== typeof(incomeObject["type"])) {
+		incomeName.appendChild(document.createTextNode(incomeObject.type));
+	}
 
 	incomeTitle.appendChild(incomePercentage);
 	incomeTitle.appendChild(incomeName);
@@ -29,7 +31,7 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	//var fundDiv = document.createElement("div");
 	//fundDiv.classList.add("fund-div");
 
-	var fundTypeLength = incomeObject.fundType.length;
+	var fundTypeLength = incomeObject.subType.length;
 
 	for (var i = 0; i < fundTypeLength; ++i) {
 		var incomeFund = document.createElement("tr");
@@ -37,16 +39,16 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 
 		var fundPercentage = document.createElement("td");
 		fundPercentage.classList.add("fund-percentage");
-		fundPercentage.appendChild(document.createTextNode(incomeObject.fundType[i].fundPercentage + "%"));
+		fundPercentage.appendChild(document.createTextNode(incomeObject.subType[i].percentage + "%"));
 
 		var fundName = document.createElement("td");
 		fundName.classList.add("fund-name");
-		fundName.appendChild(document.createTextNode(incomeObject.fundType[i].fundName));
+		fundName.appendChild(document.createTextNode(incomeObject.subType[i].name));
 
 		//check if the fund has superscript. If has, add it to the end of its fund name
-		if ("undefined" !== typeof(incomeObject.fundType[i]["superscript"])) {
+		if ("undefined" !== typeof(incomeObject.subType[i]["superscript"])) {
 			var superNumber = document.createElement("sup");
-			superNumber.appendChild(document.createTextNode(incomeObject.fundType[i].superscript));
+			superNumber.appendChild(document.createTextNode(incomeObject.subType[i].superscript));
 			fundName.appendChild(superNumber);
 		}
 
@@ -57,6 +59,35 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	
 	//incomeDiv.appendChild(fundDiv);
 	divToBeAppend.appendChild(incomeDiv);
+};
+
+function buildPieChart (positionID, dataArray) {
+	var chartValue = []; //declaring variable to store chart valuese
+	var chartColour = []; //declaring variable to store chart colours
+
+	for (i = 0; i < dataArray.length; ++i){
+		chartValue.push(dataArray[i].percentage); //load chartValue array with value values
+		chartColour.push(dataArray[i].colour); //load chartColour array with colour values
+	}
+	var ctx = document.getElementById(positionID).getContext('2d'); //declaring variable 'ctx' (context) for div to display pie chart
+			var selectedIndex = null; //declaring variable to represent index selected for separation animation
+			var selectedIndexFunds = null;
+
+			var pieChart = new Chart(ctx, { //creating chart with the below attributes
+				type: 'pie',
+				data: {
+					datasets: [{
+						backgroundColor: chartColour, //setting background colour of each slice with chartColour array
+						data: chartValue, //setting values of each slice with chartValue array
+						borderWidth: 2, //setting value of the border around each slice
+					}]
+				},
+				options: { //options is an object of objects of objects of attributes... very meta
+					tooltips: {enabled: false},
+    				hover: {mode: null},
+    				//maintainAspectRatio: false
+				}
+			});
 };
 
 $(document).ready(function() {
@@ -85,6 +116,8 @@ $(document).ready(function() {
 			}
 
 			//----------------------------------------------- Income/Fund Table Section ----------------------------------------------------
+
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Fund and Portfolio page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			//build the income and fund table
 			var incomeTableSection = document.getElementById("table-section-0");
 			var fundsChartLength = json.fundsChart.length;
@@ -93,41 +126,39 @@ $(document).ready(function() {
 				buildIncomeDiv(incomeTableSection, json.fundsChart[i], i);
 			}
 
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Equity and Fixed Income  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			var equityTableSection = document.getElementById("table-section-1");
+			var equityChartLength = json.equityChart.length;
+
+			for (var i = 0; i < equityChartLength; ++i) {
+				buildIncomeDiv(equityTableSection, json.equityChart[i], i);
+			}
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Geographic  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			var geographicTableSection = document.getElementById("table-section-2");
+			var geographicChartLength = json.geographicChart.length;
+
+			for (var i = 0; i < geographicChartLength; ++i) {
+				buildIncomeDiv(geographicTableSection, json.geographicChart[i], i);
+			}
 			//----------------------------------------------------- Pie Chart Section -------------------------------------------------------- 
 			
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Fund and Portfolio page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			//Pie chart date
 			var pieChartDate = document.getElementById("pie-chart-date-0");
 			pieChartDate.appendChild(document.createTextNode("CURRENT ASSET MIX AS OF " + json.date));
 
 			//pie chart
-			var chartValue = []; //declaring variable to store chart valuese
-			var chartColour = []; //declaring variable to store chart colours
+			buildPieChart ("pie-chart-0", json.fundsChart);
 
-			for (i = 0; i < json.fundsChart.length; ++i){
-				chartValue.push(json.fundsChart[i].incomePercentage); //load chartValue array with value values
-				chartColour.push(json.fundsChart[i].colour); //load chartColour array with colour values
-			}
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Equity and Fixed Income  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-			var ctx = document.getElementById("pie-chart-0").getContext('2d'); //declaring variable 'ctx' (context) for div to display pie chart
-			var selectedIndex = null; //declaring variable to represent index selected for separation animation
-			var selectedIndexFunds = null;
+			buildPieChart ("pie-chart-1", json.equityChart);
 
-			var pieChart = new Chart(ctx, { //creating chart with the below attributes
-				type: 'pie',
-				data: {
-					datasets: [{
-						backgroundColor: chartColour, //setting background colour of each slice with chartColour array
-						data: chartValue, //setting values of each slice with chartValue array
-						borderWidth: 2, //setting value of the border around each slice
-					}]
-				},
-				options: { //options is an object of objects of objects of attributes... very meta
-					tooltips: {enabled: false},
-    				hover: {mode: null},
-    				//maintainAspectRatio: false
-				}
-			})
+			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Geographic  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+			buildPieChart ("pie-chart-2", json.geographicChart);
 
 			//------------------------------------------------------- Foot Note Section -------------------------------------------------------
 			//Get the foot-note array from json (json.footNote),use for loop to add <li> one by one.
@@ -144,3 +175,5 @@ $(document).ready(function() {
 		}
 	})
 });
+
+
