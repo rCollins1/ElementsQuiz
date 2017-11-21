@@ -130,3 +130,12 @@ button.bt[disabled]{
     background-color: white;
     border: 1px solid #eeb310; 
 }
+
+#results-slide-title{
+    margin-top: 0;
+}
+
+#rightColumn{
+    margin-top: -10px;
+    height: 260px;
+}

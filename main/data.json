@@ -187,50 +187,70 @@
 
 			"conservative" : 
 			{
-				"title" : "Investor Profile Recommendation: AGF Elements conservative Portfolio", 
+				"title" : "Investor Profile Recommendation: AGF Elements Conservative Portfolio", 
 				"left_column" : 
 					{
-						"intro" : "Investment Objective - The Portfolio's objective is to achieve high current income by investing primarily in a diversified mix of income, bond and equity funds that may include exposure to income trusts, royalty trusts and REITs. The portfolio currently offers a 5% annual targeted distribution, paid monthly."
+						"intro" : "Investment Objective - The Portfolio's objective is to provide long-term returns with lower risk by investing primarily in a diversified mix of income, bond, money market and equity mutual funds."
 					}, 
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"pieChart": [
 							{
 								"label": "Domestic equities",
 								"value": 13,
 								"colour": "#7C4496",
 								"funds": [
-									"13% AGF Dividend Income Fund"
+									"5% AGF Canadian Stock Fund",
+									"6% AGF Dividend Income Fund",
+									"1% AGF Canadian Small Cap Fund",
+									"1% QuantShares Enhanced Core Canadian Equity ETF"
 								]
 							},
 							{
 								"label": "Foreign equities",
-								"value": 15,
+								"value": 24,
 								"colour": "#D02259",
 								"funds": [
-									"15% AGF Global Dividend Fund"
+									"8% AGF Global Equity Fund",
+									"5% AGF Global Dividend Fund",
+									"1% AGF U.S. Risked Managed Fund",
+									"4% AGF American Growth Fund",
+									"1% AGF EAFE Equity Fund",
+									"1% AGF Emerging Markets Fund",
+									"2% AGF Global Resources Class/Fund",
+									"1% QuantShares Enhanced Core U.S. Equity ETF",
+									"1% QuantShares Enhanced Core International Equity ETF"
 								]
 							},
 							{
 								"label": "Domestic fixed income",
-								"value": 16,
+								"value": 11,
 								"colour": "#ED5A36",
 								"funds": [
-									"16% AGF Fixed Income Plus Fund"
+									"11% AGF Fixed Income Plus Fund"
 								]
 							},
 							{
 								"label": "Foreign fixed income",
-								"value": 56,
+								"value": 44,
 								"colour": "#F47E20",
 								"funds": [
-									"21% AGF Total Return Bond Fund", 
-									"23% AGF Global Bond Fund",
-									"6% AGF High Yield Bond Fund",
-									"6% AGF Emerging Markets Bond Fund"
+									"27% AGF Global Bond Fund",
+									"9% AGF Total Return Bond Fund",
+									"4% AGF Emerging Markets Bond Fund",
+									"4% AGF High Yield Bond Fund"
+								]
+							},
+							{
+								"label": "Tactical",
+								"value": 8,
+								"colour": "#FFB819",
+								"funds": [
+									"8% AGF Tactical Fund"
 								]
 							}
+
 						]
 
 					}
@@ -239,50 +259,72 @@
 
 			"balanced" : 
 			{
-				"title" : "Investor Profile Recommendation: AGF Elements balanced Portfolio", 
+				"title" : "Investor Profile Recommendation: AGF Elements Balanced Portfolio", 
 				"left_column" : 
 					{
-						"intro" : "Investment Objective - The Portfolio's objective is to achieve high current income by investing primarily in a diversified mix of income, bond and equity funds that may include exposure to income trusts, royalty trusts and REITs. The portfolio currently offers a 5% annual targeted distribution, paid monthly."
+						"intro" : "Investment Objective - The Portfolio's objective is to provide high long-term returns by investing primarily in a diversified mix of equity, income and bond mutual funds"
 					}, 
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"pieChart": [
 							{
 								"label": "Domestic equities",
-								"value": 13,
+								"value": 22,
 								"colour": "#7C4496",
 								"funds": [
-									"13% AGF Dividend Income Fund"
+									"8% AGF Canadian Stock Fund",
+									"10% AGF Dividend Income Fund",
+									"2% AGF Canadian Small Cap Fund",
+									"2% QuantShares Enhanced Core Canadian Equity"
 								]
 							},
 							{
 								"label": "Foreign equities",
-								"value": 15,
+								"value": 34,
 								"colour": "#D02259",
 								"funds": [
-									"15% AGF Global Dividend Fund"
+									"12% AGF Global Equity Fund",
+									"4% AGF American Growth Fund",
+									"2% AGF U.S. Risked Managed Fund",
+									"5% AGF Global Dividend Fund",
+									"2% AGF EAFE Equity Fund",
+									"2% AGF European Equity Fund",
+									"2% AGF Emerging Markets Fund",
+									"2% AGF Global Resources Class/Fund",
+									"1% AGF Asian Growth Class/Fund",
+									"1% QuantShares Enhanced Core U.S. Equity ETF",
+									"1% QuantShares Enhanced Core International Equity ETF"
 								]
 							},
 							{
 								"label": "Domestic fixed income",
-								"value": 16,
+								"value": 7,
 								"colour": "#ED5A36",
 								"funds": [
-									"16% AGF Fixed Income Plus Fund"
+									"7% AGF Fixed Income Plus Fund"
 								]
 							},
 							{
 								"label": "Foreign fixed income",
-								"value": 56,
+								"value": 27,
 								"colour": "#F47E20",
 								"funds": [
-									"21% AGF Total Return Bond Fund", 
-									"23% AGF Global Bond Fund",
-									"6% AGF High Yield Bond Fund",
-									"6% AGF Emerging Markets Bond Fund"
+									"17% AGF Global Bond Fund",
+									"5% AGF Total Return Bond Fund",
+									"3% AGF High Yield Bond Fund",
+									"2% AGF Emerging Markets Bond Fund"
+								]
+							},
+							{
+								"label": "Tactical",
+								"value": 10,
+								"colour": "#FFB819",
+								"funds": [
+									"10% AGF Tactical Fund"
 								]
 							}
+
 						]
 
 					}
@@ -291,50 +333,72 @@
 
 			"growth" : 
 			{
-				"title" : "Investor Profile Recommendation: AGF Elements growth Portfolio", 
+				"title" : "Investor Profile Recommendation: AGF Elements Growth Portfolio", 
 				"left_column" : 
 					{
-						"intro" : "Investment Objective - The Portfolio's objective is to achieve high current income by investing primarily in a diversified mix of income, bond and equity funds that may include exposure to income trusts, royalty trusts and REITs. The portfolio currently offers a 5% annual targeted distribution, paid monthly."
+						"intro" : "Investment Objective - The Portfolio's objective is to provide superior long-term returns by investing primarily in equity mutual funds diversified with income and/or bond mutual fund holdings."
 					}, 
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"pieChart": [
 							{
 								"label": "Domestic equities",
-								"value": 13,
+								"value": 12,
 								"colour": "#7C4496",
 								"funds": [
-									"13% AGF Dividend Income Fund"
+									"4% AGF Canadian Stock Fund",
+									"5% AGF Dividend Income Fund",
+									"2% AGF Canadian Small Cap Fund",
+									"1% QuantShares Enhanced Core Canadian Equity"
 								]
 							},
 							{
 								"label": "Foreign equities",
-								"value": 15,
+								"value": 57,
 								"colour": "#D02259",
 								"funds": [
-									"15% AGF Global Dividend Fund"
+									"15% AGF Global Equity Fund",
+									"11% AGF American Growth Fund",
+									"6% AGF U.S. Risked Managed Fund",
+									"8% AGF Global Dividend Fund",
+									"4% AGF European Equity Fund",
+									"2% AGF EAFE Equity Fund",
+									"2% AGF Emerging Markets Fund",
+									"2% AGF Asian Growth Class/Fund",
+									"3% AGF Global Resources Class/Fund",
+									"1% QuantShares Enhanced Core U.S. Equity ETF",
+									"1% QuantShares Enhanced Core International Equity ETF"
 								]
 							},
 							{
 								"label": "Domestic fixed income",
-								"value": 16,
+								"value": 3,
 								"colour": "#ED5A36",
 								"funds": [
-									"16% AGF Fixed Income Plus Fund"
+									"3% AGF Fixed Income Plus Fund"
 								]
 							},
 							{
 								"label": "Foreign fixed income",
-								"value": 56,
+								"value": 13,
 								"colour": "#F47E20",
 								"funds": [
-									"21% AGF Total Return Bond Fund", 
-									"23% AGF Global Bond Fund",
-									"6% AGF High Yield Bond Fund",
-									"6% AGF Emerging Markets Bond Fund"
+									"6% AGF Global Bond Fund",
+									"3% AGF Total Return Bond Fund",
+									"2% AGF Emerging Markets Bond Fund",
+									"2% AGF High Yield Bond Fund"
+								]
+							},
+							{
+								"label": "Tactical",
+								"value": 15,
+								"colour": "#FFB819",
+								"funds": [
+									"15% AGF Tactical Fund"
 								]
 							}
+
 						]
 
 					}
@@ -346,47 +410,49 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Global Portfolio", 
 				"left_column" : 
 					{
-						"intro" : "Investment Objective - The Portfolio's objective is to achieve high current income by investing primarily in a diversified mix of income, bond and equity funds that may include exposure to income trusts, royalty trusts and REITs. The portfolio currently offers a 5% annual targeted distribution, paid monthly."
+						"intro" : "Investment Objective - The Portfolio's objective is to provide superior long-term returns by investing in equity mutual funds from around the globe."
 					}, 
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"pieChart": [
 							{
 								"label": "Domestic equities",
-								"value": 13,
+								"value": 4,
 								"colour": "#7C4496",
 								"funds": [
-									"13% AGF Dividend Income Fund"
+									"2% AGF Canadian Stock Fund",
+									"2% AGF Canadian Small Cap Fund"
 								]
 							},
 							{
 								"label": "Foreign equities",
-								"value": 15,
+								"value": 78,
 								"colour": "#D02259",
 								"funds": [
-									"15% AGF Global Dividend Fund"
+									"24% AGF Global Equity Fund",
+									"15% AGF American Growth Fund",
+									"8% AGF U.S. Risked Managed Fund",
+									"10% AGF Global Dividend Fund",
+									"4% AGF European Equity Fund",
+									"3% AGF EAFE Equity Fund",
+									"3% AGF Global Resources Class/Fund",
+									"2% AGF Asian Growth Class/Fund",
+									"3% AGF Emerging Markets Fund",
+									"3% QuantShares Enhanced Core U.S. Equity ETF",
+									"2% QuantShares Enhanced Core International Equity ETF",
+									"1% QuantShares Enhanced Core Emerging Markets Equity ETF"
 								]
 							},
 							{
-								"label": "Domestic fixed income",
-								"value": 16,
-								"colour": "#ED5A36",
+								"label": "Tactical",
+								"value": 18,
+								"colour": "#FFB819",
 								"funds": [
-									"16% AGF Fixed Income Plus Fund"
-								]
-							},
-							{
-								"label": "Foreign fixed income",
-								"value": 56,
-								"colour": "#F47E20",
-								"funds": [
-									"21% AGF Total Return Bond Fund", 
-									"23% AGF Global Bond Fund",
-									"6% AGF High Yield Bond Fund",
-									"6% AGF Emerging Markets Bond Fund"
+									"18% AGF Tactical Fund"
 								]
 							}
+
 						]
 
 					}

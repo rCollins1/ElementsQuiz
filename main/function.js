@@ -1,16 +1,18 @@
 
 $.getJSON("data.json", function(json) {
 
-	function createCoverPageSlide(slide, i){
+	function createCoverPageSlide(slide, i, last_slide_index){
 
 	// add quiz title 
 	var title = document.createElement("h2");
 	title.appendChild(document.createTextNode(json[i].title));
+	title.className = "remove";
 	slide.appendChild(title);
 
 	// add intro paragraph 
 	var subTitle = document.createElement("p");
 	subTitle.appendChild(document.createTextNode(json[i].intro));
+	subTitle.className = "remove";
 	slide.appendChild(subTitle);
 
 	// add button 
@@ -18,22 +20,101 @@ $.getJSON("data.json", function(json) {
 	var nextButton = document.createElement("button");
 	nextButton.appendChild(document.createTextNode("Take the questionnaire >>"));
 	nextButton.className = "next";
-	nextButton.id = "questionnaire";
+	nextButton.className += " remove";
 	slide.appendChild(nextButton);
 
 	// add portfolio drop-down 
 	var numOfOptions = json[i].dropDown.length; // get amount of options 
 	var dropDown = document.createElement("select");
 	dropDown.className = "drop-down";
+	dropDown.id = "move_dropDown";
 
 	// add options to drop-down 
 	for (var j = 0; j < numOfOptions; j++) {
 		var option = document.createElement("option");
+		if (j == 0) {
+			option.disabled = "true";
+			option.selected = "true";
+		}
 		option.appendChild(document.createTextNode(json[i].dropDown[j].name));
+		option.value = json[i].dropDown[j].value;
 		dropDown.appendChild(option);
 	}
-
 	slide.appendChild(dropDown);
+
+	
+	// change content on RESULTS slide by changing dropdown options 
+	$(".drop-down").change(function(){
+
+
+		var flag; 
+		if (!flag) { // remove old elements once 
+								//create new elements once 
+			flag=true;
+
+			// remove elements from cover page
+			$(".remove").remove();
+
+		
+			var title = document.createElement("h4");
+			title.id = "results-slide-title";
+			slide.appendChild(title);
+			$("#results-slide-title").css({top: -20, position: 'relative'});
+
+			var row = document.createElement("div");
+			row.className = "row";
+			row.id = "row";
+			slide.appendChild(row);
+			$("#row").css({top: -20, position: 'relative'});
+
+			var leftColumn = document.createElement("div");
+			leftColumn.className = "column";
+			leftColumn.id = "leftColumn";
+			row.appendChild(leftColumn);
+
+			var rightColumn = document.createElement("div");
+			rightColumn.className = "column";
+			rightColumn.id = "rightColumn";
+			row.appendChild(rightColumn);
+
+			var pieChart = document.createElement("div");
+			pieChart.id = "canvas-holder";
+			rightColumn.appendChild(pieChart);
+
+			var canvas = document.createElement("canvas");
+			canvas.id = "pieChart";
+			pieChart.appendChild(canvas);
+
+			var fundBox = document.createElement("div");
+			fundBox.id = "fundBox"; 
+			rightColumn.appendChild(fundBox);
+			var funds = document.createElement("p");
+			funds.id = "funds";
+			fundBox.appendChild(funds);
+
+			$("#move_dropDown").css({top: 300, left: 0, position: 'relative'});
+		}
+
+		
+		i = last_slide_index;
+		$(this).find("option:selected").each(function(){
+
+			console.log("option selcted!!!!!!!!!!!!!!!");
+
+            var optionValue = $(this).attr("value");
+            var arg = eval("json[i]."+ optionValue);
+
+            createPieChart(slide, i, arg);
+        });
+
+
+		// hide pagination 
+        // display REPORT button 
+        $(".bt").hide();
+		$("#report").show();
+
+	});
+
 }
 
 
@@ -145,8 +226,11 @@ function createPieChart(slide, i, portfolio) {
 		
 
 	var pie_Chart = portfolio.right_column.pieChart;
+	var length = pie_Chart.length;
 
-	for (j = 0; j < pie_Chart.length; j++){
+	console.log("pieChart length is :  " + length);
+
+	for (j = 0; j < length; j++){
 		chartLabel.push(pie_Chart[j].label); //load chartLabel array with label values
 		chartValue.push(pie_Chart[j].value); //load chartValue array with value values
 		chartColour.push(pie_Chart[j].colour); //load chartColour array with colour values
@@ -200,10 +284,10 @@ function createPieChart(slide, i, portfolio) {
 			cutoutPercentage: 0, //set radius of circle to cut out to create donut chart
 			title: {
 				display: true,
-				// padding: 0,
+				padding: 5,
 				text: chartTitle, //title of the graph
 				// fontColor: '#333',
-				fontSize: 16,
+				fontSize: 13,
 				fontFamily: 'Segoe UI'
 			},
 			layout: {
@@ -306,7 +390,7 @@ function createResultsSlide(slide, i, arr, sum){
 	fundBox.appendChild(funds);
 
 	
-	$("#next" + (i-1)).click(function(){
+	$("#next" + (i - 1)).click(function(){
 
 		for (var j = 0; j < arr.length; j++) {
 			sum = sum + parseInt(arr[j]);
@@ -343,14 +427,27 @@ function createResultsSlide(slide, i, arr, sum){
 	// add options to drop-down 
 	for (var j = 0; j < numOfOptions; j++) {
 		var option = document.createElement("option");
+		if (j == 0) {
+			option.disabled = "true";
+			option.selected = "true";
+		}
 		option.appendChild(document.createTextNode(json[i].dropDown[j].name));
 		option.value = json[i].dropDown[j].value;
 		dropDown.appendChild(option);
 	}
 	slide.appendChild(dropDown);
 
+	// change content on RESULTS slide by changing dropdown options 
+	$(".drop-down").change(function(){
 
-	
+		$(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            var arg = eval("json[i]."+ optionValue);
+            createPieChart(slide, i, arg);
+        });
+	});
+
+
 
  	// Previous and Next button 
     var previouButton = document.createElement("button");
@@ -370,17 +467,6 @@ function createResultsSlide(slide, i, arr, sum){
 	createModal(); // pop-up modal window
 
 
-	// change content on RESULTS slide by changing dropdown options 
-	$(".drop-down").change(function(){
-
-		$(this).find("option:selected").each(function(){
-            var optionValue = $(this).attr("value");
-            var arg = eval("json[i]."+ optionValue);
-            createPieChart(slide, i, arg);
-        });
-	});
-
-
 }
 
 
@@ -398,6 +484,7 @@ function createResultsSlide(slide, i, arr, sum){
 		arr.push(0);
 	}
 	console.log("the length of array is: " + arr.length)
+	console.log("num of slides: " + numOfSlides);
 	var sum = 0; 
 
 	$("#all-slides").width(numOfSlides*8940); // set length of all slides 
@@ -408,26 +495,29 @@ function createResultsSlide(slide, i, arr, sum){
 
 
  	// add pagination 
-	for (var i = 0; i < (numOfSlides); i++) {
-			var pagination = document.createElement("button");
+	for (var i = 0; i <= (numOfSlides); i++) {
+
+		var pagination = document.createElement("button");
 			
-			pagination.id = "pagination" + i;
-			footer.appendChild(pagination);
+		pagination.id = "pagination" + i;
+		footer.appendChild(pagination);
 
-			if (i == (numOfSlides - 2)) {
-				pagination.appendChild(document.createTextNode("RESULTS"));
-			} else if (i == (numOfSlides - 1)) {
-				pagination.appendChild(document.createTextNode("report"));
-				pagination.id = "report";
-				pagination.hidden = "true";
-				break;
-			} else {
-				pagination.appendChild(document.createTextNode(i + 1));
-			}
 
-			pagination.className = "bt";
-			pagination.value = i + 1;
-			pagination.disabled = false; ///////////////////////////////////////////////////////// enable pagination 
+		if (i < (numOfSlides - 1)) {
+			pagination.appendChild(document.createTextNode(i));
+		} else if (i == (numOfSlides - 1)) {
+			pagination.appendChild(document.createTextNode("RESULTS"));
+		} else if (i == (numOfSlides)) {
+			pagination.appendChild(document.createTextNode("REPORT"));
+			pagination.id = "report";
+			// pagination.hidden = "true";
+			$("#report").hide();
+			break;
+		}
+
+		pagination.className = "bt";
+		pagination.value = i;
+		pagination.disabled = true; 
 			
 		
 	} // pagination 
@@ -442,7 +532,7 @@ function createResultsSlide(slide, i, arr, sum){
 
 
  	 	if (json[i].type == "coverPage") { 
- 	 		createCoverPageSlide(slide, i);
+ 	 		createCoverPageSlide(slide, i, (numOfSlides - 1)); // the index of last slide 
  	 	} else if (json[i].type == "section") {
  	 		createSectionSlide(slide, i);
  	 	} else if (json[i].type == "question"){
@@ -509,22 +599,6 @@ function createResultsSlide(slide, i, arr, sum){
         }
         
     });
-
-
-/*	//
-	//
-	//console.log("the value of i before click dropdown: " + i);
-	$(".drop-down").change(function(){
-		$(this).find("option:selected").each(function(){
-            var optionValue = $(this).attr("value");
-            console.log("the value of i after click dropdown: " + i);
-               createPieChart(slide, i, json[i].optionValue);
-        });
-	});*/
-
-
-
-
 
 
 
