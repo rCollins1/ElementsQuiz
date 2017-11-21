@@ -12,14 +12,14 @@
 			{"name" : "AGF Elements Growth Portfolio", "value" : "growth"}, 
 			{"name" : "AGF Elements Global Portfolio", "value" : "global"}
 		]
-	}, /* index 0 */
+	}, 
 
 
 	{
 		"type" : "section",
 		"title" : "Investment Objectives & Time Horizon",
 		"intro" : "Investment objectives are the goals or results you want to achieve through investing. Understanding your investment goals can help determine the types of investments best suited to meet your needs. One important factor to consider when selecting investments is the length of time you plan to have your money invested, your investment time horizon. Investors with a longer time horizon have a greater degree of flexibility when building a portfolio and may be able to take on more risk. If you have a very short time horizon, more conservative investments may be more suitable."
-	}, /* index 1 */
+	}, 
 
 
 	{
@@ -32,7 +32,7 @@
 	 	],
 	 	"disclaimer" : "Please note that if your client has indicated they require income from their investments by answering 'l require steady income' to Question 1, a monthly distributing investment or purchase option such as AGF Elements Yield Portfolio or a Series T or V purchase option may be prudent for your client depending on their time horizon and risk tolerance.",
 	 	"img" : "\/\/na.intra.agf.com\/torfs$\/users\/yitianw\/Desktop\/element_quiz\/ElementQuiz_v2\/q1.png"
-	}, /* index 2 */
+	}, 
 
 
 	{
@@ -45,7 +45,7 @@
 			{"text" : "All of it, I expect to liquidate this investment in the near term or require this money for current income", "value" : "2"}
 		], 
 		"disclaimer" :"Please note that if your client has indicated they require income from their investments by answering 'All of it, I expect to liquidate this investment in the near term or require this money for current income' to Question 2, a monthly distributing investment or purchase option such as AGF Elements Yield Portfolio or a Series T or V purchase option may be prudent for your client depending on their time horizon and risk tolerance."
-	}, /* index 3 */
+	}, 
 
 
 	{
@@ -59,7 +59,7 @@
 	 		{"text" : "Less than two year", "value" : "0"}
 	 	], 
 	 	"disclaimer" : "Please note that if your client has indicated they intend to withdraw a substantial portion of their investment in the next two years by answering 'Less than two years' to Question 3, it may be beneficial to have further discussions with your client to determine if their investment time horizon is too short to benefit from investing in the AGF Elements Portfolios."
-	}, /* index 4 */
+	}, 
 
 
 	{
@@ -71,14 +71,14 @@
 	 		{"text" : "51%-75%", "value" : "4"},
 	 		{"text" : "More than 75%", "value" : "2"}
 	 	]
-	}, /* index 5 */
+	}, 
 
 
 	{
 		"type" : "section",
 		"title" : "Risk Tolerance",
 		"intro" : "Your comfort level with risk is an important factor in determining how you should invest. Generally speaking, you need to consider accepting more risk if you want to pursue higher returns. If you decide to seek those pontentially higher returns, you face the possibility of greater losses."
-	}, /* index 6 */
+	}, 
 
 
 	{
@@ -91,7 +91,7 @@
 	 		{"text" : "I can accept some larger losses(5% to 10% a year) as a trade-off for larger potential gains over the longer-term", "value": "6"},
 	 		{"text" : "I have a high tolerance for risk and a long term time horizon; I can accept losses abover 10% a year", "value": "8"}
 	 	]
-	}, /* index 7 */
+	}, 
 
 
 	{
@@ -103,7 +103,7 @@
 	 		{"text" : "Hold onto the investment and not sell any of the investment in the hopes of higher future returns", "value": "6"},
 	 		{"text" : "Buy more of the investment now that prices are lower", "value": "8"}
 	 	]
-	}, /* index 8 */
+	}, 
 
 
 	{
@@ -115,7 +115,7 @@
 	 		{"text" : "usually the possible gains", "value": "4"},
 	 		{"text" : "always the possible gains", "value": "6"}
 	 	]
-	}, /* index 9 */
+	}, 
 
 
 	{
@@ -128,7 +128,7 @@
 	 		{"text" : "Either a loss of $20,000 OR a gain of 25,000", "value": "10"}
 	 	], 
 	 	"img" : "\/\/na.intra.agf.com\/torfs$\/users\/yitianw\/Desktop\/element_quiz\/ElementQuiz_v2\/q8.png"
-	}, /* index 10 */
+	}, 
 
 
 	{
@@ -343,7 +343,7 @@
 
 			"global" : 
 			{
-				"title" : "Investor Profile Recommendation: AGF Elements Yield Portfolio", 
+				"title" : "Investor Profile Recommendation: AGF Elements Global Portfolio", 
 				"left_column" : 
 					{
 						"intro" : "Investment Objective - The Portfolio's objective is to achieve high current income by investing primarily in a diversified mix of income, bond and equity funds that may include exposure to income trusts, royalty trusts and REITs. The portfolio currently offers a 5% annual targeted distribution, paid monthly."
@@ -401,7 +401,7 @@
 		]
 
 
-	} /* index 11 */
+	}
 
 
 

@@ -367,29 +367,16 @@ function createResultsSlide(slide, i, arr, sum){
 	modal.appendChild(reportContent);
 
 
-	createModal(); // pop-up modal window 
+	createModal(); // pop-up modal window
 
 
-
-
-		//
-	//
-	console.log("the value of i before click dropdown: " + i);
-
+	// change content on RESULTS slide by changing dropdown options 
 	$(".drop-down").change(function(){
 
-		console.log("dropdown is clicked !!!!!!!!!!");
-
 		$(this).find("option:selected").each(function(){
-
-			console.log("option is selected !!!!!!!");
-
             var optionValue = $(this).attr("value");
-
-            console.log("the value of i after click dropdown: " + i);
-            //console.log("json[i].optionValue:  " + json[i].optionValue);
-
-            createPieChart(slide, i, json[i].optionValue);
+            var arg = eval("json[i]."+ optionValue);
+            createPieChart(slide, i, arg);
         });
 	});
 
