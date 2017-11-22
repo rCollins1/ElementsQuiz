@@ -259,7 +259,55 @@
         float:left;
     }
 
+    .data-section {
+        margin-top: 25px;
+    }
+
+    .equity-title {
+        font-size: 25px;
+    }
+
+    .geographic-title {
+        font-size: 25px;
+    }
+
+    .pie-chart-section-1 {
+        float:left;
+        width:40%;
+    }
+
+    .pie-chart-section-2 {
+        float:left;
+        width:40%;
+    }
+
+    #table-section-1 {
+        float:left;
+        width:40%;
+        margin-left:15%;
+    }
+
+    #table-section-2 {
+        float:left;
+        width:40%;
+        margin-left:15%;
+    }
+
+    
+
     #pie-chart-0 {
+        height: 60% !important;
+        width: 60% !important;
+        margin-left: 15%;
+    }
+
+    #pie-chart-1 {
+        height: 60% !important;
+        width: 60% !important;
+        margin-left: 15%;
+    }
+
+    #pie-chart-2 {
         height: 60% !important;
         width: 60% !important;
         margin-left: 15%;
@@ -323,7 +371,7 @@
         border-right:10px solid #f4f5f5;
     }
     .income-percentage {
-        width:50px;
+        width:70px;
         text-align: right;
     }
 
@@ -331,11 +379,11 @@
         text-align: right;
     }
 
-
     #report-protofolio-type {
         font-size:30px;
         text-align: center;
     }
+
     .left-section {
         float:left;
         width:40%;
@@ -349,6 +397,16 @@
     .up-section {
         margin-top:50px;
         height:700px;
+    }
+
+    .equity-section {
+        height: 550px;
+        margin-left:10%;
+    }
+
+    .geographic-section {
+        height:350px;
+        margin-left:10%;
     }
 
     .key-benefits {
@@ -366,5 +424,22 @@
     #pie-chart-holder-0 {
         margin-top:25px;
     }
+
+    .country {
+        background-color: #f4f5f5;
+        height:25px;
+    }
+    .color-box {
+        width: 12px;
+        height: 12px;
+        float:left;
+        margin-left:5px;
+    }
+
+    .country-percentage {
+        text-align: right;
+        border-right:10px solid #f4f5f5;
+    }
+
 
 }

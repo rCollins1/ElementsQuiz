@@ -2,8 +2,8 @@
 {
     @page {
         size: auto;
-        margin-top: 0mm;
-        margin-bottom: 0mm;
+        margin-top: 2mm;
+        margin-bottom: 2mm;
     }
 
     .page-break  { display:block; page-break-before:always; }
@@ -285,6 +285,49 @@
         height:475px;
     }
 
+    .equity-title {
+        font-size: 25px;
+    }
+
+    .geographic-title {
+        font-size: 25px;
+    }
+
+    .pie-chart-section-1 {
+        float:left;
+        width:40%;
+    }
+
+    .pie-chart-section-2 {
+        float:left;
+        width:40%;
+    }
+
+    #table-section-1 {
+        float:left;
+        width:40%;
+    }
+
+    #table-section-2 {
+        float:left;
+        width:40%;
+    }
+
+    .data-section {
+        height: 40%;
+        margin-top:20px;
+    }
+
+    .pie-chart-section-1 {
+        float:left;
+        width:40%;
+    }
+
+    .pie-chart-section-2 {
+        float:left;
+        width:40%;
+    }
+
     #report-protofolio-type {
         font-size:22px;
         text-align: center;
@@ -300,6 +343,14 @@
         width:50%;
     }
 
+    .equity-section {
+        height: 400px;
+    }
+
+    .geographic-section {
+        height:320px;
+    }
+
 
     /*pie chart css*/
     #pie-chart-0 {
@@ -307,13 +358,26 @@
         width: 60% !important;
         margin-left: 15%;
     }
+    #pie-chart-1 {
+        height: 60% !important;
+        width: 60% !important;
+        margin-left: 15%;
+        margin-top:30px;
+    }
+
+    #pie-chart-2 {
+        height: 60% !important;
+        width: 60% !important;
+        margin-left: 15%;
+        margin-top:30px;
+    }
 
     #pie-chart-date-0 {
         font-size:12px;
     }
 
     #pie-chart-note {
-        font-size:0px;
+        font-size:12px;
     }
 
     /*data table css */
@@ -379,7 +443,7 @@
         border-right:10px solid #f4f5f5;
     }
     .income-percentage {
-        width:50px;
+        width:70px;
         text-align: right;
     }
 
@@ -394,8 +458,27 @@
         height: 458px;
         -webkit-print-color-adjust: exact;
     }
-    /*benefit css */
 
+    .country {
+        background-color: #f4f5f5;
+        -webkit-print-color-adjust: exact;
+        height:25px;
+    }
+    .color-box {
+        width: 12px;
+        height: 12px;
+        float:left;
+        margin-left:5px;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .country-percentage {
+        text-align: right;
+        border-right:10px solid #f4f5f5;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    /*benefit css */
     .key-benefits {
         margin-top: 10px;
         padding: 10px;
@@ -407,8 +490,12 @@
     }
 
     /*foot note css */
-    #foot-note {
+    .bottom-section #foot-note {
         font-size:11px;
         color: #b0b1b2;
+    }
+
+    .bottom-section p {
+        font-size: 20px;
     }
 }
