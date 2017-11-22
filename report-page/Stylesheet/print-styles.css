@@ -5,7 +5,6 @@
         margin-top: 2mm;
         margin-bottom: 2mm;
     }
-
     .page-break  { display:block; page-break-before:always; }
     
     .header-line {
@@ -32,6 +31,7 @@
     }
 
     .logo img {
+        margin-top: 5mm;
     	width:200px;
     	margin-left: 6%;
     }
