@@ -192,6 +192,7 @@
 					}],
 	"geographicChart":[
 					{
+						"type": "geographic",
 						"percentage" : 100.0,
 						"colour": "#ED5A36",
 						"subType": [

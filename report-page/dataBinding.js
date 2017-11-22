@@ -1,4 +1,4 @@
-var jsonSource = "https://api.myjson.com/bins/12m8z3";
+var jsonSource = "https://api.myjson.com/bins/11zc4n";
 
 function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	
@@ -19,7 +19,7 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	//build the sub-div of income-title: income name
 	var incomeName = document.createElement("td");
 	incomeName.classList.add("income-name");
-	if ("undefined" !== typeof(incomeObject["type"])) {
+	if ("geographic" !== incomeObject.type) {
 		incomeName.appendChild(document.createTextNode(incomeObject.type));
 	}
 
@@ -33,29 +33,62 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 
 	var fundTypeLength = incomeObject.subType.length;
 
-	for (var i = 0; i < fundTypeLength; ++i) {
-		var incomeFund = document.createElement("tr");
-		incomeFund.classList.add("income-fund");
+	if (incomeObject.type !== "geographic") {
+		for (var i = 0; i < fundTypeLength; ++i) {
+			var incomeFund = document.createElement("tr");
+			incomeFund.classList.add("income-fund");
 
-		var fundPercentage = document.createElement("td");
-		fundPercentage.classList.add("fund-percentage");
-		fundPercentage.appendChild(document.createTextNode(incomeObject.subType[i].percentage + "%"));
+			var fundPercentage = document.createElement("td");
+			fundPercentage.classList.add("fund-percentage");
+			fundPercentage.appendChild(document.createTextNode(incomeObject.subType[i].percentage + "%"));
 
-		var fundName = document.createElement("td");
-		fundName.classList.add("fund-name");
-		fundName.appendChild(document.createTextNode(incomeObject.subType[i].name));
+			var fundName = document.createElement("td");
+			fundName.classList.add("fund-name");
+			fundName.appendChild(document.createTextNode(incomeObject.subType[i].name));
 
-		//check if the fund has superscript. If has, add it to the end of its fund name
-		if ("undefined" !== typeof(incomeObject.subType[i]["superscript"])) {
-			var superNumber = document.createElement("sup");
-			superNumber.appendChild(document.createTextNode(incomeObject.subType[i].superscript));
-			fundName.appendChild(superNumber);
+			//check if the fund has superscript. If has, add it to the end of its fund name
+			if ("undefined" !== typeof(incomeObject.subType[i]["superscript"])) {
+				var superNumber = document.createElement("sup");
+				superNumber.appendChild(document.createTextNode(incomeObject.subType[i].superscript));
+				fundName.appendChild(superNumber);
+			}
+
+			incomeFund.appendChild(fundPercentage);
+			incomeFund.appendChild(fundName);
+			incomeDiv.appendChild(incomeFund);
+		}
+	}
+	else {
+
+		var colorSet = ["#ED5A36", "#F47E20", "#7C4496", "#D02259", "#FFB819", 
+		"rgb(247, 164, 145)", "rgb(241, 183, 137)", "rgb(191, 138, 216)", "rgb(224, 108, 145)", "rgb(255, 225, 158)"];
+
+		for (var i = 0; i < fundTypeLength; ++i) {
+			var country = document.createElement("tr");
+			country.classList.add("country");
+
+			var colorBox = document.createElement("div");
+			colorBox.style.border = "1px solid white";
+			colorBox.style.backgroundColor = colorSet[i];
+			colorBox.classList.add("color-box");
+
+			var countryPercentage = document.createElement("td");
+			countryPercentage.classList.add("country-percentage");
+			countryPercentage.appendChild(document.createTextNode(incomeObject.subType[i].percentage + "%"));
+
+			var countryName = document.createElement("td");
+			countryName.classList.add("country-name");
+			countryName.appendChild(document.createTextNode(incomeObject.subType[i].name));
+
+			countryPercentage.appendChild(colorBox);
+			country.appendChild(countryPercentage);
+			country.appendChild(countryName);
+			incomeDiv.appendChild(country);
 		}
 
-		incomeFund.appendChild(fundPercentage);
-		incomeFund.appendChild(fundName);
-		incomeDiv.appendChild(incomeFund);
 	}
+
+	
 	
 	//incomeDiv.appendChild(fundDiv);
 	divToBeAppend.appendChild(incomeDiv);
@@ -70,24 +103,54 @@ function buildPieChart (positionID, dataArray) {
 		chartColour.push(dataArray[i].colour); //load chartColour array with colour values
 	}
 	var ctx = document.getElementById(positionID).getContext('2d'); //declaring variable 'ctx' (context) for div to display pie chart
-			var selectedIndex = null; //declaring variable to represent index selected for separation animation
-			var selectedIndexFunds = null;
+	var selectedIndex = null; //declaring variable to represent index selected for separation animation
+	var selectedIndexFunds = null;
 
-			var pieChart = new Chart(ctx, { //creating chart with the below attributes
-				type: 'pie',
-				data: {
-					datasets: [{
-						backgroundColor: chartColour, //setting background colour of each slice with chartColour array
-						data: chartValue, //setting values of each slice with chartValue array
-						borderWidth: 2, //setting value of the border around each slice
-					}]
-				},
-				options: { //options is an object of objects of objects of attributes... very meta
-					tooltips: {enabled: false},
-    				hover: {mode: null},
-    				//maintainAspectRatio: false
-				}
-			});
+	var pieChart = new Chart(ctx, { //creating chart with the below attributes
+		type: 'pie',
+		data: {
+			datasets: [{
+				backgroundColor: chartColour, //setting background colour of each slice with chartColour array
+				data: chartValue, //setting values of each slice with chartValue array
+				borderWidth: 2, //setting value of the border around each slice
+			}]
+		},
+		options: { //options is an object of objects of objects of attributes... very meta
+			tooltips: {enabled: false},
+    		hover: {mode: null},
+    		//maintainAspectRatio: false
+		}
+	});
+};
+
+function buildPieChartForGeo (positionID, dataArray) {
+	var chartValue = []; //declaring variable to store chart valuese
+	var chartColour = ["#ED5A36", "#F47E20", "#7C4496", "#D02259", "#FFB819", 
+		"rgb(247, 164, 145)", "rgb(241, 183, 137)", "rgb(191, 138, 216)", "rgb(224, 108, 145)", "rgb(255, 225, 158)"]; //declaring variable to store chart colours
+	
+	for (i = 0; i < dataArray.length; ++i){
+		chartValue.push(dataArray[i].percentage); //load chartValue array with value values
+	}
+
+	var ctx = document.getElementById(positionID).getContext('2d'); //declaring variable 'ctx' (context) for div to display pie chart
+	var selectedIndex = null; //declaring variable to represent index selected for separation animation
+	var selectedIndexFunds = null;
+
+	var pieChart = new Chart(ctx, { //creating chart with the below attributes
+		type: 'pie',
+		data: {
+			datasets: [{
+				backgroundColor: chartColour, //setting background colour of each slice with chartColour array
+				data: chartValue, //setting values of each slice with chartValue array
+				borderWidth: 2, //setting value of the border around each slice
+			}]
+		},
+		options: { //options is an object of objects of objects of attributes... very meta
+			tooltips: {enabled: false},
+    		hover: {mode: null},
+    		//maintainAspectRatio: false
+		}
+	});
 };
 
 $(document).ready(function() {
@@ -158,7 +221,7 @@ $(document).ready(function() {
 
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Geographic  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-			buildPieChart ("pie-chart-2", json.geographicChart);
+			buildPieChartForGeo ("pie-chart-2", json.geographicChart[0].subType);
 
 			//------------------------------------------------------- Foot Note Section -------------------------------------------------------
 			//Get the foot-note array from json (json.footNote),use for loop to add <li> one by one.
