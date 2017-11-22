@@ -45,7 +45,8 @@ $.getJSON("data.json", function(json) {
 	
 	// change content on RESULTS slide by changing dropdown options 
 	var flag = false; 
-	$(".drop-down").change(function(){
+	console.log("slide" + i);
+	$("#slide" + i + " .drop-down").change(function(){
 		
 		if (flag == false) { // remove old elements once 
 								//create new elements once 
@@ -53,7 +54,6 @@ $.getJSON("data.json", function(json) {
 
 			// remove elements from cover page
 			$(".remove").remove();
-
 		
 			var title = document.createElement("h4");
 			title.id = "results-slide-title";
@@ -80,9 +80,6 @@ $.getJSON("data.json", function(json) {
 			pieChart.id = "canvas-holder";
 			rightColumn.appendChild(pieChart);
 
-			var canvas = document.createElement("canvas");
-			canvas.id = "pieChart";
-			pieChart.appendChild(canvas);
 
 			var fundBox = document.createElement("div");
 			fundBox.id = "fundBox"; 
@@ -95,9 +92,11 @@ $.getJSON("data.json", function(json) {
 			refreshButton.appendChild(document.createTextNode("Go back to quiz"));
 			refreshButton.id = "refresh";
 			footer.appendChild(refreshButton);
+
+
 			$("#refresh").click(function(){
 				window.location.reload();
-			});
+			}); 
 			
 
 			$("#move_dropDown").css({top: 300, left: 0, position: 'relative'});
@@ -107,12 +106,12 @@ $.getJSON("data.json", function(json) {
 		i = last_slide_index;
 		$(this).find("option:selected").each(function(){
 
-			console.log("option selcted!!!!!!!!!!!!!!!");
+			$("canvas").remove();
 
             var optionValue = $(this).attr("value");
             var arg = eval("json[i]."+ optionValue);
-
             createPieChart(slide, i, arg);
+            $("iframe").remove();
         });
 
 
@@ -218,6 +217,11 @@ function createQuestionSlide(slide, i){
 
 function createPieChart(slide, i, portfolio) {
 
+	var canvas = document.createElement("canvas");
+	canvas.id = "pieChart";
+	var pieChart = document.getElementById("canvas-holder");
+	pieChart.appendChild(canvas);
+
 	var slideTitle = document.getElementById("results-slide-title").innerHTML = portfolio.title;
 	var leftColumn = document.getElementById("leftColumn").innerHTML = portfolio.left_column.intro;
 	
@@ -251,7 +255,8 @@ function createPieChart(slide, i, portfolio) {
 	var selectedIndex = null; //declaring variable to represent index selected for separation animation
 	var selectedIndexFunds = null;
 
-	var pieChart = new Chart(ctx, { //creating chart with the below attributes
+
+	var pieChart = new Chart(ctx, { //creating chart with the below attributes 'var'
 		type: 'pie',
 		data: {
 			labels: chartLabel, //setting labels for the legend 
@@ -376,19 +381,15 @@ function createResultsSlide(slide, i, arr, sum){
 	leftColumn.className = "column";
 	leftColumn.id = "leftColumn";
 	slide.appendChild(leftColumn);
+
 	var rightColumn = document.createElement("div");
 	rightColumn.className = "column";
 	rightColumn.id = "rightColumn";
 	slide.appendChild(rightColumn);
 	
-
 	var pieChart = document.createElement("div");
 	pieChart.id = "canvas-holder";
 	rightColumn.appendChild(pieChart);
-
-	var canvas = document.createElement("canvas");
-	canvas.id = "pieChart";
-	pieChart.appendChild(canvas);
 
 	var fundBox = document.createElement("div");
 	fundBox.id = "fundBox"; 
@@ -407,17 +408,22 @@ function createResultsSlide(slide, i, arr, sum){
 
 		if (sum < 18) {
 			createPieChart(slide, i, json[i].yield);
+			console.log("pirchart created on results slide");
 		} else if (sum >= 18 && sum <= 30) {
 			createPieChart(slide, i, json[i].conservative);
+			console.log("pirchart created on results slide");
 
 		} else if (sum >= 31 && sum <= 43) {
 			createPieChart(slide, i, json[i].balanced);
+			console.log("pirchart created on results slide");
 
 		} else if (sum >= 44 && sum <= 55) {
 			createPieChart(slide, i, json[i].growth);
+			console.log("pirchart created on results slide");
 
 		} else if (sum > 55) {
 			createPieChart(slide, i, json[i].global);
+			console.log("pirchart created on results slide");
 		}
 
 		// display REPORT button 
@@ -446,9 +452,16 @@ function createResultsSlide(slide, i, arr, sum){
 	slide.appendChild(dropDown);
 
 	// change content on RESULTS slide by changing dropdown options 
-	$(".drop-down").change(function(){
+	$("#slide" + i +" .drop-down").change(function(){
+
+		var canvas = document.createElement("canvas");
+		canvas.id = "pieChart";
+		pieChart.appendChild(canvas);
 
 		$(this).find("option:selected").each(function(){
+
+			$("canvas").remove();
+
             var optionValue = $(this).attr("value");
             var arg = eval("json[i]."+ optionValue);
             createPieChart(slide, i, arg);
@@ -607,6 +620,19 @@ function createResultsSlide(slide, i, arr, sum){
         }
         
     });
+
+
+
+    $("#slide" + i +" .drop-down").change(function(){
+
+		$("#pieChart").remove();
+
+		$(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            var arg = eval("json[i]."+ optionValue);
+            createPieChart(slide, i, arg);
+        });
+	});
 
 
 

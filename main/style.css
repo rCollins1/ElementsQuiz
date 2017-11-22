@@ -52,7 +52,12 @@ button.bt[disabled]{
     color: #ffffff;
     background-color: #efb310;
 }
-.bt, #report{
+.bt{
+    color: #ffffff;
+    background-color: #f5cf68;
+    border: 1px solid ; 
+}
+#report, #refresh{
     color: #ffffff;
     background-color: #f5cf68;
     border: 1px solid ; 
@@ -111,11 +116,14 @@ button.bt[disabled]{
 }
 
 
+
+
 #funds {
     font-size: 10px;
-    text-align: center;
-    margin-left: 175px;
+    text-align: left;
+    margin-left: 193px;
     margin-top: -230px;
+    width: 50%;
 }
 
 #myModal {
