@@ -498,4 +498,8 @@
     .bottom-section p {
         font-size: 20px;
     }
+
+    .print-button {
+        display:none;
+    }
 }

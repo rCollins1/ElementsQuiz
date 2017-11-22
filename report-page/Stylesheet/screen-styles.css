@@ -441,5 +441,19 @@
         border-right:10px solid #f4f5f5;
     }
 
+    .print-button {
+        font-size: 30px;
+        float:right;
+        margin-right:10%;
+        margin-top:15px;
+        background-color: #7C4496;
+        width:120px;
+        height:40px;
+        color:white;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 10px;
+    }
+
 
 }
