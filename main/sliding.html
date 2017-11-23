@@ -11,22 +11,56 @@
 </head>
 <body>
 
-
-
+	
+	<img id="banner" src="banner.png">
+	
 	<div id="frame">
-		<div id="header">
-			<img class="banner" src="banner.png">
-		</div>
-		<div id="main-content">
-			<ul id="all-slides">
+		<ul id="queue">
 
-			</ul>
-		</div>
-		<div id="footer"><br>
+		</ul>
 
-        </div>
+			<div id="report-window">
+				<div id="report-title">
+					<h4> PRINT REPORT</h4>
+					<p> To customize your report, please complete the fields below:</p>
+				</div>
+				<div class="row" > 
+					<div class="column" style="height: 180px;">
+						Client Name: <br>
+						<input id="client-name" type="text"> <br>
+						Client Address 1: <br>
+						<input id="address1" type="text"> <br>
+						Client Address 2: <br>
+						<input id="address2" type="text"> <br>
+						Client Address 3: <br>
+						<input id="address3" type="text"> <br>
+					</div>
+
+					<div class="column" style="height: 180px;">
+						Advisor Name: <br>
+						<input id="advisor-name" type="text"> <br>
+						Firm Name: <br>
+						<input id="firm-name" type="text"> <br>
+						Advisor Phone Number: <br>
+						<input id="phone" type="text"> <br>
+						Date: <br>
+						<input id="date" type="date"> <br>
+					</div>
+				</div>
+				<form >
+		            <label class="a1"><input type="radio" name="" value="true">Non-Corporate Class </label><br>
+		            <label class="a2"><input type="radio" name="" value="false">Corporate Class </label>
+		        </form>
+		        <button id="print">REPORT</button>
+		        <button class="close">CLOSE</button>
+			</div>
 	</div>
+	<div id="footer"></div>
+	
 
+
+
+	
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js">//include ChartJS library</script>
 	<script type="text/javascript" src="function.js"></script>

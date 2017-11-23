@@ -5,21 +5,21 @@
 		"title": "Find your Element - INVESTOR QUESTIONNAIRE",
 		"intro": "This questionnaire is designed to help you choose the right investment to meet your needs by matching your unique situation with the profile of one of the five AGF Elements portfolios. Your tolerance for risk, your time horizon and your expected rate of return over the life of the investment all play a part in finding the right Elements portfolio for you.",
 		"dropDown" : [
-			"Jump directly to a portfolio profile",
-			"AGF Elements Yield Portfolio",
-			"AGF Elements Conservative Portfolio",
-			"AGF Elements Balanced Portfolio",
-			"AGF Elements Growth Portfolio", 
-			"AGF Elements Global Portfolio"
+			{"name" : "Jump directly to a portfolio profile", "value" : ""},
+			{"name" : "AGF Elements Yield Portfolio", "value" : "yield"},
+			{"name" : "AGF Elements Conservative Portfolio", "value" : "conservative"},
+			{"name" : "AGF Elements Balanced Portfolio", "value" : "balanced"},
+			{"name" : "AGF Elements Growth Portfolio", "value" : "growth"}, 
+			{"name" : "AGF Elements Global Portfolio", "value" : "global"}
 		]
-	},
+	}, 
 
 
 	{
 		"type" : "section",
 		"title" : "Investment Objectives & Time Horizon",
 		"intro" : "Investment objectives are the goals or results you want to achieve through investing. Understanding your investment goals can help determine the types of investments best suited to meet your needs. One important factor to consider when selecting investments is the length of time you plan to have your money invested, your investment time horizon. Investors with a longer time horizon have a greater degree of flexibility when building a portfolio and may be able to take on more risk. If you have a very short time horizon, more conservative investments may be more suitable."
-	},
+	}, 
 
 
 	{
@@ -32,7 +32,7 @@
 	 	],
 	 	"disclaimer" : "Please note that if your client has indicated they require income from their investments by answering 'l require steady income' to Question 1, a monthly distributing investment or purchase option such as AGF Elements Yield Portfolio or a Series T or V purchase option may be prudent for your client depending on their time horizon and risk tolerance.",
 	 	"img" : "\/\/na.intra.agf.com\/torfs$\/users\/yitianw\/Desktop\/element_quiz\/ElementQuiz_v2\/q1.png"
-	},
+	}, 
 
 
 	{
@@ -91,7 +91,7 @@
 	 		{"text" : "I can accept some larger losses(5% to 10% a year) as a trade-off for larger potential gains over the longer-term", "value": "6"},
 	 		{"text" : "I have a high tolerance for risk and a long term time horizon; I can accept losses abover 10% a year", "value": "8"}
 	 	]
-	},
+	}, 
 
 
 	{
@@ -128,19 +128,18 @@
 	 		{"text" : "Either a loss of $20,000 OR a gain of 25,000", "value": "10"}
 	 	], 
 	 	"img" : "\/\/na.intra.agf.com\/torfs$\/users\/yitianw\/Desktop\/element_quiz\/ElementQuiz_v2\/q8.png"
-	},
+	}, 
 
 
 	{
 		"type" : "results",
-		
+
 		"yield" : 
 			{
 				"title" : "Investor Profile Recommendation: AGF Elements Yield Portfolio", 
 				"left_column" : 
 					{
-						"subtitle" : "Investment Objective",
-						"intro" : "The Portfolio's objective is to achieve high current income by investing primarily in a diversified mix of income, bond and equity funds that may include exposure to income trusts, royalty trusts and REITs. The portfolio currently offers a 5% annual targeted distribution, paid monthly."
+						"intro" : "Investment Objective - The Portfolio's objective is to achieve high current income by investing primarily in a diversified mix of income, bond and equity funds that may include exposure to income trusts, royalty trusts and REITs. The portfolio currently offers a 5% annual targeted distribution, paid monthly."
 					}, 
 				"right_column" : 
 					{
@@ -191,13 +190,17 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Conservative Portfolio", 
 				"left_column" : 
 					{
+<<<<<<< HEAD
+						"intro" : "Investment Objective - The Portfolio's objective is to provide long-term returns with lower risk by investing primarily in a diversified mix of income, bond, money market and equity mutual funds."
+=======
 						"subtitle" : "Investment Objective",
 						"intro" : "The Portfolio's objective is to provide long-term returns with lower risk by investing primarily in a diversified mix of income, bond, money market and equity mutual funds."
+>>>>>>> 0b8aa65f89394f407c6cc00a0b651861a6ac6a63
 					}, 
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"pieChart": [
 							{
 								"label": "Domestic equities",
 								"value": 13,
@@ -264,13 +267,17 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Balanced Portfolio", 
 				"left_column" : 
 					{
+<<<<<<< HEAD
+						"intro" : "Investment Objective - The Portfolio's objective is to provide high long-term returns by investing primarily in a diversified mix of equity, income and bond mutual funds"
+=======
 						"subtitle" : "Investment Objective",
 						"intro" : "The Portfolio's objective is to provide high long-term returns by investing primarily in a diversified mix of equity, income and bond mutual funds."
+>>>>>>> 0b8aa65f89394f407c6cc00a0b651861a6ac6a63
 					}, 
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"pieChart": [
 							{
 								"label": "Domestic equities",
 								"value": 22,
@@ -339,13 +346,17 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Growth Portfolio", 
 				"left_column" : 
 					{
+<<<<<<< HEAD
+						"intro" : "Investment Objective - The Portfolio's objective is to provide superior long-term returns by investing primarily in equity mutual funds diversified with income and/or bond mutual fund holdings."
+=======
 						"subtitle" : "Investment Objective",
 						"intro" : "The Portfolio's objective is to provide superior long-term returns by investing primarily in equity mutual funds diversified with income and/or bond mutual fund holdings."
+>>>>>>> 0b8aa65f89394f407c6cc00a0b651861a6ac6a63
 					}, 
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"pieChart": [
 							{
 								"label": "Domestic equities",
 								"value": 12,
@@ -414,13 +425,17 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Global Portfolio", 
 				"left_column" : 
 					{
+<<<<<<< HEAD
+						"intro" : "Investment Objective - The Portfolio's objective is to provide superior long-term returns by investing in equity mutual funds from around the globe."
+=======
 						"subtitle" : "Investment Objective",
 						"intro" : "The Portfolio's objective is to provide superior long-term returns by investing in equity mutual funds from around the globe."
+>>>>>>> 0b8aa65f89394f407c6cc00a0b651861a6ac6a63
 					}, 
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"pieChart": [
 							{
 								"label": "Domestic equities",
 								"value": 4,
@@ -463,12 +478,12 @@
 					}
 			}, 
 		"dropDown" : [
-			"Jump directly to a portfolio profile",
-			"AGF Elements Yield Portfolio",
-			"AGF Elements Conservative Portfolio",
-			"AGF Elements Balanced Portfolio",
-			"AGF Elements Growth Portfolio", 
-			"AGF Elements Global Portfolio"
+			{"name" : "Jump directly to a portfolio profile", "value" : ""},
+			{"name" : "AGF Elements Yield Portfolio", "value" : "yield"},
+			{"name" : "AGF Elements Conservative Portfolio", "value" : "conservative"},
+			{"name" : "AGF Elements Balanced Portfolio", "value" : "balanced"},
+			{"name" : "AGF Elements Growth Portfolio", "value" : "growth"}, 
+			{"name" : "AGF Elements Global Portfolio", "value" : "global"}
 		]
 
 
