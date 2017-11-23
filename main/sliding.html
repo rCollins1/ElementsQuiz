@@ -11,55 +11,52 @@
 </head>
 <body>
 
+	
+	<img id="banner" src="banner.png">
+	
 	<div id="frame">
-		<div id="header">
-			<img class="banner" src="banner.png">
-		</div>
-		<div id="main-content">
-			<ul id="all-slides">
+		<ul id="queue">
 
-			</ul>
+		</ul>
 
-				<div id="report-window">
-					<div id="report-title">
-						<h4> PRINT REPORT</h4>
-						<p> To customize your report, please complete the fields below:</p>
-					</div>
-					<div class="row" > 
-						<div class="column" style="height: 180px;">
-							Client Name: <br>
-							<input id="client-name" type="text" name=""> <br>
-							Client Address 1: <br>
-							<input id="address1" type="" name=""> <br>
-							Client Address 2: <br>
-							<input id="address2" type="" name=""> <br>
-							Client Address 3: <br>
-							<input id="address3" type="" name=""> <br>
-						</div>
-
-						<div class="column" style="height: 180px;">
-							Advisor Name: <br>
-							<input id="advisor-name" type="" name=""> <br>
-							Firm Name: <br>
-							<input id="firm-name" type="" name=""> <br>
-							Advisor Phone Number: <br>
-							<input id="phone" type="" name=""> <br>
-							Date: <br>
-							<input id="date" type="date"> <br>
-						</div>
-					</div>
-					<form >
-			            <label class="a1"><input type="radio" name="1" value="1">Non-Corporate Class </label><br>
-			            <label class="a2"><input type="radio" name="1" value="2">Corporate Class </label>
-			        </form>
-			        <button>PRINT</button>
-			        <button class="close">CLOSE</button>
+			<div id="report-window">
+				<div id="report-title">
+					<h4> PRINT REPORT</h4>
+					<p> To customize your report, please complete the fields below:</p>
 				</div>
-		</div>
-		<div id="footer"><br>
+				<div class="row" > 
+					<div class="column" style="height: 180px;">
+						Client Name: <br>
+						<input id="client-name" type="text"> <br>
+						Client Address 1: <br>
+						<input id="address1" type="text"> <br>
+						Client Address 2: <br>
+						<input id="address2" type="text"> <br>
+						Client Address 3: <br>
+						<input id="address3" type="text"> <br>
+					</div>
 
-        </div>
+					<div class="column" style="height: 180px;">
+						Advisor Name: <br>
+						<input id="advisor-name" type="text"> <br>
+						Firm Name: <br>
+						<input id="firm-name" type="text"> <br>
+						Advisor Phone Number: <br>
+						<input id="phone" type="text"> <br>
+						Date: <br>
+						<input id="date" type="date"> <br>
+					</div>
+				</div>
+				<form >
+		            <label class="a1"><input type="radio" name="" value="true">Non-Corporate Class </label><br>
+		            <label class="a2"><input type="radio" name="" value="false">Corporate Class </label>
+		        </form>
+		        <button id="print">REPORT</button>
+		        <button class="close">CLOSE</button>
+			</div>
 	</div>
+	<div id="footer"></div>
+	
 
 
 

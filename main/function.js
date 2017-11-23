@@ -1,38 +1,82 @@
 
 $.getJSON("data.json", function(json) {
 
-	function createCoverPageSlide(slide, i, last_slide_index, footer){
 
-	// add quiz title 
+	var numOfSlides = json.length; // get the amount of slides in the quiz 
+								   // (containing coverSlide, questionSlide and resultsSlide)
+
+	$("#queue").width(numOfSlides*800); // set the length of slide queue		
+											 // each slide has width 800px (set as requirement)
+											 // have to be decided after getting the amount of slides 
+	var arr = [];
+	for (var i = 0; i < numOfSlides; i++) { // create an array to store inputs (radio button inputs on questionSlide)
+											// the length of array is same as number of all slides 
+											// the index of slide is same as the index of item in array 
+		arr.push(0);
+	}
+
+	var sum = 0; // create sum to store the sum of items in array 
+	
+
+	var all_slides = document.getElementById("queue"); // get the div of slide queue (have created in html)
+ 	var footer = document.getElementById("footer"); // get the div of footer (have created in html)
+
+
+ 	// variables used in report form 
+	var clientName, address1, address2, address3, advisorName, firmName, phone, date;
+
+
+	$("#print").click(function(){
+
+		clientName = document.getElementById("client-name").value;
+		address1 = document.getElementById("address1").value;
+		address2 = document.getElementById("address2").value;
+		address3 = document.getElementById("address3").value;
+
+		advisorName = document.getElementById("advisor-name").value;
+		firmName = document.getElementById("firm-name").value;
+		phone = document.getElementById("phone").value;
+		date = document.getElementById("date").value;
+
+	});
+
+
+
+	function createCoverPageSlide(slide, i, last_slide_index, footer){ // create coverSlide for the quiz
+
+	// create slide title
 	var title = document.createElement("h2");
 	title.appendChild(document.createTextNode(json[i].title));
-	title.className = "remove";
+	title.id = "cover-slide-title";
+	title.className = "remove";	// going be removed 								 
 	slide.appendChild(title);
-
-	// add intro paragraph 
+ 
+	// create intro para 
 	var subTitle = document.createElement("p");
 	subTitle.appendChild(document.createTextNode(json[i].intro));
-	subTitle.className = "remove";
+	subTitle.id = "cover-slide-para";
+	subTitle.className = "remove"; // going to be removed 
 	slide.appendChild(subTitle);
 
-	// add button 
-	// click to process to next slide 
+	// create button to go to next slide 
 	var nextButton = document.createElement("button");
 	nextButton.appendChild(document.createTextNode("Take the questionnaire >>"));
 	nextButton.className = "next";
-	nextButton.className += " remove";
+	nextButton.className += " remove"; // 
 	slide.appendChild(nextButton);
 
 	// add portfolio drop-down 
 	var numOfOptions = json[i].dropDown.length; // get amount of options 
 	var dropDown = document.createElement("select");
+	dropDown.id = "move-dropDown";
 	dropDown.className = "drop-down";
-	dropDown.id = "move_dropDown";
+	
 
 	// add options to drop-down 
 	for (var j = 0; j < numOfOptions; j++) {
 		var option = document.createElement("option");
-		if (j == 0) {
+
+		if (j == 0) {	// set the first option as default
 			option.disabled = "true";
 			option.selected = "true";
 		}
@@ -45,7 +89,6 @@ $.getJSON("data.json", function(json) {
 	
 	// change content on RESULTS slide by changing dropdown options 
 	var flag = false; 
-	console.log("slide" + i);
 	$("#slide" + i + " .drop-down").change(function(){
 		
 		if (flag == false) { // remove old elements once 
@@ -92,14 +135,11 @@ $.getJSON("data.json", function(json) {
 			refreshButton.appendChild(document.createTextNode("Go back to quiz"));
 			refreshButton.id = "refresh";
 			footer.appendChild(refreshButton);
-
-
 			$("#refresh").click(function(){
-				window.location.reload();
-			}); 
+				window.location.reload();	}); 
 			
 
-			$("#move_dropDown").css({top: 300, left: 0, position: 'relative'});
+			$("#move-dropDown").addClass("move-dropDown"); // reposition 
 		}
 
 		
@@ -255,7 +295,6 @@ function createPieChart(slide, i, portfolio) {
 	var selectedIndex = null; //declaring variable to represent index selected for separation animation
 	var selectedIndexFunds = null;
 
-
 	var pieChart = new Chart(ctx, { //creating chart with the below attributes 'var'
 		type: 'pie',
 		data: {
@@ -290,7 +329,7 @@ function createPieChart(slide, i, portfolio) {
 					fontFamily: 'Segoe UI',
 					fontSize: 11,
 					padding: 0,
-					boxWidth: 20,
+					boxWidth: 50,
 					fontStyle: 'normal'
 				}
 			},
@@ -408,6 +447,7 @@ function createResultsSlide(slide, i, arr, sum){
 
 		if (sum < 18) {
 			createPieChart(slide, i, json[i].yield);
+			$("#print").setAttribute("src", "https://www.google.ca/?safe=active&ssui=on");
 			console.log("pirchart created on results slide");
 		} else if (sum >= 18 && sum <= 30) {
 			createPieChart(slide, i, json[i].conservative);
@@ -497,22 +537,6 @@ function createResultsSlide(slide, i, arr, sum){
 // ------------------------------------------------------------------------------------------------------------------------------
 
 
-	var numOfSlides = json.length; // get the amount of questions 
-	var arr = [];
-
-
-	for (var i = 0; i < numOfSlides; i++) {
-		arr.push(0);
-	}
-	console.log("the length of array is: " + arr.length)
-	console.log("num of slides: " + numOfSlides);
-	var sum = 0; 
-
-	$("#all-slides").width(numOfSlides*8940); // set length of all slides 
-												// have to be decided after getting the amount of slides 
-
-	var all_slides = document.getElementById("all-slides"); // containing the list of all slides 
- 	var footer = document.getElementById("footer");
 
 
  	// add pagination 
@@ -565,8 +589,6 @@ function createResultsSlide(slide, i, arr, sum){
 	}
 
 
-	
-
 
 	// enable next button 
 	$("input").on('change', function(){
@@ -582,7 +604,7 @@ function createResultsSlide(slide, i, arr, sum){
 	// 
     var currSlide = 0;
 	$(".next").click(function(){ 
-	    $("#all-slides").animate({marginLeft: "-=745px"}, 500);
+	    $("#queue").animate({marginLeft: "-=800px"}, 500);
 	    currSlide++;
 	    console.log("-------------------------");
         console.log("Current page is: " + currSlide);
@@ -590,7 +612,7 @@ function createResultsSlide(slide, i, arr, sum){
 	});
 
     $(".previous").click(function(){ 
-        $("#all-slides").animate({marginLeft: "+=745px"}, 500);
+        $("#queue").animate({marginLeft: "+=800px"}, 500);
         currSlide--;
         console.log("-------------------------");
         console.log("Current page is: " + currSlide); 
@@ -607,14 +629,14 @@ function createResultsSlide(slide, i, arr, sum){
         if (diff > 0) {
             diff = currSlide - desirSlide;
             for (var i = 0; i < diff; i++) {
-                $("#all-slides").animate({marginLeft: "+=745px"}, 300);
+                $("#queue").animate({marginLeft: "+=800px"}, 300);
                 currSlide = desirSlide;
             }
         }
         if (diff < 0) {
             diff = desirSlide - currSlide;
             for (var i = 0; i < diff; i++) {
-                $("#all-slides").animate({marginLeft: "-=745px"}, 300);
+                $("#queue").animate({marginLeft: "-=800px"}, 300);
                 currSlide = desirSlide;
             }
         }
