@@ -237,6 +237,18 @@ $(document).ready(function() {
 			}
 		}
 	})
+
+	var GET = {};
+    var queryString = window.location.search.replace(/^\?/, '');
+    queryString.split(/\&/).forEach(function(keyValuePair) {
+    	var paramName = keyValuePair.replace(/=.*$/, ""); // some decoding is probably necessary
+    	var paramValue = keyValuePair.replace(/^[^=]*\=/, ""); // some decoding is probably necessary
+    	GET[paramName] = paramValue;
+    });
+    var title = decodeURIComponent(GET["form/title"]);
+    console.log(title);
+
+    document.getElementById("user-name").appendChild(document.createTextNode(title));
 });
 
 
