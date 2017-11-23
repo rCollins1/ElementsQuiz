@@ -144,7 +144,7 @@
 				"right_column" : 
 					{
 						"subtitle" : "Targeted Asset Location",
-						"pieChart" : [
+						"piechart": [
 							{
 								"label": "Domestic equities",
 								"value": 13,
@@ -190,7 +190,12 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Conservative Portfolio", 
 				"left_column" : 
 					{
+<<<<<<< HEAD
 						"intro" : "Investment Objective - The Portfolio's objective is to provide long-term returns with lower risk by investing primarily in a diversified mix of income, bond, money market and equity mutual funds."
+=======
+						"subtitle" : "Investment Objective",
+						"intro" : "The Portfolio's objective is to provide long-term returns with lower risk by investing primarily in a diversified mix of income, bond, money market and equity mutual funds."
+>>>>>>> 0b8aa65f89394f407c6cc00a0b651861a6ac6a63
 					}, 
 				"right_column" : 
 					{
@@ -262,7 +267,12 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Balanced Portfolio", 
 				"left_column" : 
 					{
+<<<<<<< HEAD
 						"intro" : "Investment Objective - The Portfolio's objective is to provide high long-term returns by investing primarily in a diversified mix of equity, income and bond mutual funds"
+=======
+						"subtitle" : "Investment Objective",
+						"intro" : "The Portfolio's objective is to provide high long-term returns by investing primarily in a diversified mix of equity, income and bond mutual funds."
+>>>>>>> 0b8aa65f89394f407c6cc00a0b651861a6ac6a63
 					}, 
 				"right_column" : 
 					{
@@ -336,7 +346,12 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Growth Portfolio", 
 				"left_column" : 
 					{
+<<<<<<< HEAD
 						"intro" : "Investment Objective - The Portfolio's objective is to provide superior long-term returns by investing primarily in equity mutual funds diversified with income and/or bond mutual fund holdings."
+=======
+						"subtitle" : "Investment Objective",
+						"intro" : "The Portfolio's objective is to provide superior long-term returns by investing primarily in equity mutual funds diversified with income and/or bond mutual fund holdings."
+>>>>>>> 0b8aa65f89394f407c6cc00a0b651861a6ac6a63
 					}, 
 				"right_column" : 
 					{
@@ -410,7 +425,12 @@
 				"title" : "Investor Profile Recommendation: AGF Elements Global Portfolio", 
 				"left_column" : 
 					{
+<<<<<<< HEAD
 						"intro" : "Investment Objective - The Portfolio's objective is to provide superior long-term returns by investing in equity mutual funds from around the globe."
+=======
+						"subtitle" : "Investment Objective",
+						"intro" : "The Portfolio's objective is to provide superior long-term returns by investing in equity mutual funds from around the globe."
+>>>>>>> 0b8aa65f89394f407c6cc00a0b651861a6ac6a63
 					}, 
 				"right_column" : 
 					{

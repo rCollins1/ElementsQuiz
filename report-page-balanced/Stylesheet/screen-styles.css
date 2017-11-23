@@ -61,7 +61,7 @@
         height: 120px;
     }
 
-    .user-name, .advisor-name {
+    #user-name, #advisor-name {
         color:black;
         margin-left: 40px;
         font-size: 20px;
@@ -396,7 +396,7 @@
 
     .up-section {
         margin-top:50px;
-        height:700px;
+        height:800px;
     }
 
     .equity-section {

@@ -1,5 +1,10 @@
 @media print
 {
+    @page {
+        size: auto;
+        margin-top: 2mm;
+        margin-bottom: 2mm;
+    }
     .page-break  { display:block; page-break-before:always; }
     
     .header-line {
@@ -26,6 +31,7 @@
     }
 
     .logo img {
+        margin-top: 5mm;
     	width:200px;
     	margin-left: 6%;
     }
@@ -272,5 +278,228 @@
 
     .disclaimer {
         margin-top: 40%;
+    }
+
+    .up-section {
+        margin-top:10px;
+        height:475px;
+    }
+
+    .equity-title {
+        font-size: 25px;
+    }
+
+    .geographic-title {
+        font-size: 25px;
+    }
+
+    .pie-chart-section-1 {
+        float:left;
+        width:40%;
+    }
+
+    .pie-chart-section-2 {
+        float:left;
+        width:40%;
+    }
+
+    #table-section-1 {
+        float:left;
+        width:40%;
+    }
+
+    #table-section-2 {
+        float:left;
+        width:40%;
+    }
+
+    .data-section {
+        height: 40%;
+        margin-top:20px;
+    }
+
+    .pie-chart-section-1 {
+        float:left;
+        width:40%;
+    }
+
+    .pie-chart-section-2 {
+        float:left;
+        width:40%;
+    }
+
+    #report-protofolio-type {
+        font-size:22px;
+        text-align: center;
+    }
+    
+    .left-section {
+        float:left;
+        width:40%;
+    }
+
+    .right-section {
+        float: left;
+        width:50%;
+    }
+
+    .equity-section {
+        height: 400px;
+    }
+
+    .geographic-section {
+        height:320px;
+    }
+
+
+    /*pie chart css*/
+    #pie-chart-0 {
+        height: 60% !important;
+        width: 60% !important;
+        margin-left: 15%;
+    }
+    #pie-chart-1 {
+        height: 60% !important;
+        width: 60% !important;
+        margin-left: 15%;
+        margin-top:30px;
+    }
+
+    #pie-chart-2 {
+        height: 60% !important;
+        width: 60% !important;
+        margin-left: 15%;
+        margin-top:30px;
+    }
+
+    #pie-chart-date-0 {
+        font-size:12px;
+    }
+
+    #pie-chart-note {
+        font-size:12px;
+    }
+
+    /*data table css */
+    .income-div {
+        border-collapse: collapse;
+        font-size:12px;
+    }
+
+    .color-0 {
+        background-color: #ED5A36;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .color-0 .income-percentage {
+        border-right:10px solid #ED5A36;
+    }
+
+    .color-1 {
+        background-color: #F47E20;
+        -webkit-print-color-adjust: exact;
+    }
+    .color-1 .income-percentage {
+        border-right:10px solid #F47E20;
+    }
+
+    .color-2 {
+        background-color: #7C4496;
+        -webkit-print-color-adjust: exact;
+    }
+    .color-2 .income-percentage {
+        border-right:10px solid #7C4496;
+    }
+
+    .color-3 {
+        background-color: #D02259;
+        -webkit-print-color-adjust: exact;
+    }
+    .color-3 .income-percentage {
+        border-right:10px solid #D02259;
+    }
+
+    .color-4 {
+        background-color: #FFB819;
+        -webkit-print-color-adjust: exact;
+    }
+    .color-4 .income-percentage {
+        border-right:10px solid #FFB819;
+    }
+
+    .income-div {
+        width: 320px;
+    }
+    .income-title {
+        color: white;
+    }
+
+    .income-fund {
+        background-color: #f4f5f5;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .fund-percentage {
+        border-right:10px solid #f4f5f5;
+    }
+    .income-percentage {
+        width:70px;
+        text-align: right;
+    }
+
+    .fund-percentage {
+        text-align: right;
+    }
+
+    #table-section-0 {
+        background-color: #f4f5f5;
+        width:320px;
+        margin-left: 20%;
+        height: 458px;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .country {
+        background-color: #f4f5f5;
+        -webkit-print-color-adjust: exact;
+        height:25px;
+    }
+    .color-box {
+        width: 12px;
+        height: 12px;
+        float:left;
+        margin-left:5px;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .country-percentage {
+        text-align: right;
+        border-right:10px solid #f4f5f5;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    /*benefit css */
+    .key-benefits {
+        margin-top: 10px;
+        padding: 10px;
+        padding-right:20px;
+        background-color: #dbdfdf; 
+        width:90%;
+        font-size: 12px;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /*foot note css */
+    .bottom-section #foot-note {
+        font-size:11px;
+        color: #b0b1b2;
+    }
+
+    .bottom-section p {
+        font-size: 20px;
+    }
+
+    .print-button {
+        display:none;
     }
 }
