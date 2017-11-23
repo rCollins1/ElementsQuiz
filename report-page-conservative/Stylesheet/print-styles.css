@@ -64,7 +64,7 @@
         height: 150px;
     }
 
-    .user-name, .advisor-name {
+    #user-name, #advisor-name {
         color:black;
         margin-left: 40px;
         font-size: 20px;
