@@ -1,3 +1,8 @@
+$(document).ready(function () {
+	var button = document.getElementById("show-repot-button");
+	button.onclick = openNewpage;
+
+});
 
 function openNewpage (){
     var title = document.getElementById('txt-name').value;
