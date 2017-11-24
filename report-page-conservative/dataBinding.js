@@ -245,7 +245,7 @@ $(document).ready(function() {
     	var paramValue = keyValuePair.replace(/^[^=]*\=/, ""); // some decoding is probably necessary
     	GET[paramName] = paramValue;
     });
-    var title = decodeURIComponent(GET["form/title"]);
+    var title = decodeURIComponent(GET["form/client-name"]);
     console.log(title);
 
     document.getElementById("user-name").appendChild(document.createTextNode(title));
