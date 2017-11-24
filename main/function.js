@@ -1,5 +1,5 @@
 
-$.getJSON("https://api.myjson.com/bins/1clgav", function(json) {
+$.getJSON("https://api.myjson.com/bins/135mi7", function(json) {
 
 
 	var numOfSlides = json.length; // get the amount of slides in the quiz 
@@ -460,7 +460,7 @@ $.getJSON("https://api.myjson.com/bins/1clgav", function(json) {
 			firmName = document.getElementById("firm-name").value;
 			phone = document.getElementById("phone").value;
 			date = document.getElementById("date").value;
-			console.log(date);
+			console.log(sum);
 
 			if (sum < 18) {
 				window.open("../report-page-conservative/report-conservative.html?form/client-name=" + clientName);
