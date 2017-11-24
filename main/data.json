@@ -31,7 +31,7 @@
 	 		{"text" : "I expect my money to grow over the long term", "value" : "8"}
 	 	],
 	 	"disclaimer" : "Please note that if your client has indicated they require income from their investments by answering 'l require steady income' to Question 1, a monthly distributing investment or purchase option such as AGF Elements Yield Portfolio or a Series T or V purchase option may be prudent for your client depending on their time horizon and risk tolerance.",
-	 	"img" : "\/\/na.intra.agf.com\/torfs$\/users\/yitianw\/Desktop\/element_quiz\/ElementQuiz_v2\/q1.png"
+	 	"img" : ".\/q1.png"
 	}, 
 
 
@@ -127,7 +127,7 @@
 	 		{"text" : "Either a loss of $8000 OR a gain of 12,000", "value": "8"},
 	 		{"text" : "Either a loss of $20,000 OR a gain of 25,000", "value": "10"}
 	 	], 
-	 	"img" : "\/\/na.intra.agf.com\/torfs$\/users\/yitianw\/Desktop\/element_quiz\/ElementQuiz_v2\/q8.png"
+	 	"img" : ".\/q8.png"
 	}, 
 
 

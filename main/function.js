@@ -1,5 +1,5 @@
 
-$.getJSON("https://api.myjson.com/bins/135mi7", function(json) {
+$.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
 
 	var numOfSlides = json.length; // get the amount of slides in the quiz 
