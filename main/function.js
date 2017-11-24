@@ -449,32 +449,6 @@ $.getJSON("https://api.myjson.com/bins/135mi7", function(json) {
 			// display REPORT button 
 			$("#report").show();
 
-			$("#print").click(function(){
-
-			clientName = document.getElementById("client-name").value;
-			address1 = document.getElementById("address1").value;
-			address2 = document.getElementById("address2").value;
-			address3 = document.getElementById("address3").value;
-
-			advisorName = document.getElementById("advisor-name").value;
-			firmName = document.getElementById("firm-name").value;
-			phone = document.getElementById("phone").value;
-			date = document.getElementById("date").value;
-			console.log(sum);
-
-			if (sum < 18) {
-				window.open("../report-page-conservative/report-conservative.html?form/client-name=" + clientName);
-			} else if (sum >= 18 && sum <= 30) {
-				window.open("../report-page-conservative/report-conservative.html?form/client-name=" + clientName);
-			} else if (sum >= 31 && sum <= 43) {
-				window.open("../report-page-conservative/report-conservative.html?form/client-name=" + clientName);
-			} else if (sum >= 44 && sum <= 55) {
-				window.open("../report-page-conservative/report-conservative.html?form/client-name=" + clientName);
-			} else if (sum > 55) {
-				window.open("../report-page-conservative/report-conservative.html?form/client-name=" + clientName);
-			}	
-			
-			});
 		});
 
 
