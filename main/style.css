@@ -95,21 +95,16 @@ button.pagination[disabled]{
 
 /*section slide styling */
 .section-intro{
-    height: 250px;
+    height: 270px;
 }
 /*section slide styling ---ends */
 
 
 /*question slide styling*/
 #question{
-    height: 30px;
+    height: 40px;
 }
-.row {
-    display: table;
-    clear: both;
-    width: 700px;
-    height: 220px;
-}
+
 
 .question-column{
     box-sizing: border-box;
@@ -138,7 +133,6 @@ label {
 
 .disclaimer{
     font-size: 10px;
-    height: 30px;
 }
 /*question slide styling --- ends */
 
@@ -211,5 +205,22 @@ label {
 
 .next, .previous{
     background-color: #f5cf68;
-    z-index: 9000;
+    position: relative;
+}
+
+#myModal {
+    box-shadow: 5px 5px 2px #888888;
+}
+
+.report-row {
+    display: table;
+    clear: both;
+    width: 375px;
+    height: 185px;
+}
+.report-column{
+    box-sizing: border-box;
+    float: left;
+    align-content: center;
+    width: 50%;
 }

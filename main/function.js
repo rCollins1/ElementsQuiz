@@ -141,6 +141,7 @@ $.getJSON("data.json", function(json) {
         	    var optionValue = $(this).attr("value");
             	var arg = eval("json[i]."+ optionValue);
 
+            	
             	createPieChart(slide, i, arg);
             	
         	});
@@ -431,10 +432,15 @@ function createQuestionSlide(slide, i){
 	
 		$("#next" + (i - 1)).click(function(){
 
+			
+
 			for (var j = 0; j < arr.length; j++) {
 				sum = sum + parseInt(arr[j]);
 			}
 			console.log("the sum is: " + sum);
+
+			$("iframe").remove();
+			$("canvas").remove(); 
 
 			if (sum < 18) {
 				createPieChart(slide, i, json[i].yield);
@@ -493,10 +499,12 @@ function createQuestionSlide(slide, i){
 
 			$(this).find("option:selected").each(function(){
 
-				$("canvas").remove();
+				$("iframe").remove();
+				$("canvas").remove(); 
 
             	var optionValue = $(this).attr("value");
             	var arg = eval("json[i]."+ optionValue);
+
             	createPieChart(slide, i, arg);
         	});
 		});
