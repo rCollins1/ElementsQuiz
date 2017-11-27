@@ -194,6 +194,7 @@ label {
     overflow: auto; /* Enable scroll if needed */
     background-color: white;
     border: 1px solid #eeb310; 
+    box-shadow: 5px 5px 2px #888888;
 }
 
 
@@ -206,10 +207,6 @@ label {
 .next, .previous{
     background-color: #f5cf68;
     position: relative;
-}
-
-#myModal {
-    box-shadow: 5px 5px 2px #888888;
 }
 
 .report-row {
