@@ -4,6 +4,8 @@ body {
     width: 800px;
     height: 550px;
     border: 1px solid #eeb310; 
+    font-family: helvetica;
+    color:  #595959;
 }
 
 #banner{
