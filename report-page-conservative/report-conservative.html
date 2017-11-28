@@ -28,10 +28,15 @@
 			<div class="for-whom">
 				<p>PREPARED EXCLUSIVELY FOR:</p>
 				<div id="user-name"></div>
+				<div id="address1"></div>
+				<div id="address2"></div>
+				<div id="address3"></div>
 			</div>
 			<div class="by-whom">
 				<p>BY:</p>
 				<div id="advisor-name"></div>
+				<div id="firmName"></div>
+				<div id="phone"></div>
 			</div>
 		</div>
 		</div>
@@ -56,11 +61,11 @@
 				<h3 class="title">Your Portfolio Policy Statement</h3>
 				<p>This Portfolio Policy Statement is designed to detail your overall investment strategy. In choosing</p>
 				<div class="type-select">
-					<div class="check-box portfolio"></div>
+					<div class="check-box" id="type-portfolio"></div>
 					<div class="type"><strong>AGF Elements<sup>&#174;</sup> Conservative Portfolio*</strong> (the &#34;Portfolio&#34;),</div>
 				</div>
 				<div class="type-select">
-					<div class="check-box class"></div>
+					<div class="check-box" id="type-class"></div>
 					<div class="type"><strong>AGF Elements<sup>&#174;</sup> Conservative Class</strong> (the &#34;Portfolio&#34;),</div>
 				</div>
 				<p>you and I have selected the portfolio that best meets your current financial needs. As your personal financial situation changes over time, we will review your investments and revise these as needed.</p>
@@ -251,7 +256,7 @@
 			<h4>Accepted by:</h4>
 			<div class="signature investor">
 				<div class="print-name">
-					<div class="empty-line"></div>
+					<div class="empty-line" id="user-name-signature"></div>
 					<div class="signature-instruction">Please print name</div>
 				</div>
 				<div class="sign-name">
@@ -259,7 +264,7 @@
 					<div class="signature-instruction">Signature of investor</div>
 				</div>
 				<div class="date">
-					<div class="empty-line-date"></div>
+					<div class="empty-line-date" id="date-0"></div>
 					<div class="signature-instruction">Date</div>
 				</div>
 			</div>
@@ -279,7 +284,7 @@
 			</div>
 			<div class="signature advisor">
 				<div class="print-name">
-					<div class="empty-line"></div>
+					<div class="empty-line" id="advisor-name-signature"></div>
 					<div class="signature-instruction">Please print name</div>
 				</div>
 				<div class="sign-name">
@@ -287,7 +292,7 @@
 					<div class="signature-instruction">Signature of investor</div>
 				</div>
 				<div class="date">
-					<div class="empty-line-date"></div>
+					<div class="empty-line-date" id="date-1"></div>
 					<div class="signature-instruction">Date</div>
 				</div>
 			</div>

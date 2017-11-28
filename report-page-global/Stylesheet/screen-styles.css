@@ -61,7 +61,7 @@
         height: 120px;
     }
 
-    #user-name, #advisor-name {
+    #user-name, #advisor-name, #address1, #address2, #address3, #firmName, #phone {
         color:black;
         margin-left: 40px;
         font-size: 20px;
@@ -82,6 +82,7 @@
         border: 1px solid #1489c9;
         float:left;
         margin-right: 10px;
+        line-height: 14px;
     }
 
     .type-select {
@@ -231,12 +232,14 @@
     }
 
     .empty-line {
+        font-size:20px;
         height: 30px;
         line-height:30px;
         border-bottom: 1px solid black;
     }
 
     .empty-line-date {
+        font-size:20px;
         height: 30px;
         line-height:30px;
         border-bottom: 1px solid black;
@@ -396,7 +399,7 @@
 
     .up-section {
         margin-top:50px;
-        height:800px;
+        height:700px;
     }
 
     .equity-section {
