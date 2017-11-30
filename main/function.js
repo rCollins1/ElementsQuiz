@@ -493,6 +493,8 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 				$("canvas").remove();
 
             	var optionValue = $(this).attr("value");
+            	userOption = optionValue;
+            	
             	var arg = eval("json[i]."+ optionValue);
             	createPieChart(slide, i, arg);
         	});
