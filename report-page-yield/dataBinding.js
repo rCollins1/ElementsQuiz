@@ -88,10 +88,10 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 
 	}
 
-	
-	
 	//incomeDiv.appendChild(fundDiv);
-	divToBeAppend.appendChild(incomeDiv);
+	if ("" !== incomeObject.type) {
+		divToBeAppend.appendChild(incomeDiv);
+	}
 };
 
 function buildPieChart (positionID, dataArray) {

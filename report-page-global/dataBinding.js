@@ -1,4 +1,4 @@
-var jsonSource = "https://api.myjson.com/bins/aksp3";
+var jsonSource = "https://api.myjson.com/bins/12b5cz";
 
 function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	
@@ -56,6 +56,7 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 			incomeFund.appendChild(fundPercentage);
 			incomeFund.appendChild(fundName);
 			incomeDiv.appendChild(incomeFund);
+			
 		}
 	}
 	else {
@@ -91,7 +92,9 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	
 	
 	//incomeDiv.appendChild(fundDiv);
-	divToBeAppend.appendChild(incomeDiv);
+	if ("" !== incomeObject.type) {
+		divToBeAppend.appendChild(incomeDiv);
+	}
 };
 
 function buildPieChart (positionID, dataArray) {

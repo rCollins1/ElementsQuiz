@@ -21,7 +21,7 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 		arr.push(0);
 	}
 
-	var sum = 0; // create sum to store the sum of items in array 
+	var sum; // create sum to store the sum of items in array 
 
 	var all_slides = document.getElementById("queue"); // get the div of slide queue (have created in html)
  	var footer = document.getElementById("footer"); // get the div of footer (have created in html)
@@ -423,6 +423,7 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 
 	
 		$("#next" + (i - 1)).click(function(){
+			sum = 0;
 			for (var j = 0; j < arr.length; j++) {
 				sum = sum + parseInt(arr[j]);
 			}

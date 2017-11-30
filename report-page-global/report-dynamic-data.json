@@ -6,6 +6,18 @@
 	"date": "APRIL 24, 2017",
 	"fundsChart" : [
 					{
+						"type" : "",
+						"percentage" : "",
+						"colour": "#ED5A36",
+						"subType" : []
+					},
+					{
+						"type" : "",
+						"percentage" : "",
+						"colour": "#F47E20",
+						"subType" : []
+					},
+					{
 						"type" : "DOMESTIC EQUITIES",
 						"percentage" : 4,
 						"colour": "#7C4496",
