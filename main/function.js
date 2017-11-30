@@ -23,7 +23,7 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
 
  	// variables used in report form 
-	var clientName, address1, address2, address3, advisorName, firmName, phone, date;
+	var clientName, address1, address2, address3, advisorName, firmName, phone, date, userSelectedClass, userOption;
 
 
 	function createCoverPageSlide(slide, i, last_slide_index, footer){ // create coverSlide for the quiz
@@ -133,12 +133,14 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 				$("canvas").remove();
 
         	    var optionValue = $(this).attr("value");
+        	    userOption = optionValue;
+				console.log(optionValue);
+
             	var arg = eval("json[i]."+ optionValue);
 
             	createPieChart(slide, i, arg);
             	$("iframe").remove();
 
-            	$("#print").click({param1: optionValue}, selectReport);
         	});
 
 
@@ -431,62 +433,31 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
 			if (sum < 18) {
 				createPieChart(slide, i, json[i].yield);
+				userOption = "yield";
 				console.log("pirchart created on results slide");
 			} else if (sum >= 18 && sum <= 30) {
 				createPieChart(slide, i, json[i].conservative);
+				userOption = "conservative";
 				console.log("pirchart created on results slide");
 
 			} else if (sum >= 31 && sum <= 43) {
 				createPieChart(slide, i, json[i].balanced);
+				userOption = "balanced";
 				console.log("pirchart created on results slide");
 
 			} else if (sum >= 44 && sum <= 55) {
 				createPieChart(slide, i, json[i].growth);
+				userOption = "growth";
 				console.log("pirchart created on results slide");
 
 			} else if (sum > 55) {
 				createPieChart(slide, i, json[i].global);
+				userOption = "global";
 				console.log("pirchart created on results slide");
 			}	
 
 			// display REPORT button 
 			$("#report").show();
-
-			$("#print").click(function(){
-
-				clientName = document.getElementById("client-name").value;
-				address1 = document.getElementById("address1").value;
-				address2 = document.getElementById("address2").value;
-				address3 = document.getElementById("address3").value;
-				advisorName = document.getElementById("advisor-name").value;
-				firmName = document.getElementById("firm-name").value;
-				phone = document.getElementById("phone").value;
-				date = document.getElementById("date").value;
-
-				var userSelectedClass = document.querySelector('input[name="className"]:checked').value;
-
-				var queryString ="?form/client-name="  + clientName +
-					 			"&form/address1=" + address1 +
-					 			"&form/address2=" + address2 +
-					 			"&form/address3=" + address3 +
-					 			"&form/advisor-name=" + advisorName +
-					 			"&form/firm-name=" + firmName +
-					 			"&form/phone=" + phone +
-					 			"&form/date=" + date +
-					 			"&form/class-name=" + userSelectedClass;
-	
-				if (sum < 18) {
-					window.open("../report-page-yield/report-yield.html" + queryString);
-				} else if (sum >= 18 && sum <= 30) {
-					window.open("../report-page-conservative/report-conservative.html" + queryString);
-				} else if (sum >= 31 && sum <= 43) {
-					window.open("../report-page-balanced/report-balanced.html" + queryString);
-				} else if (sum >= 44 && sum <= 55) {
-					window.open("../report-page-growth/report-growth.html" + queryString);
-				} else if (sum > 55) {
-					window.open("../report-page-global/report-global.html" + queryString);
-				}			
-			});
 
 		});
 
@@ -656,40 +627,42 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
         });
 	});
 
-});
+	$("#print").click(function(){
+            		'use strict';
+            		console.log(userOption);
 
+            		clientName = document.getElementById("client-name").value;
+					address1 = document.getElementById("address1").value;
+					address2 = document.getElementById("address2").value;
+					address3 = document.getElementById("address3").value;
+					advisorName = document.getElementById("advisor-name").value;
+					firmName = document.getElementById("firm-name").value;
+					phone = document.getElementById("phone").value;
+					date = document.getElementById("date").value;
 
-function selectReport(){
-		clientName = document.getElementById("client-name").value;
-		address1 = document.getElementById("address1").value;
-		address2 = document.getElementById("address2").value;
-		address3 = document.getElementById("address3").value;
-		advisorName = document.getElementById("advisor-name").value;
-		firmName = document.getElementById("firm-name").value;
-		phone = document.getElementById("phone").value;
-		date = document.getElementById("date").value;
+					userSelectedClass = document.querySelector('input[name="className"]:checked').value;
 
-		var userSelectedClass = document.querySelector('input[name="className"]:checked').value;
-
-		var queryString ="?form/client-name="  + clientName +
-					 	"&form/address1=" + address1 +
-					 	"&form/address2=" + address2 +
-					 	"&form/address3=" + address3 +
-					 	"&form/advisor-name=" + advisorName +
-					 	"&form/firm-name=" + firmName +
-					 	"&form/phone=" + phone +
-					 	"&form/date=" + date +
-					 	"&form/class-name=" + userSelectedClass;
+					var queryString ="?form/client-name="  + clientName +
+					 			"&form/address1=" + address1 +
+					 			"&form/address2=" + address2 +
+					 			"&form/address3=" + address3 +
+					 			"&form/advisor-name=" + advisorName +
+					 			"&form/firm-name=" + firmName +
+					 			"&form/phone=" + phone +
+					 			"&form/date=" + date + 
+					 			"&form/class-name=" + userSelectedClass;
 	
-		if (optionValue === "yield") {
-			window.open("../report-page-yield/report-yield.html" + queryString);
-		} else if (optionValue === "conservative") {
-			window.open("../report-page-conservative/report-conservative.html" + queryString);
-		} else if (optionValue === "balanced") {
-			window.open("../report-page-balanced/report-balanced.html" + queryString);
-		} else if (optionValue === "growth") {
-			window.open("../report-page-growth/report-growth.html" + queryString);
-		} else if (optionValue === "global") {
-			window.open("../report-page-global/report-global.html" + queryString);
-		}			
-}
+				if (userOption === "yield") {
+						window.open("../report-page-yield/report-yield.html" + queryString);
+					} else if (userOption === "conservative") {
+						window.open("../report-page-conservative/report-conservative.html" + queryString);
+					} else if (userOption === "balanced") {
+						window.open("../report-page-balanced/report-balanced.html" + queryString);
+					} else if (userOption === "growth") {
+						window.open("../report-page-growth/report-growth.html" + queryString);
+					} else if (userOption === "global") {
+						window.open("../report-page-global/report-global.html" + queryString);
+					}
+            	});
+
+});
