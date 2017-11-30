@@ -238,6 +238,8 @@ $(document).ready(function() {
 		}
 	})
 
+	//---------------------------------------------------------------- Feed User Input Section -------------------------------------------------------
+	//get the user input from query string, and feed into correct location
 	var GET = {};
     var queryString = window.location.search.replace(/^\?/, '');
     queryString.split(/\&/).forEach(function(keyValuePair) {
@@ -245,10 +247,38 @@ $(document).ready(function() {
     	var paramValue = keyValuePair.replace(/^[^=]*\=/, ""); // some decoding is probably necessary
     	GET[paramName] = paramValue;
     });
-    var title = decodeURIComponent(GET["form/title"]);
-    console.log(title);
+    var clientName = decodeURIComponent(GET["form/client-name"]);
+    var address1 = decodeURIComponent(GET["form/address1"]);
+    var address2 = decodeURIComponent(GET["form/address2"]);
+    var address3 = decodeURIComponent(GET["form/address3"]);
+    var advisorName = decodeURIComponent(GET["form/advisor-name"]);
+    var firmName = decodeURIComponent(GET["form/firm-name"]);
+    var phone = decodeURIComponent(GET["form/phone"]);
+    var date = decodeURIComponent(GET["form/date"]);
+    var userSelectedClass = decodeURIComponent(GET["form/class-name"]);
 
-    document.getElementById("user-name").appendChild(document.createTextNode(title));
+    document.getElementById("user-name").appendChild(document.createTextNode(clientName));
+    document.getElementById("address1").appendChild(document.createTextNode(address1));
+    document.getElementById("address2").appendChild(document.createTextNode(address2));
+    document.getElementById("address3").appendChild(document.createTextNode(address3));
+
+
+    document.getElementById("advisor-name").appendChild(document.createTextNode(advisorName));
+	document.getElementById("firmName").appendChild(document.createTextNode(firmName));
+	document.getElementById("phone").appendChild(document.createTextNode(phone));
+
+	document.getElementById("user-name-signature").appendChild(document.createTextNode(clientName));
+    document.getElementById("advisor-name-signature").appendChild(document.createTextNode(advisorName));
+
+    document.getElementById("date-0").appendChild(document.createTextNode(date));
+    document.getElementById("date-1").appendChild(document.createTextNode(date));
+
+	if (userSelectedClass === "Non-Corporate") {
+		document.getElementById("type-portfolio").appendChild(document.createTextNode("X"));
+	}
+	else {
+		document.getElementById("type-class").appendChild(document.createTextNode("X"));
+	}
 });
 
 

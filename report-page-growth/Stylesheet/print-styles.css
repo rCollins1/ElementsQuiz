@@ -64,7 +64,7 @@
         height: 150px;
     }
 
-    #user-name, #advisor-name {
+    #user-name, #advisor-name, #address1, #address2, #address3, #firmName, #phone {
         color:black;
         margin-left: 40px;
         font-size: 20px;
@@ -239,12 +239,14 @@
     }
 
     .empty-line {
+        font-size: 15px;
         line-height:30px;
         height: 30px;
         border-bottom: 1px solid black;
     }
 
     .empty-line-date {
+        font-size: 15px;
         height: 30px;
         line-height:30px;
         border-bottom: 1px solid black;
