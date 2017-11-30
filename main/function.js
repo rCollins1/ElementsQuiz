@@ -1,5 +1,5 @@
 
-$.getJSON("data.json", function(json) {
+$.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 	
 
 	// ------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -30,9 +30,6 @@ $.getJSON("data.json", function(json) {
  	// variables used in report form 
 	var clientName, address1, address2, address3, advisorName, firmName, phone, date, userSelectedClass, userOption;
 	// ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	// ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 	function createCoverPageSlide(slide, i, last_slide_index, footer){ // create coverSlide 
 
@@ -78,10 +75,9 @@ $.getJSON("data.json", function(json) {
 		}
 
 	
-		 // replace elements to 
-     var flag = false; 
-		  $("#slide" + i + " .drop-down").change(function(){
-
+		// replace elements to 
+     	var flag = false; 
+		$("#slide" + i + " .drop-down").change(function(){
 			$("#move-dropDown").addClass("move-dropDown"); // reposition the dropDown to the bottom of the slide
 			$(".pagination").hide(); // hide pagination
 			$("#report").show(); // display REPORT button 
@@ -129,7 +125,6 @@ $.getJSON("data.json", function(json) {
 				$("#refresh").click(function(){
 					window.location.reload();	
 				}); 
-			
 			}
 
 
@@ -155,58 +150,35 @@ $.getJSON("data.json", function(json) {
 
 	}
 
-function createSectionSlide(slide, i){ // create section slide 
+  	function createSectionSlide(slide, i){ // create section slide 
 
-	var title = document.createElement("h2"); 
-	title.appendChild(document.createTextNode(json[i].title))
-	slide.appendChild(title);
+		var title = document.createElement("h2"); 
+		title.appendChild(document.createTextNode(json[i].title))
+		slide.appendChild(title);
 
-	var intro = document.createElement("p");
-	intro.appendChild(document.createTextNode(json[i].intro));
-	intro.className = "section-intro";
-	slide.appendChild(intro);
+		var intro = document.createElement("p");
+		intro.appendChild(document.createTextNode(json[i].intro));
+		intro.className = "section-intro";
+		slide.appendChild(intro);
 
-  function createSectionSlide(slide, i){ // create section slide 
+		var previouButton = document.createElement("button");
+		previouButton.appendChild(document.createTextNode("PREVIOUS"));
+		previouButton.className = "previous";
+		slide.appendChild(previouButton);
 
-	  var title = document.createElement("h2"); 
-	  title.appendChild(document.createTextNode(json[i].title))
-	  slide.appendChild(title);
+		var nextButton = document.createElement("button");
+		nextButton.appendChild(document.createTextNode("NEXT"));
+		nextButton.className = "next";
+		slide.appendChild(nextButton);
+	}
 
-	  var intro = document.createElement("p");
-	  intro.appendChild(document.createTextNode(json[i].intro));
-	  intro.className = "section-intro";
-	  slide.appendChild(intro);
+  	function createQuestionSlide(slide, i){
 
-	  var previouButton = document.createElement("button");
-	  previouButton.appendChild(document.createTextNode("PREVIOUS"));
-	  previouButton.className = "previous";
-	  slide.appendChild(previouButton);
-
-	  var nextButton = document.createElement("button");
-	  nextButton.appendChild(document.createTextNode("NEXT"));
-	  nextButton.className = "next";
-	  slide.appendChild(nextButton);
-  }
-
-  function createQuestionSlide(slide, i){
-
-	  // create question 
-	  var question = document.createElement("h4");
-	  question.appendChild(document.createTextNode(json[i].question));
-	  question.id = "question";
-	  slide.appendChild(question);
-
-	  // create one row for two columns 
-	  var row = document.createElement("div"); 
-	  row.className = "row";
-	  slide.appendChild(row);
-
-
-	  // create question 
-	  var question = document.createElement("h4");
-	  question.appendChild(document.createTextNode(json[i].question));
-	  question.id = "question";
-	  slide.appendChild(question);
+		// create question 
+		var question = document.createElement("h4");
+		question.appendChild(document.createTextNode(json[i].question));
+		question.id = "question";
+		slide.appendChild(question);
 
 		// create one row for two columns 
 		var row = document.createElement("div"); 
@@ -234,59 +206,39 @@ function createSectionSlide(slide, i){ // create section slide
 		var numOfAnswers = json[i].answers.length;
 		for (var j = 0; j < numOfAnswers; j++) {
 
-	  // create left column for answer list 
-	  var leftColumn = document.createElement("div"); 
-	  leftColumn.className = "question-column";
-	  leftColumn.className += " question-left";
-	  row.appendChild(leftColumn);
+			function addRadioButton(text, value){
 
-	  // create right column for img 
-	  var rightColumn = document.createElement("div"); 
-	  rightColumn.className = "question-column";
-	  rightColumn.className += " question-right";
-	  row.appendChild(rightColumn);
+				var label = document.createElement("label");
+				var radio = document.createElement("input");
 
-	  // create Form for answer list 
-	  var formElement = document.createElement("form"); 
-	  formElement.id = "form" + i;
-	  leftColumn.appendChild(formElement);
+				radio.className = "radio-button";
+				radio.setAttribute("type", "radio");
+				radio.setAttribute("name", "radioButton");
+				radio.setAttribute("value", value);
+				radio.id = i;
 
-	  // add Answers to the slide 
-	  var numOfAnswers = json[i].answers.length;
-	  for (var j = 0; j < numOfAnswers; j++) {
+				label.appendChild(radio);
+				label.appendChild(document.createTextNode(text)); // add text to radio buttons 
 
-		  function addRadioButton(text, value){
+				formElement.appendChild(label);
+			}
 
-			  var label = document.createElement("label");
-			  var radio = document.createElement("input");
-
-			  radio.className = "radio-button";
-			  radio.setAttribute("type", "radio");
-			  radio.setAttribute("name", "radioButton");
-			  radio.setAttribute("value", value);
-			  radio.id = i;
-
-			  label.appendChild(radio);
-			  label.appendChild(document.createTextNode(text)); // add text to radio buttons 
-
-			  formElement.appendChild(label);
-		  }
-      addRadioButton(json[i].answers[j].text, json[i].answers[j].value); // add value to radio buttons 
+			addRadioButton(json[i].answers[j].text, json[i].answers[j].value); // add value to radio buttons 
 		}	
 
 
 		// add disclaimer 
 		var disclaimer = document.createElement("p");
 		disclaimer.className = "disclaimer";
-   	slide.appendChild(disclaimer);
+   		slide.appendChild(disclaimer);
 
 
-    // add img to right column 
+    	// add img to right column 
 		if (json[i].img != null) {
     		var img = document.createElement("IMG");
     		img.className = "img";
     		img.setAttribute("src", json[i].img);
-			  img.setAttribute("alt", "chart display error");
+			img.setAttribute("alt", "chart display error");
     		rightColumn.appendChild(img);
 		} else {
 			leftColumn.setAttribute("width", "100%");
@@ -295,7 +247,8 @@ function createSectionSlide(slide, i){ // create section slide
 
 		// add disclaimer content 
 		if (json[i].disclaimer != null){
-   		disclaimer.appendChild(document.createTextNode(json[i].disclaimer));
+   		
+    		disclaimer.appendChild(document.createTextNode(json[i].disclaimer));
 		}
 
 		// Previous and Next button 
@@ -303,52 +256,15 @@ function createSectionSlide(slide, i){ // create section slide
 		previouButton.appendChild(document.createTextNode("PREVIOUS"));
 		previouButton.className = "previous";
 		slide.appendChild(previouButton);
-		formElement.appendChild(label);
-	}
 
-		addRadioButton(json[i].answers[j].text, json[i].answers[j].value); // add value to radio buttons 
-	}	
-
-
-	// add disclaimer 
-	var disclaimer = document.createElement("p");
-	disclaimer.className = "disclaimer";
-    slide.appendChild(disclaimer);
-
-
-    // add img to right column 
-	if (json[i].img != null) {
-    	var img = document.createElement("IMG");
-    	img.className = "img";
-    	img.setAttribute("src", json[i].img);
-		img.setAttribute("alt", "chart display error");
-    	rightColumn.appendChild(img);
-	} else {
-		leftColumn.setAttribute("width", "100%");
+		var nextButton = document.createElement("button");
+		nextButton.appendChild(document.createTextNode("NEXT"));
+		nextButton.className = "next";
+		nextButton.id = ("next" + i);
+		nextButton.disabled = true;
+		slide.appendChild(nextButton);
 
 	}
-
-	// add disclaimer content 
-	if (json[i].disclaimer != null){
-   		
-    	disclaimer.appendChild(document.createTextNode(json[i].disclaimer));
-    	
-	}
-
-	// Previous and Next button 
-	var previouButton = document.createElement("button");
-	previouButton.appendChild(document.createTextNode("PREVIOUS"));
-	previouButton.className = "previous";
-	slide.appendChild(previouButton);
-
-	var nextButton = document.createElement("button");
-	nextButton.appendChild(document.createTextNode("NEXT"));
-	nextButton.className = "next";
-	nextButton.id = ("next" + i);
-	nextButton.disabled = true;
-	slide.appendChild(nextButton);
-
-}
 
 
 	function createPieChart(slide, i, portfolio) {
@@ -475,13 +391,10 @@ function createSectionSlide(slide, i){ // create section slide
 	}
 
 	function createResultsSlide(slide, i, arr, sum){
-
-
 		// slide title
 		var title = document.createElement("h4");
 		title.id = "results-slide-title";
 		slide.appendChild(title);
-
 
 		var row = document.createElement("div");
 		row.className = "results-row";
@@ -510,18 +423,12 @@ function createSectionSlide(slide, i){ // create section slide
 
 	
 		$("#next" + (i - 1)).click(function(){
-
-			
-
 			for (var j = 0; j < arr.length; j++) {
 				sum = sum + parseInt(arr[j]);
 			}
 			console.log("the sum is: " + sum);
 			$("iframe").remove();
 			$("canvas").remove();
-
-			$("iframe").remove();
-			$("canvas").remove(); 
 
 			if (sum < 18) {
 				createPieChart(slide, i, json[i].yield);
@@ -572,9 +479,8 @@ function createSectionSlide(slide, i){ // create section slide
 			option.value = json[i].dropDown[j].value;
 			dropDown.appendChild(option);
 		}
+
 		slide.appendChild(dropDown);
-
-
 
 		// change content on RESULTS slide by changing dropdown options 
 		$("#slide" + i +" .drop-down").change(function(){
@@ -587,19 +493,19 @@ function createSectionSlide(slide, i){ // create section slide
 
 				$("iframe").remove();
 				$("canvas").remove(); 
-        var optionValue = $(this).attr("value");
-        userOption = optionValue;
+        		var optionValue = $(this).attr("value");
+        		userOption = optionValue;
             	
-        var arg = eval("json[i]."+ optionValue);
+        		var arg = eval("json[i]."+ optionValue);
 
-        createPieChart(slide, i, arg);
-       });
+        		createPieChart(slide, i, arg);
+       		});
 		});
 
 
 
  		// Previous and Next button 
-    var previouButton = document.createElement("button");
+    	var previouButton = document.createElement("button");
 		previouButton.appendChild(document.createTextNode("PREVIOUS"));
 		previouButton.className = "previous";
 		slide.appendChild(previouButton);
@@ -713,39 +619,39 @@ function createSectionSlide(slide, i){ // create section slide
         
     });
 
-      // display or hide modal 
-		  $("#report").click(function(){
-		    $("#report-window").css("display", "block");
+    // display or hide modal 
+	$("#report").click(function(){
+		$("#report-window").css("display", "block");
         console.log("report button is clicked");
         $("#myModal").css("display", "block");
-      });
+    });
   
-      $(".close").click(function(){
+    $(".close").click(function(){
         console.log("close button is clicked");
         $("#myModal").css("display", "none");
-		  });
+	});
 
-  $("#print").click(function(){
-    'use strict';
-    clientName = document.getElementById("client-name").value;
-    address1 = document.getElementById("address1").value;
-    address2 = document.getElementById("address2").value;
-    address3 = document.getElementById("address3").value;
-    advisorName = document.getElementById("advisor-name").value;
-    firmName = document.getElementById("firm-name").value;
-    phone = document.getElementById("phone").value;
-    date = document.getElementById("date").value;
-    userSelectedClass = document.querySelector('input[name="className"]:checked').value;
+    $("#print").click(function(){
+    	'use strict';
+    	clientName = document.getElementById("client-name").value;
+    	address1 = document.getElementById("address1").value;
+    	address2 = document.getElementById("address2").value;
+    	address3 = document.getElementById("address3").value;
+    	advisorName = document.getElementById("advisor-name").value;
+    	firmName = document.getElementById("firm-name").value;
+    	phone = document.getElementById("phone").value;
+    	date = document.getElementById("date").value;
+    	userSelectedClass = document.querySelector('input[name="className"]:checked').value;
 
-    var queryString ="?form/client-name="  + clientName +
-					 			     "&form/address1=" + address1 +
-					 			     "&form/address2=" + address2 +
-					 			     "&form/address3=" + address3 +
-					 			     "&form/advisor-name=" + advisorName +
-					 			     "&form/firm-name=" + firmName +
-					 			     "&form/phone=" + phone +
-					 			     "&form/date=" + date + 
-					 			     "&form/class-name=" + userSelectedClass;
+    	var queryString ="?form/client-name="  + clientName +
+					 	"&form/address1=" + address1 +
+					 	"&form/address2=" + address2 +
+					 	"&form/address3=" + address3 +
+					 	"&form/advisor-name=" + advisorName +
+					 	"&form/firm-name=" + firmName +
+					 	"&form/phone=" + phone +
+					 	"&form/date=" + date + 
+					 	"&form/class-name=" + userSelectedClass;
 	
 		if (userOption === "yield") {
 			window.open("../report-page-yield/report-yield.html" + queryString);
