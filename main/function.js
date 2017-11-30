@@ -1,7 +1,10 @@
 
 $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
+	//https://api.myjson.com/bins/1ghy67
 
+	// ------------------------------------------------------------------------------------------------------------------------------------------------------
+	// declare global variables 
 	var numOfSlides = json.length; // get the amount of slides in the quiz 
 								   // (containing coverSlide, questionSlide and resultsSlide)
 
@@ -24,6 +27,7 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
  	// variables used in report form 
 	var clientName, address1, address2, address3, advisorName, firmName, phone, date, userSelectedClass, userOption;
+	// ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 	function createCoverPageSlide(slide, i, last_slide_index, footer){ // create coverSlide for the quiz
@@ -36,11 +40,11 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 		slide.appendChild(title);
  
 		// create intro para 
-		var subTitle = document.createElement("p");
-		subTitle.appendChild(document.createTextNode(json[i].intro));
-		subTitle.id = "cover-slide-para";
-		subTitle.className = "remove"; // going to be removed 
-		slide.appendChild(subTitle);
+		var supaginationitle = document.createElement("p");
+		supaginationitle.appendChild(document.createTextNode(json[i].intro));
+		supaginationitle.id = "cover-slide-para";
+		supaginationitle.className = "remove"; // going to be removed 
+		slide.appendChild(supaginationitle);
 
 		// create button to go to next slide 
 		var nextButton = document.createElement("button");
@@ -54,7 +58,7 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 		var dropDown = document.createElement("select");
 		dropDown.id = "move-dropDown";
 		dropDown.className = "drop-down";
-	
+		slide.appendChild(dropDown);
 
 		// add options to drop-down 
 		for (var j = 0; j < numOfOptions; j++) {
@@ -68,86 +72,78 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 			option.value = json[i].dropDown[j].value;
 			dropDown.appendChild(option);
 		}
-		slide.appendChild(dropDown);
 
 	
-		// change content on RESULTS slide by changing dropdown options 
+		// replace elements to 
 		var flag = false; 
 		$("#slide" + i + " .drop-down").change(function(){
+
+			$("#move-dropDown").addClass("move-dropDown"); // reposition the dropDown to the bottom of the slide
+			$(".pagination").hide(); // hide pagination
+			$("#report").show(); // display REPORT button 
 		
 			if (flag == false) { // remove old elements once 
 								//create new elements once 
 				flag=true;
 
-				// remove elements from cover page
-				$(".remove").remove();
+				$(".remove").remove(); // remove elements from cover page
 		
 				var title = document.createElement("h4");
 				title.id = "results-slide-title";
 				slide.appendChild(title);
-				$("#results-slide-title").css({top: -20, position: 'relative'});
 
-				var row = document.createElement("div");
-				row.className = "row";
-				row.id = "row";
+				var row = document.createElement("div");  // create one row for two columns
+				row.className = "results-row";
 				slide.appendChild(row);
-				$("#row").css({top: -20, position: 'relative'});
 
-				var leftColumn = document.createElement("div");
-				leftColumn.className = "column";
+				var leftColumn = document.createElement("div"); // left column
+				leftColumn.className = "results-column";
 				leftColumn.id = "leftColumn";
 				row.appendChild(leftColumn);
 
-				var rightColumn = document.createElement("div");
-				rightColumn.className = "column";
+				var rightColumn = document.createElement("div"); // right column
+				rightColumn.className = "results-column";
 				rightColumn.id = "rightColumn";
 				row.appendChild(rightColumn);
 
-				var pieChart = document.createElement("div");
+				var pieChart = document.createElement("div"); // add pieChart div to right column 
 				pieChart.id = "canvas-holder";
 				rightColumn.appendChild(pieChart);
 
 
-				var fundBox = document.createElement("div");
+				var fundBox = document.createElement("div"); // add text box for pieChart labels
 				fundBox.id = "fundBox"; 
 				rightColumn.appendChild(fundBox);
 				var funds = document.createElement("p");
 				funds.id = "funds";
 				fundBox.appendChild(funds);
 
-				var refreshButton = document.createElement("button");
+				var refreshButton = document.createElement("button"); // add REFRESH button for returning back to quiz 
 				refreshButton.appendChild(document.createTextNode("Go back to quiz"));
 				refreshButton.id = "refresh";
 				footer.appendChild(refreshButton);
 				$("#refresh").click(function(){
-					window.location.reload();	}); 
-			
-
-				$("#move-dropDown").addClass("move-dropDown"); // reposition 
+					window.location.reload();	
+				}); 
 			}
 
-		
+			// get piechart info from the last slide (Results slide)
 			i = last_slide_index;
 			$(this).find("option:selected").each(function(){
-
+				
+				// remove exitsing pieChart and iframe to avoid duplication	
+				$("iframe").remove();		
 				$("canvas").remove();
 
+				// get value from dropDown option then create pieChart 
         	    var optionValue = $(this).attr("value");
         	    userOption = optionValue;
-				console.log(optionValue);
 
             	var arg = eval("json[i]."+ optionValue);
 
             	createPieChart(slide, i, arg);
-            	$("iframe").remove();
 
         	});
-
-
-			// hide pagination 
-        	// display REPORT button 
-        	$(".bt").hide();
-			$("#report").show();
 			
 
 		});
@@ -155,13 +151,15 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 	}
 
 
-	function createSectionSlide(slide, i){
+	function createSectionSlide(slide, i){ // create section slide 
 
 		var title = document.createElement("h2"); 
-		title.appendChild(document.createTextNode(json[i].intro))
+		title.appendChild(document.createTextNode(json[i].title))
+		slide.appendChild(title);
 
 		var intro = document.createElement("p");
 		intro.appendChild(document.createTextNode(json[i].intro));
+		intro.className = "section-intro";
 		slide.appendChild(intro);
 
 		var previouButton = document.createElement("button");
@@ -177,60 +175,85 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
 	function createQuestionSlide(slide, i){
 
-		// Question 
+		// create question 
 		var question = document.createElement("h4");
 		question.appendChild(document.createTextNode(json[i].question));
+		question.id = "question";
 		slide.appendChild(question);
 
-		// Form 
+		// create one row for two columns 
+		var row = document.createElement("div"); 
+		row.className = "row";
+		slide.appendChild(row);
+
+		// create left column for answer list 
+		var leftColumn = document.createElement("div"); 
+		leftColumn.className = "question-column";
+		leftColumn.className += " question-left";
+		row.appendChild(leftColumn);
+
+		// create right column for img 
+		var rightColumn = document.createElement("div"); 
+		rightColumn.className = "question-column";
+		rightColumn.className += " question-right";
+		row.appendChild(rightColumn);
+
+		// create Form for answer list 
 		var formElement = document.createElement("form"); 
-		slide.appendChild(formElement); 
 		formElement.id = "form" + i;
+		leftColumn.appendChild(formElement);
 
 		// add Answers to the slide 
-		var count = json[i].answers.length;
-		for (var j = 0; j < count; j++) {
+		var numOfAnswers = json[i].answers.length;
+		for (var j = 0; j < numOfAnswers; j++) {
 
 			function addRadioButton(text, value){
 
 				var label = document.createElement("label");
 				var radio = document.createElement("input");
 
+				radio.className = "radio-button";
 				radio.setAttribute("type", "radio");
 				radio.setAttribute("name", "radioButton");
 				radio.setAttribute("value", value);
 				radio.id = i;
 
 				label.appendChild(radio);
-				label.appendChild(document.createTextNode(text));
+				label.appendChild(document.createTextNode(text)); // add text to radio buttons 
 
 				formElement.appendChild(label);
 			}
 
-			addRadioButton(json[i].answers[j].text, json[i].answers[j].value);
-    	}	
+			addRadioButton(json[i].answers[j].text, json[i].answers[j].value); // add value to radio buttons 
+		}	
 
-    	// add chart to the question 
-    	if (json[i].img != null) {
-    		// add img the slide 
-        	var img = document.createElement("IMG");
-        	img.setAttribute("src", json[i].img);
-    		img.setAttribute("width", "100");
-    		img.setAttribute("height", "100");
-   			img.setAttribute("alt", "chart display error");
-        	slide.appendChild(img);
-    	}
 
-    	if (json[i].disclaimer != null){
-    		// add disclaimer
-       		var disclaimer = document.createElement("p");
-        	disclaimer.appendChild(document.createTextNode(json[i].disclaimer));
-        	disclaimer.className = "disclaimer";
-        	slide.appendChild(disclaimer);
-    	}
+		// add disclaimer 
+		var disclaimer = document.createElement("p");
+		disclaimer.className = "disclaimer";
+   		slide.appendChild(disclaimer);
 
-    	// Previous and Next button 
-    	var previouButton = document.createElement("button");
+
+    	// add img to right column 
+		if (json[i].img != null) {
+    		var img = document.createElement("IMG");
+    		img.className = "img";
+    		img.setAttribute("src", json[i].img);
+			img.setAttribute("alt", "chart display error");
+    		rightColumn.appendChild(img);
+		} else {
+			leftColumn.setAttribute("width", "100%");
+
+		}
+
+		// add disclaimer content 
+		if (json[i].disclaimer != null){
+   		
+    		disclaimer.appendChild(document.createTextNode(json[i].disclaimer));
+		}
+
+		// Previous and Next button 
+		var previouButton = document.createElement("button");
 		previouButton.appendChild(document.createTextNode("PREVIOUS"));
 		previouButton.className = "previous";
 		slide.appendChild(previouButton);
@@ -368,27 +391,6 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 		})
 	}
 
-
-	function createModal(){
-
-		var modal = document.getElementById("myModal");
-    	var btn_report = document.getElementById("report");
-    	var btn_close = document.getElementsByClassName("close")[0];
-
-    	btn_report.onclick = function() {
-        	console.log("report button is clicked");
-        	modal.style.display = "block";
-    	}
-
-    	// When the user clicks on <span> (x), close the modal
-    	btn_close.onclick = function() {
-        	console.log("close button is clicked");
-        	modal.style.display = "none";
-    	}
-	}
-
-
-
 	function createResultsSlide(slide, i, arr, sum){
 
 
@@ -399,18 +401,18 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
 
 		var row = document.createElement("div");
-		row.className = "row";
+		row.className = "results-row";
 		slide.appendChild(row);
 		// create two Divs on RESULTS slide 
 		var leftColumn = document.createElement("div");
-		leftColumn.className = "column";
+		leftColumn.className = "results-column";
 		leftColumn.id = "leftColumn";
-		slide.appendChild(leftColumn);
+		row.appendChild(leftColumn);
 
 		var rightColumn = document.createElement("div");
-		rightColumn.className = "column";
+		rightColumn.className = "results-column";
 		rightColumn.id = "rightColumn";
-		slide.appendChild(rightColumn);
+		row.appendChild(rightColumn);
 	
 		var pieChart = document.createElement("div");
 		pieChart.id = "canvas-holder";
@@ -430,6 +432,8 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 				sum = sum + parseInt(arr[j]);
 			}
 			console.log("the sum is: " + sum);
+			$("iframe").remove();
+			$("canvas").remove();
 
 			if (sum < 18) {
 				createPieChart(slide, i, json[i].yield);
@@ -467,6 +471,7 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 		var numOfOptions = json[i].dropDown.length; // get amount of options 
 		var dropDown = document.createElement("select");
 		dropDown.className = "drop-down";
+		//dropDown.className += " move-dropDown";
 
 		// add options to drop-down 
 		for (var j = 0; j < numOfOptions; j++) {
@@ -490,6 +495,7 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
 			$(this).find("option:selected").each(function(){
 
+				$("iframe").remove();
 				$("canvas").remove();
 
             	var optionValue = $(this).attr("value");
@@ -515,38 +521,11 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
 
 		var reportContent = document.getElementById("report-window");
 		modal.appendChild(reportContent);
-
-
-		createModal(); // pop-up modal window
 	}
 
- 	// add pagination 
-	for (var i = 1; i <= (numOfSlides); i++) {
+	// ----------------------------------------------------------------------------------------------------------------------------------
 
-		var pagination = document.createElement("button");
-			
-		pagination.id = "pagination" + i;
-		footer.appendChild(pagination);
-
-
-		if (i < (numOfSlides - 1)) {
-			pagination.appendChild(document.createTextNode(i));
-		} else if (i == (numOfSlides - 1)) {
-			pagination.appendChild(document.createTextNode("RESULTS"));
-		} else if (i == (numOfSlides)) {
-			pagination.appendChild(document.createTextNode("REPORT"));
-			pagination.id = "report";
-			// pagination.hidden = "true";
-			$("#report").hide();
-			break;
-		}
-
-		pagination.className = "bt";
-		pagination.value = i;
-		pagination.disabled = true; 	
-	} // pagination 
-
-
+	// create all slides 
  	for (var i = 0; i < numOfSlides; i++) {
 
  	 	// create the slide                                                                      
@@ -566,6 +545,32 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
  	 	}
 	}
 
+	 	// add pagination 
+	for (var i = 1; i <= (numOfSlides); i++) {
+
+		var pagination = document.createElement("button");
+			
+		pagination.id = "pagination" + i;
+		footer.appendChild(pagination);
+
+
+		if (i < (numOfSlides - 1)) {
+			pagination.appendChild(document.createTextNode(i)); // coverSlide and questionSlide pagination 
+		} else if (i == (numOfSlides - 1)) {
+			pagination.appendChild(document.createTextNode("RESULTS")); // resultsSlide pagination 
+		} else if (i == (numOfSlides)) {
+			pagination.appendChild(document.createTextNode("REPORT")); // add a report button for resultsSlide 
+			pagination.id = "report";
+			$("#report").hide();
+			break;
+		}
+
+		pagination.className = "pagination";
+		pagination.value = i;
+		pagination.disabled = false; 	
+	} // pagination
+
+
 	// enable next button 
 	$("input").on('change', function(){
 
@@ -576,7 +581,7 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
         console.log("the value is: " + value);
     });
 
-	// 
+	// sliding for next and previou button 
     var currSlide = 0;
 	$(".next").click(function(){ 
 	    $("#queue").animate({marginLeft: "-=800px"}, 500);
@@ -593,8 +598,9 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
         console.log("Current page is: " + currSlide); 
     });
 
+    // pagination sliding clculation 
     var diff;
-    $(".bt").click(function(){
+    $(".pagination").click(function(){
 
         var desirSlide = this.getAttribute("value");
         diff = currSlide - desirSlide;
@@ -618,16 +624,20 @@ $.getJSON("https://api.myjson.com/bins/1ghy67", function(json) {
         
     });
 
-    $("#slide" + i +" .drop-down").change(function(){
+    // display or hide modal 
 
-		$("#pieChart").remove();
+		$("#report").click(function(){
 
-		$(this).find("option:selected").each(function(){
-            var optionValue = $(this).attr("value");
-            var arg = eval("json[i]."+ optionValue);
-            createPieChart(slide, i, arg);
+			$("#report-window").css("display", "block");
+        	console.log("report button is clicked");
+        	$("#myModal").css("display", "block");
         });
-	});
+
+        $(".close").click(function(){
+        	console.log("close button is clicked");
+        	$("#myModal").css("display", "none");
+
+		});
 
 	$("#print").click(function(){
             		'use strict';

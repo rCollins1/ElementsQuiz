@@ -1,9 +1,10 @@
-
 body {
     margin: 0; 
     width: 800px;
     height: 550px;
     border: 1px solid #eeb310; 
+    font-family: helvetica;
+    color:  #595959;
 }
 
 #banner{
@@ -41,6 +42,7 @@ li {
     height: 50px;
     width: 750px;
     background-color: #eeb310;
+    /*background-color: #F47E20;*/
     padding-right: 50px;
     text-align: right;
     color: white;
@@ -48,28 +50,21 @@ li {
     
 }
 
-button.bt:disabled,
-button.bt[disabled]{
+button.pagination:disabled,
+button.pagination[disabled]{
     margin-top: 15px;
     color: #ffffff;
     background-color: #efb310;
 }
-.bt{
+.pagination{
     margin-top: 15px;
     color: #ffffff;
     background-color: #f5cf68;
     border: 1px solid ; 
 }
-#report, #refresh{
-    color: #ffffff;
-    background-color: #f5cf68;
-    border: 1px solid ; 
-}
 
 
-
-
-
+/*cover slide styling*/
 #cover-slide-title{
     height: 50px;
 }
@@ -84,103 +79,89 @@ button.bt[disabled]{
     left: 0; 
 }
 
+#results-slide-title{
+    position: relative;;
+    top: -20px;
+}
+
+#report, #refresh{
+    margin-top: 15px;
+    color: #ffffff;
+    background-color: #f5cf68;
+    border: 1px solid ; 
+}
+
+/*cover slide styling --- ends*/
 
 
+/*section slide styling */
+.section-intro{
+    height: 270px;
+}
+/*section slide styling ---ends */
 
 
+/*question slide styling*/
+#question{
+    height: 40px;
+}
 
 
+.question-column{
+    box-sizing: border-box;
+    float: left;
+    align-content: center;
+    /*width: 50%;*/
+    height: 220px; /* Should be removed. Only for demonstration */
+}
 
+.question-left{
+    width: 70%;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.question-right{
+    width: 30%;
+}
 
 label {
   display: block;
 }
 
+.img{
+    width: 200px;
+    height: 200px;
+}
+
 .disclaimer{
     font-size: 10px;
 }
-
-#slide1 h3{
-    font-size:13px;
-
-}
+/*question slide styling --- ends */
 
 
-
-
-
-
-.row:after {
+/*results slide styling */
+.results-row{
     display: table;
     clear: both;
+    width: 700px;
+    height: 300px;
 }
-.column {
+
+.results-column{
     box-sizing: border-box;
     float: left;
     align-content: center;
     width: 50%;
-    height: 250px; /* Should be removed. Only for demonstration */
 }
 
 #canvas-holder {
     position: relative;
-    width: 100%;
-
+    width: 95%;
+    top: -20px;
 }
 
 #pieChart {
     position: relative;
    /* margin-top: -25px;*/
-}
-
-
-#objectiveTitle {
-    color: #666;
-}
-
-#objectiveText {
-    color: #666;
-    font-size: 10px;
-    font-weight: bold;
 }
 
 .legend {
@@ -189,17 +170,19 @@ label {
     font-size: @size + 2;
 }
 
-
-
-
 #funds {
-    font-size: 10px;
+    font-size: 9.5px;
     text-align: left;
     margin-left: 195px;
-    margin-top: -230px;
+    margin-top: -250px;
     width: 53%;
     font-family: verdana;
 }
+/*results slide styling --- ends */
+
+
+
+
 
 #myModal {
     display: none; /* Hidden by default */
@@ -207,17 +190,15 @@ label {
     top: 100px;
     left: 200px;
     z-index: 99; /* Sit on top */
-    width: 400px; /* Full width */
-    height: 400px; /* Full height */
+    width: 425px; /* Full width */
+    height: 425px; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: white;
     border: 1px solid #eeb310; 
+    box-shadow: 5px 5px 10px #888888;
 }
 
-#rightColumn{
-    margin-top: -10px;
-    height: 260px;
-}
+
 
 #report-window{
     padding: 10px;
@@ -226,5 +207,18 @@ label {
 
 .next, .previous{
     background-color: #f5cf68;
-    /*border: 1px solid ; */
+    position: relative;
+}
+
+.report-row {
+    display: table;
+    clear: both;
+    width: 375px;
+    height: 185px;
+}
+.report-column{
+    box-sizing: border-box;
+    float: left;
+    align-content: center;
+    width: 50%;
 }
