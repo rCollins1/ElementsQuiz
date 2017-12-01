@@ -343,6 +343,8 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 						padding: 0,
 						boxWidth: 50,
 						fontStyle: 'normal'
+					},
+					onClick: function(event, legendItem) { //disables the default results of the legend clicking
 					}
 				},
 				cutoutPercentage: 0, //set radius of circle to cut out to create donut chart
