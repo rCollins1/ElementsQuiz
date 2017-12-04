@@ -3,8 +3,6 @@ body {
     width: 800px;
     height: 550px;
     border: 1px solid #eeb310; 
-    font-family: helvetica;
-    color:  #595959;
 }
 
 #banner{
@@ -65,10 +63,6 @@ button.pagination[disabled]{
 
 
 /*cover slide styling*/
-#cover-slide-title{
-    height: 50px;
-}
-
 #cover-slide-para{
     height: 150px;
 }

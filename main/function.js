@@ -31,33 +31,32 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 	var clientName, address1, address2, address3, advisorName, firmName, phone, date, userSelectedClass, userOption;
 	// ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	function createCoverPageSlide(slide, i, last_slide_index, footer){ // create coverSlide 
+	function createCoverPageSlide (slide, i, last_slide_index, footer){ // create coverSlide 
 
 		// create slide title
 		var title = document.createElement("h2");
 		title.appendChild(document.createTextNode(json[i].title));
-		title.id = "cover-slide-title";
-		title.className = "remove";	// going be removed 								 
+		title.className = "remove";	// to be removed  								 
 		slide.appendChild(title);
  
 		// create intro para 
 		var supaginationitle = document.createElement("p");
 		supaginationitle.appendChild(document.createTextNode(json[i].intro));
 		supaginationitle.id = "cover-slide-para";
-		supaginationitle.className = "remove"; // going to be removed 
+		supaginationitle.className = "remove"; // to be removed 
 		slide.appendChild(supaginationitle);
 
 		// create button to go to next slide 
 		var nextButton = document.createElement("button");
 		nextButton.appendChild(document.createTextNode("Take the questionnaire >>"));
 		nextButton.className = "next";
-		nextButton.className += " remove"; // 
+		nextButton.className += " remove"; // to be removed  
 		slide.appendChild(nextButton);
 
 		// add portfolio drop-down 
 		var numOfOptions = json[i].dropDown.length; // get amount of options 
 		var dropDown = document.createElement("select");
-		dropDown.id = "move-dropDown";
+		dropDown.id = "move-dropDown"; 
 		dropDown.className = "drop-down";
 		slide.appendChild(dropDown);
 
@@ -74,20 +73,25 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 			dropDown.appendChild(option);
 		}
 
+
 	
-		// replace elements to 
+		// replace elements 
      	var flag = false; 
 		$("#slide" + i + " .drop-down").change(function(){
+
 			$("#move-dropDown").addClass("move-dropDown"); // reposition the dropDown to the bottom of the slide
 			$(".pagination").hide(); // hide pagination
 			$("#report").show(); // display REPORT button 
 		
 			if (flag == false) { // remove old elements once 
-								//create new elements once 
+								 // create new elements once 
 				flag=true;
 
 				$(".remove").remove(); // remove elements from cover page
-		
+
+
+				// create new elements 
+				//
 				var title = document.createElement("h4"); // create title 
 				title.id = "results-slide-title";
 				slide.appendChild(title);
@@ -100,7 +104,6 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 				leftColumn.className = "results-column";
 				leftColumn.id = "leftColumn";
 				row.appendChild(leftColumn);
-
 
 				var rightColumn = document.createElement("div"); // right column 
 				rightColumn.className = "results-column";
@@ -132,17 +135,16 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 			i = last_slide_index;
 			$(this).find("option:selected").each(function(){
 
-				// remove exitsing pieChart and iframe to avoid duplication
-				$("iframe").remove();
-				$("canvas").remove();  
-
-				// get value from dropDown option then create pieChart 
-        	    var optionValue = $(this).attr("value");
+        	    var optionValue = $(this).attr("value"); // get value from dropDown option then create pieChart 
         	    userOption = optionValue;
 
-            	var arg = eval("json[i]."+ optionValue);
+            	var arg = eval("json[i]."+ optionValue); // get the type of portfolio 
+
+            	// remove exitsing pieChart and iframe to avoid duplication
+				$("iframe").remove();
+				$("canvas").remove();  
   	
-            	createPieChart(slide, i, arg);
+            	createPieChart(slide, i, arg); // call function to create pie-chart
             	
         	});
 			
@@ -150,17 +152,22 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 
 	}
 
+
   	function createSectionSlide(slide, i){ // create section slide 
 
+  		// create section header 
 		var title = document.createElement("h2"); 
 		title.appendChild(document.createTextNode(json[i].title))
 		slide.appendChild(title);
 
+		// create section intro paragraph 
 		var intro = document.createElement("p");
 		intro.appendChild(document.createTextNode(json[i].intro));
 		intro.className = "section-intro";
 		slide.appendChild(intro);
 
+		// create two buttons to control sliding 
+		// 
 		var previouButton = document.createElement("button");
 		previouButton.appendChild(document.createTextNode("PREVIOUS"));
 		previouButton.className = "previous";
@@ -172,7 +179,8 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 		slide.appendChild(nextButton);
 	}
 
-  	function createQuestionSlide(slide, i){
+
+  	function createQuestionSlide(slide, i){ // create question slides 
 
 		// create question 
 		var question = document.createElement("h4");
@@ -251,7 +259,8 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
     		disclaimer.appendChild(document.createTextNode(json[i].disclaimer));
 		}
 
-		// Previous and Next button 
+		// create two buttons to control sliding 
+		//
 		var previouButton = document.createElement("button");
 		previouButton.appendChild(document.createTextNode("PREVIOUS"));
 		previouButton.className = "previous";
@@ -267,15 +276,20 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 	}
 
 
-	function createPieChart(slide, i, portfolio) {
+	function createPieChart(slide, i, portfolio) { // create pie chart to results slide 
 
+		// create canvas to hold pie chart 
 		var canvas = document.createElement("canvas");
 		canvas.id = "pieChart";
 		var pieChart = document.getElementById("canvas-holder");
 		pieChart.appendChild(canvas);
 
-		var slideTitle = document.getElementById("results-slide-title").innerHTML = portfolio.title;
-		var leftColumn = document.getElementById("leftColumn").innerHTML = portfolio.left_column.intro;
+
+		document.getElementById("results-slide-title").innerHTML = portfolio.title; // add text to title 
+		document.getElementById("leftColumn").innerHTML = portfolio.left_column.intro; // add text to intro paragraph 
+
+		var pie_Chart = portfolio.right_column.pieChart;
+		var length = pie_Chart.length;
 	
 		var chartLabel = []; //declaring variable to store chart labels
 		var chartValue = []; //declaring variable to store chart valuese
@@ -288,11 +302,6 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 	
 		chartTitle.push(portfolio.right_column.subtitle); //load chartTitle "array" with chart title
 		
-
-		var pie_Chart = portfolio.right_column.pieChart;
-		var length = pie_Chart.length;
-
-		console.log("pieChart length is :  " + length);
 
 		for (j = 0; j < length; j++){
 			chartLabel.push(pie_Chart[j].label); //load chartLabel array with label values
@@ -390,7 +399,8 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 		})
 	}
 
-	function createResultsSlide(slide, i, arr, sum){
+	function createResultsSlide(slide, i, arr, sum){ // create results slide 
+
 		// slide title
 		var title = document.createElement("h4");
 		title.id = "results-slide-title";
@@ -399,7 +409,7 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 		var row = document.createElement("div");
 		row.className = "results-row";
 		slide.appendChild(row);
-		// create two Divs on RESULTS slide 
+
 		var leftColumn = document.createElement("div");
 		leftColumn.className = "results-column";
 		leftColumn.id = "leftColumn";
@@ -421,53 +431,10 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 		funds.id = "funds";
 		fundBox.appendChild(funds);
 
-	
-		$("#next" + (i - 1)).click(function(){
-			sum = 0;
-			for (var j = 0; j < arr.length; j++) {
-				sum = sum + parseInt(arr[j]);
-			}
-			console.log("the sum is: " + sum);
-			$("iframe").remove();
-			$("canvas").remove();
-
-			if (sum < 18) {
-				createPieChart(slide, i, json[i].yield);
-				userOption = "yield";
-				console.log("pirchart created on results slide");
-			} else if (sum >= 18 && sum <= 30) {
-				createPieChart(slide, i, json[i].conservative);
-				userOption = "conservative";
-				console.log("pirchart created on results slide");
-
-			} else if (sum >= 31 && sum <= 43) {
-				createPieChart(slide, i, json[i].balanced);
-				userOption = "balanced";
-				console.log("pirchart created on results slide");
-
-			} else if (sum >= 44 && sum <= 55) {
-				createPieChart(slide, i, json[i].growth);
-				userOption = "growth";
-				console.log("pirchart created on results slide");
-
-			} else if (sum > 55) {
-				createPieChart(slide, i, json[i].global);
-				userOption = "global";
-				console.log("pirchart created on results slide");
-			}	
-
-			// display REPORT button 
-			$("#report").show();
-
-		});
-
-
-
 		// add portfolio drop-down 
 		var numOfOptions = json[i].dropDown.length; // get amount of options 
 		var dropDown = document.createElement("select");
 		dropDown.className = "drop-down";
-		//dropDown.className += " move-dropDown";
 
 		// add options to drop-down 
 		for (var j = 0; j < numOfOptions; j++) {
@@ -480,51 +447,84 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 			option.value = json[i].dropDown[j].value;
 			dropDown.appendChild(option);
 		}
-
 		slide.appendChild(dropDown);
 
-		// change content on RESULTS slide by changing dropdown options 
-		$("#slide" + i +" .drop-down").change(function(){
-
-			var canvas = document.createElement("canvas");
-			canvas.id = "pieChart";
-			pieChart.appendChild(canvas);
-
-			$(this).find("option:selected").each(function(){
-
-				$("iframe").remove();
-				$("canvas").remove(); 
-        		var optionValue = $(this).attr("value");
-        		userOption = optionValue;
-            	
-        		var arg = eval("json[i]."+ optionValue);
-
-        		createPieChart(slide, i, arg);
-       		});
-		});
-
-
-
- 		// Previous and Next button 
+		// create only previous button 
     	var previouButton = document.createElement("button");
 		previouButton.appendChild(document.createTextNode("PREVIOUS"));
 		previouButton.className = "previous";
 		slide.appendChild(previouButton);
 
-
+		// create pop-up window for report form 
 		var modal = document.createElement("div");
 		modal.id = "myModal";
 		slide.appendChild(modal);
 
+		// append the pre-build report window (from html file) to pop-up window 
 		var reportContent = document.getElementById("report-window");
 		modal.appendChild(reportContent);
+
+
+	
+		$("#next" + (i - 1)).click(function(){ // when user process to last slide (results slide)
+
+			sum = 0;
+			for (var j = 0; j < arr.length; j++) { // calculate the sum getting from user
+				sum = sum + parseInt(arr[j]);
+			}
+
+			// remove exitsing pieChart and iframe to avoid duplication
+			$("iframe").remove();
+			$("canvas").remove();
+
+			if (sum < 18) {
+				createPieChart(slide, i, json[i].yield);
+				userOption = "yield";
+			} else if (sum >= 18 && sum <= 30) {
+				createPieChart(slide, i, json[i].conservative);
+				userOption = "conservative";
+			} else if (sum >= 31 && sum <= 43) {
+				createPieChart(slide, i, json[i].balanced);
+				userOption = "balanced";
+			} else if (sum >= 44 && sum <= 55) {
+				createPieChart(slide, i, json[i].growth);
+				userOption = "growth";
+			} else if (sum > 55) {
+				createPieChart(slide, i, json[i].global);
+				userOption = "global";
+			}	
+			
+			$("#report").show(); // display REPORT button 
+
+		});
+
+
+		// change content on RESULTS slide by changing dropdown options 
+		$("#slide" + i +" .drop-down").change(function(){
+
+			$(this).find("option:selected").each(function(){
+
+        		var optionValue = $(this).attr("value");
+        		userOption = optionValue;
+            	
+        		var arg = eval("json[i]."+ optionValue);
+
+        		// remove exitsing pieChart and iframe to avoid duplication
+        		$("iframe").remove();
+				$("canvas").remove(); 
+
+        		createPieChart(slide, i, arg);
+       		});
+		});
+
+ 		
 	}
 
 	// ----------------------------------------------------------------------------------------------------------------------------------
 	// create all slides 
 	for (var i = 0; i < numOfSlides; i++) {
 
- 	 	// create the slide                                                                      
+ 	 	// create all slides                                                                
  	 	var slide = document.createElement("li"); 
 		slide.id = "slide" + i;
 		all_slides.appendChild(slide);
@@ -564,44 +564,46 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 
 		pagination.className = "pagination";
 		pagination.value = i;
-		pagination.disabled = false; 	
+		pagination.disabled = true; 	
 	} // pagination 
 
-	// enable next button 
+
+	
 	$("input").on('change', function(){
 
-    	var value = this.getAttribute("value");
+    	var value = this.getAttribute("value"); // get value from selected answer 
         var id = this.getAttribute("id");
-        arr[id] = value;
-        $("#next" + id).removeAttr("disabled");
-        console.log("the value is: " + value);
+        arr[id] = value; // store the value into array 
+        $("#next" + id).removeAttr("disabled"); // enable next button when question answered 
     });
+
+
 
 	// sliding for next and previou button 
-    var currSlide = 0;
-	$(".next").click(function(){ 
-	    $("#queue").animate({marginLeft: "-=800px"}, 500);
+	// 
+    var currSlide = 0; // starting from the first slide 
+
+	$(".next").click(function(){ // move to next slide 
+	    $("#queue").animate({marginLeft: "-=800px"}, 500); // mover the margin to left for 800px (the width of one slide)
 	    currSlide++;
-	    console.log("-------------------------");
-        console.log("Current page is: " + currSlide);
-	    $("#pagination" + currSlide).removeAttr("disabled");
+	    $("#pagination" + currSlide).removeAttr("disabled"); // enable the pagination of current slide 
 	});
 
-    $(".previous").click(function(){ 
+    $(".previous").click(function(){ // move to previous slide 
         $("#queue").animate({marginLeft: "+=800px"}, 500);
         currSlide--;
-        console.log("-------------------------");
-        console.log("Current page is: " + currSlide); 
     });
 
-    // pagination sliding clculation 
+
+
+
+    // pagination sliding between all enabled slides 
+    //
     var diff;
     $(".pagination").click(function(){
 
-        var desirSlide = this.getAttribute("value");
-        diff = currSlide - desirSlide;
-        console.log("Current slide is: " + currSlide + " Desired page is: " + desirSlide + " Difference is: " + diff);
-
+        var desirSlide = this.getAttribute("value"); // get the index of desired slide 
+        diff = currSlide - desirSlide; // calculate the difference between current slide and desired slide 
 
         if (diff > 0) {
             diff = currSlide - desirSlide;
@@ -620,10 +622,10 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
         
     });
 
-    // display or hide modal 
+    // display or hide report form window 
+    // 
 	$("#report").click(function(){
 		$("#report-window").css("display", "block");
-        console.log("report button is clicked");
         $("#myModal").css("display", "block");
     });
   
@@ -632,6 +634,9 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
         $("#myModal").css("display", "none");
 	});
 
+
+
+    // get values from report form and process data to report 
     $("#print").click(function(){
     	'use strict';
     	clientName = document.getElementById("client-name").value;
