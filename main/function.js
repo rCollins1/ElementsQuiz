@@ -287,7 +287,6 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 
 	
 		chartTitle.push(portfolio.right_column.subtitle); //load chartTitle "array" with chart title
-		
 
 		var pie_Chart = portfolio.right_column.pieChart;
 		var length = pie_Chart.length;
