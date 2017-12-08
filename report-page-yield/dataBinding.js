@@ -1,6 +1,6 @@
 var jsonSource = "https://api.myjson.com/bins/1fh9yf"; //yield
 
-function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
+function buildIncomeDiv (divToBeAppend, incomeObject) {
 	
 	//build the outer section
 	var incomeDiv = document.createElement("table");
@@ -185,7 +185,7 @@ $(document).ready(function() {
 			var fundsChartLength = json.fundsChart.length;
 
 			for (var i = 0; i < fundsChartLength; ++i) {
-				buildIncomeDiv(incomeTableSection, json.fundsChart[i], i);
+				buildIncomeDiv(incomeTableSection, json.fundsChart[i]);
 			}
 
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Equity and Fixed Income  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -194,7 +194,7 @@ $(document).ready(function() {
 			var equityChartLength = json.equityChart.length;
 
 			for (var i = 0; i < equityChartLength; ++i) {
-				buildIncomeDiv(equityTableSection, json.equityChart[i], i);
+				buildIncomeDiv(equityTableSection, json.equityChart[i]);
 			}
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Geographic  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -202,7 +202,7 @@ $(document).ready(function() {
 			var geographicChartLength = json.geographicChart.length;
 
 			for (var i = 0; i < geographicChartLength; ++i) {
-				buildIncomeDiv(geographicTableSection, json.geographicChart[i], i);
+				buildIncomeDiv(geographicTableSection, json.geographicChart[i]);
 			}
 			//----------------------------------------------------- Pie Chart Section -------------------------------------------------------- 
 			
