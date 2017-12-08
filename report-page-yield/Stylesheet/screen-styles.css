@@ -320,43 +320,6 @@
         border-collapse: collapse;
     }
 
-    .color-0 {
-        background-color: #ED5A36;
-        
-    }
-
-    .color-0 .income-percentage {
-        border-right:10px solid #ED5A36;
-    }
-
-    .color-1 {
-        background-color: #F47E20;
-    }
-    .color-1 .income-percentage {
-        border-right:10px solid #F47E20;
-    }
-
-    .color-2 {
-        background-color: #7C4496;
-    }
-    .color-2 .income-percentage {
-        border-right:10px solid #7C4496;
-    }
-
-    .color-3 {
-        background-color: #D02259;
-    }
-    .color-3 .income-percentage {
-        border-right:10px solid #D02259;
-    }
-
-    .color-4 {
-        background-color: #FFB819;
-    }
-    .color-4 .income-percentage {
-        border-right:10px solid #FFB819;
-    }
-
     .income-div {
         width: 350px;
     }

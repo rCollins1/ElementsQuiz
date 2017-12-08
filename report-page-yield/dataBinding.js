@@ -9,11 +9,13 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	//build the income title section, will displayed in different color
 	var incomeTitle = document.createElement("tr");
 	incomeTitle.classList.add("income-title");
-	incomeTitle.classList.add("color-" + divIndex);
+	incomeTitle.style.backgroundColor = incomeObject.colour;
+	incomeTitle.style.borderRight = "10px solid " +  incomeObject.colour;
 
 	//build the sub-div of income-title: percentage
 	var incomePercentage = document.createElement("td");
 	incomePercentage.classList.add("income-percentage");
+	incomePercentage.style.borderRight = "10px solid " +  incomeObject.colour;
 	incomePercentage.appendChild(document.createTextNode(incomeObject.percentage + "%"));
 
 	//build the sub-div of income-title: income name
@@ -88,10 +90,7 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 
 	}
 
-	//incomeDiv.appendChild(fundDiv);
-	if ("" !== incomeObject.type) {
-		divToBeAppend.appendChild(incomeDiv);
-	}
+	divToBeAppend.appendChild(incomeDiv);
 };
 
 function buildPieChart (positionID, dataArray) {
