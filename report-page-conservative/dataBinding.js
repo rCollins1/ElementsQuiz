@@ -1,6 +1,6 @@
 var jsonSource = "https://api.myjson.com/bins/11zc4n";
 
-function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
+function buildIncomeDiv (divToBeAppend, incomeObject) {
 	
 	//build the outer section
 	var incomeDiv = document.createElement("table");
@@ -9,11 +9,13 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 	//build the income title section, will displayed in different color
 	var incomeTitle = document.createElement("tr");
 	incomeTitle.classList.add("income-title");
-	incomeTitle.classList.add("color-" + divIndex);
+	incomeTitle.style.backgroundColor = incomeObject.colour;
+	incomeTitle.style.borderRight = "10px solid " +  incomeObject.colour;
 
 	//build the sub-div of income-title: percentage
 	var incomePercentage = document.createElement("td");
 	incomePercentage.classList.add("income-percentage");
+	incomePercentage.style.borderRight = "10px solid " +  incomeObject.colour;
 	incomePercentage.appendChild(document.createTextNode(incomeObject.percentage + "%"));
 
 	//build the sub-div of income-title: income name
@@ -88,11 +90,7 @@ function buildIncomeDiv (divToBeAppend, incomeObject, divIndex) {
 
 	}
 
-	
-	//incomeDiv.appendChild(fundDiv);
-	if ("" !== incomeObject.type) {
-		divToBeAppend.appendChild(incomeDiv);
-	}
+	divToBeAppend.appendChild(incomeDiv);
 };
 
 function buildPieChart (positionID, dataArray) {
@@ -187,7 +185,7 @@ $(document).ready(function() {
 			var fundsChartLength = json.fundsChart.length;
 
 			for (var i = 0; i < fundsChartLength; ++i) {
-				buildIncomeDiv(incomeTableSection, json.fundsChart[i], i);
+				buildIncomeDiv(incomeTableSection, json.fundsChart[i]);
 			}
 
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Equity and Fixed Income  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -196,7 +194,7 @@ $(document).ready(function() {
 			var equityChartLength = json.equityChart.length;
 
 			for (var i = 0; i < equityChartLength; ++i) {
-				buildIncomeDiv(equityTableSection, json.equityChart[i], i);
+				buildIncomeDiv(equityTableSection, json.equityChart[i]);
 			}
 			//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Geographic  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -204,7 +202,7 @@ $(document).ready(function() {
 			var geographicChartLength = json.geographicChart.length;
 
 			for (var i = 0; i < geographicChartLength; ++i) {
-				buildIncomeDiv(geographicTableSection, json.geographicChart[i], i);
+				buildIncomeDiv(geographicTableSection, json.geographicChart[i]);
 			}
 			//----------------------------------------------------- Pie Chart Section -------------------------------------------------------- 
 			
