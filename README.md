@@ -2,7 +2,7 @@
 
 ### Problem Space ###
 
-The original (and current) Elements Quiz is built as a flash player, rendering its updating process and maintenance both expensive and inconvenient. 
+The original (and current) Elements Quiz is built with Flash, rendering its updating process and maintenance both expensive and inconvenient. 
 This project was created as a stand-in for the current quiz.
 
 ### Our Goal ###
