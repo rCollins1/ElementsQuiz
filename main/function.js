@@ -232,13 +232,7 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 			}
 
 			addRadioButton(json[i].answers[j].text, json[i].answers[j].value); // add value to radio buttons 
-		}	
-
-
-		// add disclaimer 
-		var disclaimer = document.createElement("p");
-		disclaimer.className = "disclaimer";
-   		slide.appendChild(disclaimer);
+		}
 
 
     	// add img to right column 
@@ -248,14 +242,13 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
     		img.setAttribute("src", json[i].img);
 			img.setAttribute("alt", "chart display error");
     		rightColumn.appendChild(img);
-		} else {
-			leftColumn.setAttribute("width", "100%");
+		} 
 
-		}
-
-		// add disclaimer content 
+		// add disclaimer 
 		if (json[i].disclaimer != null){
-   		
+			var disclaimer = document.createElement("p");
+			disclaimer.className = "disclaimer";
+   			slide.appendChild(disclaimer);
     		disclaimer.appendChild(document.createTextNode(json[i].disclaimer));
 		}
 
