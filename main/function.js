@@ -304,7 +304,6 @@ $.getJSON("https://api.myjson.com/bins/gfwb7", function(json) {
 
 		var ctx = document.getElementById("pieChart").getContext('2d'); //declaring variable 'ctx' (context) for div to display pie chart
 		var selectedIndex = null; //declaring variable to represent index selected for separation animation
-		var selectedIndexFunds = null;
 
 		var pieChart = new Chart(ctx, { //creating chart with the below attributes 'var'
 			type: 'pie',
