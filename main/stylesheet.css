@@ -34,7 +34,7 @@ p {
 #move-dropDown {
     -webkit-appearance: none; 
     -moz-appearance: none;
-    background: url(dropdown2.png) no-repeat right 12px
+    background: #203232 url(dropdown.png) no-repeat right;
 /*    appearance: none;*/
 
 
