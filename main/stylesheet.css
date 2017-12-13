@@ -1,3 +1,48 @@
+h2 {
+    color: #ED5A36;
+    font-family: arial;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 27.5px;
+    padding-top: 45px;
+}
+
+p {
+    color: #203232;
+    font-family: arial;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 16px;
+}
+
+.previous, .next, #move-dropDown {
+    background-color: #203232;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#move-dropDown {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+/*    appearance: none;*/
+}
+
+
+
+
+
+
+
 body {
     margin: 0; 
     width: 800px;
@@ -39,7 +84,7 @@ li {
     position: relative;
     height: 50px;
     width: 750px;
-    background-color: #eeb310;
+    /*background-color: #eeb310;*/
     /*background-color: #F47E20;*/
     padding-right: 50px;
     text-align: right;
@@ -54,6 +99,7 @@ button.pagination[disabled]{
     color: #ffffff;
     background-color: #efb310;
 }
+
 .pagination{
     margin-top: 15px;
     color: #ffffff;
@@ -90,7 +136,7 @@ button.pagination[disabled]{
 
 /*section slide styling */
 .section-intro{
-    height: 270px;
+    height: 150px;
 }
 /*section slide styling ---ends */
 
@@ -199,10 +245,10 @@ label {
 
 }
 
-.next, .previous{
+/*.next, .previous{
     background-color: #f5cf68;
     position: relative;
-}
+}*/
 
 .report-row {
     display: table;
