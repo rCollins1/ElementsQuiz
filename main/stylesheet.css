@@ -8,6 +8,15 @@ h2 {
     padding-top: 45px;
 }
 
+h4 {
+    color: #ED5A36;
+    font-family: arial;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 18px;
+}
+
 p {
     color: #203232;
     font-family: arial;
@@ -17,7 +26,7 @@ p {
     font-size: 16px;
 }
 
-.previous, .next, #move-dropDown {
+.previous, .next, #move-dropDown, .drop-down {
     background-color: #203232;
     border: none;
     color: white;
@@ -31,18 +40,32 @@ p {
     border-radius: 4px;
 }
 
-#move-dropDown {
+#move-dropDown, .drop-down {
     -webkit-appearance: none; 
     -moz-appearance: none;
+    appearance: none;
     background: #203232 url(dropdown.png) no-repeat right;
-/*    appearance: none;*/
-
-
-
+    padding-right: 40px;
 }
 
+.next:disabled,
+.next[disabled]{
+    background-color: #203232c2;
+    color: #dedede;
+}
 
+#banner{
+    width: 241px;
+    left: 0px;
+    top: 7px;
+    margin: 0px;
+}
 
+#header {
+    background-color: rgb(227, 230, 230);
+    border-bottom: 3px solid #203232;
+    padding-left: -2px;
+}
 
 
 
@@ -51,20 +74,13 @@ body {
     margin: 0; 
     width: 800px;
     height: 550px;
-    border: 1px solid #eeb310; 
-}
-
-#banner{
-    width: 800px; 
-    height:80px; 
-    margin: 0
+    border: 2px solid #203232; 
 }
 
 #frame{
     width: 800px; 
     height: 400px; 
     overflow: hidden;
-   
 }
 
 #queue {
@@ -94,7 +110,6 @@ li {
     text-align: right;
     color: white;
     z-index: 9; 
-    
 }
 
 button.pagination:disabled,
@@ -115,17 +130,18 @@ button.pagination[disabled]{
 /*cover slide styling*/
 #cover-slide-para{
     height: 150px;
+    padding-right: 50px;
 }
 
 .move-dropDown{
     position: relative;
     top: 350px;
-    left: 0; 
+    left: 0;
 }
 
 #results-slide-title{
     position: relative;;
-    top: -20px;
+/*    top: -20px;*/
 }
 
 #report, #refresh{
@@ -141,6 +157,7 @@ button.pagination[disabled]{
 /*section slide styling */
 .section-intro{
     height: 150px;
+    padding-right: 50px;
 }
 /*section slide styling ---ends */
 
@@ -150,21 +167,29 @@ button.pagination[disabled]{
     height: 40px;
 }
 
-
 .question-column{
     box-sizing: border-box;
     float: left;
     align-content: center;
     /*width: 50%;*/
     height: 220px; /* Should be removed. Only for demonstration */
+
+    color: #203232;
+    font-family: arial;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
 }
 
 .question-left{
     width: 70%;
+    padding-top: 24px;
 }
 
 .question-right{
     width: 30%;
+    padding-top: 14px;
 }
 
 label {
@@ -195,6 +220,13 @@ label {
     float: left;
     align-content: center;
     width: 50%;
+
+    color: #203232;
+    font-family: arial;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
 }
 
 #canvas-holder {
@@ -242,17 +274,10 @@ label {
     box-shadow: 5px 5px 10px #888888;
 }
 
-
-
 #report-window{
     padding: 10px;
 
 }
-
-/*.next, .previous{
-    background-color: #f5cf68;
-    position: relative;
-}*/
 
 .report-row {
     display: table;
@@ -260,6 +285,7 @@ label {
     width: 375px;
     height: 185px;
 }
+
 .report-column{
     box-sizing: border-box;
     float: left;

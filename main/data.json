@@ -2,7 +2,7 @@
 [
 	{
 		"type" : "coverPage",
-		"title": "Find your Element - INVESTOR QUESTIONNAIRE",
+		"title": "Find Your Element - Investor Questionnaire",
 		"intro": "This questionnaire is designed to help you choose the right investment to meet your needs by matching your unique situation with the profile of one of the five AGF Elements portfolios. Your tolerance for risk, your time horizon and your expected rate of return over the life of the investment all play a part in finding the right Elements portfolio for you.",
 		"dropDown" : [
 			{"name" : "Jump directly to a portfolio profile", "value" : ""},
