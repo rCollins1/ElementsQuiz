@@ -67,14 +67,27 @@ p {
     padding-left: -2px;
 }
 
+/*input {
+    position: absolute;
+    opacity: 0;
+}
 
+.radio-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}*/
 
 
 body {
-    margin: 0; 
+    margin: 10px; 
     width: 800px;
     height: 550px;
-    border: 2px solid #203232; 
+    border: 2px solid #203232;
 }
 
 #frame{
@@ -270,7 +283,7 @@ label {
     height: 425px; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: white;
-    border: 1px solid #eeb310; 
+    border: 2px solid #203232;
     box-shadow: 5px 5px 10px #888888;
 }
 
