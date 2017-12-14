@@ -10,7 +10,6 @@ function buildIncomeDiv (divToBeAppend, incomeObject) {
 	var incomeTitle = document.createElement("tr");
 	incomeTitle.classList.add("income-title");
 	incomeTitle.style.backgroundColor = incomeObject.colour;
-	incomeTitle.style.borderRight = "10px solid " +  incomeObject.colour;
 
 	//build the sub-div of income-title: percentage
 	var incomePercentage = document.createElement("td");

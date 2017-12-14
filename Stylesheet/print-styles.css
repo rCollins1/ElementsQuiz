@@ -5,31 +5,49 @@
         margin-top: 2mm;
         margin-bottom: 2mm;
     }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #203232;
+    }
+
+
     .page-break  { display:block; page-break-before:always; }
     
     .header-line {
 		display:inline;
 	}
 
-	.header-line .header-line-yellow {
+	.header-line .header-line-purple {
 		float:left;
 		padding-top:15px;
-		width:5%;
-    	border-bottom: 10px solid #F1B820;
+		width:35%;
+    	border-bottom: 10px solid #7C4496;
     }
-    .header-line .header-line-blue {
+    .header-line .header-line-pink {
     	float:left;
     	padding-top:15px;
-		width:40%;
-    	border-bottom: 10px solid #15289C;
+		width:25%;
+    	border-bottom: 10px solid #D02259;
     }
-    .header-line .header-line-grey {
+    .header-line .header-line-orange {
     	float:left;
     	padding-top:15px;
-		width:55%;
-    	border-bottom: 10px solid #848690;
+		width:20%;
+    	border-bottom: 10px solid #ED5A36;
     }
-
+    .header-line .header-line-light-orange {
+        float:left;
+        padding-top:15px;
+        width:15%;
+        border-bottom: 10px solid #F47E20;
+    }
+    .header-line .header-line-yellow {
+        float:left;
+        padding-top:15px;
+        width:5%;
+        border-bottom: 10px solid #FFB819;
+    }
     .logo img {
         margin-top: 5mm;
     	width:200px;
@@ -41,12 +59,12 @@
         margin-top: 45%;
     }
     .report-name1 {
-        color: #0b2e66;
+        color: #ED5A36;
         margin-bottom: 0;
     }
 
     .report-name2 {
-        color: #ffc323;
+        color: #203232;
         font-weight: lighter;
         margin-top: 5px
     }
@@ -57,7 +75,7 @@
     }
 
     .for-whom, .by-whom p{
-        color: #1489c9;
+        color: #7C4496;
     }
 
     .by-whom {
@@ -75,17 +93,19 @@
     }
 
     .title {
-        color: #0b2e66;
+        color: #ED5A36;
         font-size: 20px;
         margin-top: 5px;
         margin-bottom: 5px;
+        font-weight: bold;
     }
 
     .sub-title {
-        color:#1489c9;
+        color:#D02259;
         font-size: 15px;
         margin-top:5px;
         margin-bottom: 5px;
+        font-weight: bold;
     }
 
     .content {
@@ -97,9 +117,12 @@
     .statement .check-box {
         height: 12px;
         width: 12px;
-        border: 1px solid #1489c9;
         float:left;
         margin-right: 10px;
+        background-color: #E3E6E6;
+        margin-top:4px;
+        -webkit-print-color-adjust: exact;
+
     }
 
     .type-select {
@@ -110,7 +133,7 @@
 
     .element-intro {
         font-size: 20px;
-        color: #0b2e66;
+        color: #ED5A36;
     }
 
     .infographic-block {
@@ -152,15 +175,15 @@
     }
 
     .item-number-one {
-        background-color: #848690 !important;
+        background-color: #D02259;
     }
 
     .item-number-two {
-        background-color: #F1B820 !important;
+        background-color: #ED5A36;
     }
 
     .item-number-three {
-        background-color: #15289C !important;
+        background-color: #FFB819;
     }
 
     .pie-chart-img {
@@ -205,12 +228,12 @@
     }
 
     .advisor-comment h3 {
-        color: #0b2e66;
+        color: #ED5A36;
         margin-bottom: 0px;
     }
 
     .comment-block {
-        border: 1px solid #0b2e66;
+        border: 1px solid #ED5A36;
         height: 100px;
         width: 100%;
         margin-top:5px;
@@ -223,7 +246,7 @@
     }
 
     .acceptance h4 {
-        color: #1489c9;
+        color: #D02259;
         margin-bottom: 5px;
         margin-top: 35px;
     }
@@ -235,7 +258,7 @@
     }
 
     .accepted-by h4{
-        color: #358cff;
+        color: #7C4496;
     }
 
     .empty-line {
@@ -284,7 +307,7 @@
 
     .up-section {
         margin-top:10px;
-        height:475px;
+        height:550px;
     }
 
     .equity-title {
@@ -448,7 +471,7 @@
         margin-top: 10px;
         padding: 10px;
         padding-right:20px;
-        background-color: #dbdfdf; 
+        background-color: #E3E6E6; 
         width:90%;
         font-size: 12px;
         -webkit-print-color-adjust: exact;

@@ -1,67 +1,81 @@
-@media print
+@media screen
 {
-    @page {
-        size: auto;
-        margin-top: 2mm;
-        margin-bottom: 2mm;
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #203232;
     }
-    .page-break  { display:block; page-break-before:always; }
-    
-    .header-line {
+
+    .main-header .header-line {
 		display:inline;
 	}
 
-	.header-line .header-line-yellow {
-		float:left;
-		padding-top:15px;
-		width:5%;
-    	border-bottom: 10px solid #F1B820;
+    .header-line .header-line-purple {
+        float:left;
+        padding-top:15px;
+        width:35%;
+        border-bottom: 10px solid #7C4496;
     }
-    .header-line .header-line-blue {
-    	float:left;
-    	padding-top:15px;
-		width:40%;
-    	border-bottom: 10px solid #15289C;
+    .header-line .header-line-pink {
+        float:left;
+        padding-top:15px;
+        width:25%;
+        border-bottom: 10px solid #D02259;
     }
-    .header-line .header-line-grey {
-    	float:left;
-    	padding-top:15px;
-		width:55%;
-    	border-bottom: 10px solid #848690;
+    .header-line .header-line-orange {
+        float:left;
+        padding-top:15px;
+        width:20%;
+        border-bottom: 10px solid #ED5A36;
     }
-
-    .logo img {
-        margin-top: 5mm;
+    .header-line .header-line-light-orange {
+        float:left;
+        padding-top:15px;
+        width:15%;
+        border-bottom: 10px solid #F47E20;
+    }
+    .header-line .header-line-yellow {
+        float:left;
+        padding-top:15px;
+        width:5%;
+        border-bottom: 10px solid #FFB819;
+    }
+    .main-header .logo img {
     	width:200px;
     	margin-left: 6%;
     }
+    .header {
+    	display: none;
+    }
 
-    .report-title {
-        margin-left: 50px;
-        margin-top: 45%;
+    .page {
+        margin-left:10%;
+        display:inline-block;
+        margin-top: 50px;
+        width:1000px;
     }
     .report-name1 {
-        color: #0b2e66;
+        color: #ED5A36;
+        font-weight: bold;
         margin-bottom: 0;
     }
 
     .report-name2 {
-        color: #ffc323;
+        color: #203232;
         font-weight: lighter;
         margin-top: 5px
     }
 
     .for-whom {
         margin-top:60px;
-        height: 150px;
+        height: 120px;
     }
 
     .for-whom, .by-whom p{
-        color: #1489c9;
+        color: #7C4496;
     }
 
     .by-whom {
-        height: 150px;
+        height: 120px;
     }
 
     #user-name, #advisor-name, #address1, #address2, #address3, #firmName, #phone {
@@ -70,47 +84,35 @@
         font-size: 20px;
     }
 
-    .second-page p {
-        font-size: 12px;
-    }
-
     .title {
-        color: #0b2e66;
+        color: #ED5A36;
         font-size: 20px;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        font-weight: bold;
     }
 
     .sub-title {
-        color:#1489c9;
-        font-size: 15px;
-        margin-top:5px;
-        margin-bottom: 5px;
-    }
-
-    .content {
-        margin-top: 15%;
-        margin-left: 30px;
-        margin-right: 30px;       
+        color:#D02259;
+        font-weight: bold;
     }
 
     .statement .check-box {
-        height: 12px;
-        width: 12px;
-        border: 1px solid #1489c9;
+        height: 14px;
+        width: 14px;
         float:left;
         margin-right: 10px;
+        line-height: 14px;
+        background-color: #E3E6E6;
+        margin-top:4px;
     }
 
     .type-select {
-        font-size:12px;
         margin-left: 20px;
         margin-top: 3px;
     }
 
     .element-intro {
         font-size: 20px;
-        color: #0b2e66;
+        color: #ED5A36;
     }
 
     .infographic-block {
@@ -121,17 +123,19 @@
 
     .infographic-block p {
         margin-left:0;
-        font-size: 12px;
+    }
+
+    .infographic-block br {
+        display: none;
     }
 
     .first-info-block {
         margin-left:0;
-        margin-right:0;
     }
 
     .first-info-block .item {
         display: inline-block;
-        font-size:9px;
+        font-size: 14px;
     }
 
     .first-info-block .item-number {
@@ -142,25 +146,20 @@
         line-height:20px;
         text-align: center;
         color: white;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         margin-right:10px;
-        -webkit-print-color-adjust: exact;
-    }
-
-    .first-info-block .item-value {
-        margin-right: 10px;
     }
 
     .item-number-one {
-        background-color: #848690 !important;
+        background-color: #D02259;
     }
 
     .item-number-two {
-        background-color: #F1B820 !important;
+        background-color: #ED5A36;
     }
 
     .item-number-three {
-        background-color: #15289C !important;
+        background-color: #FFB819;
     }
 
     .pie-chart-img {
@@ -173,12 +172,10 @@
         max-width:80%;
         margin-left: 20px;
         margin-right: 20px;
-        
     }
 
     .flow-chart-img {
         max-width:80%; 
-        margin-bottom: 20px;
     }
 
     .second-info-block {
@@ -190,27 +187,37 @@
         margin-left: 20px;
     }
 
-    .second-info-block img {
-        margin-top:10px;
-        margin-bottom:50px;
-    }
-
     .second-info-block h3, p {
         margin-left: 20px;
         margin-right: 20px;
     }
 
+    .second-info-block img {
+        margin-left: 30px;
+    }
+
+    .third-info-block p {
+        margin-right: 0px;
+    }
+
     .third-info-block img {
-        margin-top:25px;
+        margin-left: 25px;
+        margin-top: 20px;
+    }
+
+    .disclaimer p,h5 {
+        color: #b0b1b2;
+        font-size: 11px;
+        margin-left:0px;
     }
 
     .advisor-comment h3 {
-        color: #0b2e66;
+        color: #ED5A36;
         margin-bottom: 0px;
     }
 
     .comment-block {
-        border: 1px solid #0b2e66;
+        border: 1px solid #ED5A36;
         height: 100px;
         width: 100%;
         margin-top:5px;
@@ -223,7 +230,7 @@
     }
 
     .acceptance h4 {
-        color: #1489c9;
+        color: #D02259;
         margin-bottom: 5px;
         margin-top: 35px;
     }
@@ -231,45 +238,11 @@
     .acceptance p {
         margin-left: 0;
         margin-top:5px;
-        font-size: 12px;
+        ;
     }
 
     .accepted-by h4{
-        color: #358cff;
-    }
-
-    .empty-line {
-        font-size: 15px;
-        line-height:30px;
-        height: 30px;
-        border-bottom: 1px solid black;
-    }
-
-    .empty-line-date {
-        font-size: 15px;
-        height: 30px;
-        line-height:30px;
-        border-bottom: 1px solid black;
-    }
-
-    .signature {
-    }
-
-    .print-name {
-        margin-right:10px;
-        width: 40%;
-        float:left;
-    }
-
-    .sign-name {
-        margin-right:10px;
-        width: 40%;
-        float:left;
-    }
-
-    .date {
-        width: 14%;
-        float:left;
+            color: #7C4496;
     }
 
     .disclaimer p,h5 {
@@ -278,13 +251,39 @@
         margin-left:0px;
     }
 
-    .disclaimer {
-        margin-top: 40%;
+    .empty-line {
+        font-size:20px;
+        height: 30px;
+        line-height:30px;
+        border-bottom: 1px solid black;
     }
 
-    .up-section {
-        margin-top:10px;
-        height:550px;
+    .empty-line-date {
+        font-size:20px;
+        height: 30px;
+        line-height:30px;
+        border-bottom: 1px solid black;
+    }
+
+    .print-name {
+        margin-right:10px;
+        width: 42%;
+        float:left;
+    }
+
+    .sign-name {
+        margin-right:10px;
+        width: 42%;
+        float:left;
+    }
+
+    .date {
+        width: 10%;
+        float:left;
+    }
+
+    .data-section {
+        margin-top: 25px;
     }
 
     .equity-title {
@@ -308,100 +307,50 @@
     #table-section-1 {
         float:left;
         width:40%;
+        margin-left:15%;
     }
 
     #table-section-2 {
         float:left;
         width:40%;
+        margin-left:15%;
     }
 
-    .data-section {
-        height: 40%;
-        margin-top:20px;
-    }
-
-    .pie-chart-section-1 {
-        float:left;
-        width:40%;
-    }
-
-    .pie-chart-section-2 {
-        float:left;
-        width:40%;
-    }
-
-    #report-protofolio-type {
-        font-size:22px;
-        text-align: center;
-    }
     
-    .left-section {
-        float:left;
-        width:40%;
-    }
 
-    .right-section {
-        float: left;
-        width:50%;
-    }
-
-    .equity-section {
-        height: 400px;
-    }
-
-    .geographic-section {
-        height:320px;
-    }
-
-
-    /*pie chart css*/
     #pie-chart-0 {
         height: 60% !important;
         width: 60% !important;
         margin-left: 15%;
     }
+
     #pie-chart-1 {
         height: 60% !important;
         width: 60% !important;
         margin-left: 15%;
-        margin-top:30px;
     }
 
     #pie-chart-2 {
         height: 60% !important;
         width: 60% !important;
         margin-left: 15%;
-        margin-top:30px;
     }
 
-    #pie-chart-date-0 {
-        font-size:12px;
-    }
-
-    #pie-chart-note {
-        font-size:12px;
-    }
-
-    /*data table css */
     .income-div {
         border-collapse: collapse;
-        font-size:12px;
-    }
-
-    tr {
-        -webkit-print-color-adjust: exact;
     }
 
     .income-div {
-        width: 320px;
+        width: 350px;
     }
     .income-title {
         color: white;
+        height:30px;
     }
 
     .income-fund {
         background-color: #f4f5f5;
-        -webkit-print-color-adjust: exact;
+        height:25px;
     }
 
     .fund-percentage {
@@ -416,17 +365,54 @@
         text-align: right;
     }
 
+    #report-protofolio-type {
+        font-size:30px;
+        text-align: center;
+    }
+
+    .left-section {
+        float:left;
+        width:40%;
+        margin-left:10%;
+    }
+    .right-section {
+        float: left;
+        width:50%;
+    }
+
+    .up-section {
+        margin-top:50px;
+        height:750px;
+    }
+
+    .equity-section {
+        height: 550px;
+        margin-left:10%;
+    }
+
+    .geographic-section {
+        height:350px;
+        margin-left:10%;
+    }
+
+    .key-benefits {
+        margin-top: 50px;
+        padding: 20px;
+        background-color: #E3E6E6; 
+        width:90%;
+    }
     #table-section-0 {
         background-color: #f4f5f5;
-        width:320px;
+        width:350px;
         margin-left: 20%;
-        height: 458px;
-        -webkit-print-color-adjust: exact;
+    }
+
+    #pie-chart-holder-0 {
+        margin-top:25px;
     }
 
     .country {
         background-color: #f4f5f5;
-        -webkit-print-color-adjust: exact;
         height:25px;
     }
     .color-box {
@@ -434,37 +420,26 @@
         height: 12px;
         float:left;
         margin-left:5px;
-        -webkit-print-color-adjust: exact;
     }
 
     .country-percentage {
         text-align: right;
         border-right:10px solid #f4f5f5;
-        -webkit-print-color-adjust: exact;
-    }
-    
-    /*benefit css */
-    .key-benefits {
-        margin-top: 10px;
-        padding: 10px;
-        padding-right:20px;
-        background-color: #dbdfdf; 
-        width:90%;
-        font-size: 12px;
-        -webkit-print-color-adjust: exact;
-    }
-
-    /*foot note css */
-    .bottom-section #foot-note {
-        font-size:11px;
-        color: #b0b1b2;
-    }
-
-    .bottom-section p {
-        font-size: 20px;
     }
 
     .print-button {
-        display:none;
+        font-size: 30px;
+        float:right;
+        margin-right:10%;
+        margin-top:15px;
+        background-color: #7C4496;
+        width:120px;
+        height:40px;
+        color:white;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 10px;
     }
+
+
 }
