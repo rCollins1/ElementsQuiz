@@ -90,27 +90,52 @@ p {
     padding-left: -2px;
 }
 
+/* Report modal window styling */
+
 input[type="text"], input[type="date"] {
-    border: 2px solid red;
+    border: 2px solid #203232;
     border-radius: 4px;
     padding: 3px;
-
-/*    border: none;
-    border-bottom: 2px solid red;*/
-
     color: #203232;
+    background-color: #e3e6e6;
 }
 
-input[type="text"]:focus {
-    border: 2px solid black;
-    border: x;
+input[type="text"]:focus, input[type="date"]:focus {
+    border: 2px solid #ED5A36;
 }
 
 input {
     outline: none;
 }
 
+#report-title p {
+    font-size: 15px;
+}
 
+#classNames {
+    color: #203232;
+    font-family: arial;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    margin-bottom: 24px;
+    margin-left: -6px;
+}
+
+#print, .close {
+    background-color: #203232;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
 
 
 
@@ -323,7 +348,7 @@ label {
     overflow: auto; /* Enable scroll if needed */
     background-color: white;
     border: 2px solid #203232;
-    box-shadow: 5px 5px 10px #888888;
+    box-shadow: 3px 3px 20px 0px #888888;
 }
 
 #report-window{
