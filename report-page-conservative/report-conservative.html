@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>Your Report</title>
-	<link rel="stylesheet" href="./Stylesheet/print-styles.css">
-	<link rel="stylesheet" href="./Stylesheet/screen-styles.css">
+	<link rel="stylesheet" href="../Stylesheet/print-styles.css">
+	<link rel="stylesheet" href="../Stylesheet/screen-styles.css">
+	<meta charset="UTF-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
@@ -11,12 +12,15 @@
 	<div class="first-page">
 		<div class="main-header">
 		<div class="logo">
-			<img src="./Image/IPS_Elements_Logo.jpg" alt="Elements Logo">
+			<img src="../image/IPS_Elements_Logo.png" alt="Elements Logo">
+			<a class="print-button" title="Print to PDF" alt="Print to PDF" onclick="window.print();" target="_blank">Print</a>
 		</div>
 		<div class="header-line">
+			<div class="header-line-purple"></div>
+			<div class="header-line-pink"></div>
+			<div class="header-line-orange"></div>
+			<div class="header-line-light-orange"></div>
 			<div class="header-line-yellow"></div>
-			<div class="header-line-blue"></div>
-			<div class="header-line-grey"></div>
 		</div>
 		</div>
 		<div class="report-title">
@@ -25,11 +29,16 @@
 		<div class="user-info">
 			<div class="for-whom">
 				<p>PREPARED EXCLUSIVELY FOR:</p>
-				<div class="user-name"></div>
+				<div id="user-name"></div>
+				<div id="address1"></div>
+				<div id="address2"></div>
+				<div id="address3"></div>
 			</div>
 			<div class="by-whom">
 				<p>BY:</p>
-				<div class="advisor-name"></div>
+				<div id="advisor-name"></div>
+				<div id="firmName"></div>
+				<div id="phone"></div>
 			</div>
 		</div>
 		</div>
@@ -41,12 +50,14 @@
 	<div class="second-page page">
 		<div class="header">
 		<div class="logo">
-			<img src="./Image/IPS_Elements_Logo.jpg" alt="Elements Logo">
+			<img src="../image/IPS_Elements_Logo.png" alt="Elements Logo">
 		</div>
 		<div class="header-line">
+			<div class="header-line-purple"></div>
+			<div class="header-line-pink"></div>
+			<div class="header-line-orange"></div>
+			<div class="header-line-light-orange"></div>
 			<div class="header-line-yellow"></div>
-			<div class="header-line-blue"></div>
-			<div class="header-line-grey"></div>
 		</div>
 		</div>
 		<div class="content">
@@ -54,11 +65,11 @@
 				<h3 class="title">Your Portfolio Policy Statement</h3>
 				<p>This Portfolio Policy Statement is designed to detail your overall investment strategy. In choosing</p>
 				<div class="type-select">
-					<div class="check-box portfolio"></div>
+					<div class="check-box" id="type-portfolio"></div>
 					<div class="type"><strong>AGF Elements<sup>&#174;</sup> Conservative Portfolio*</strong> (the &#34;Portfolio&#34;),</div>
 				</div>
 				<div class="type-select">
-					<div class="check-box class"></div>
+					<div class="check-box" id="type-class"></div>
 					<div class="type"><strong>AGF Elements<sup>&#174;</sup> Conservative Class</strong> (the &#34;Portfolio&#34;),</div>
 				</div>
 				<p>you and I have selected the portfolio that best meets your current financial needs. As your personal financial situation changes over time, we will review your investments and revise these as needed.</p>
@@ -91,12 +102,14 @@
 	<div class="third-page page">
 		<div class="header">
 		<div class="logo">
-			<img src="./Image/IPS_Elements_Logo.jpg" alt="Elements Logo">
+			<img src="../image/IPS_Elements_Logo.png" alt="Elements Logo">
 		</div>
 		<div class="header-line">
+			<div class="header-line-purple"></div>
+			<div class="header-line-pink"></div>
+			<div class="header-line-orange"></div>
+			<div class="header-line-light-orange"></div>
 			<div class="header-line-yellow"></div>
-			<div class="header-line-blue"></div>
-			<div class="header-line-grey"></div>
 		</div>
 		</div>
 		<div class="content">
@@ -105,7 +118,7 @@
 			<div class="infographic-block first-info-block">
 				<h3>Expertise &#38; <br /> oversight</h3>
 				<p>Managed by AGF Investments, AGF Elements Portfolios draw on the expertise of the investment teams of the underlying AGF mutual funds and exchange-traded funds (ETFs), as well as the AGF Asset Allocation Committee.</p>
-				<img class="pie-chart-img" src="./Image/static-pie-chart.jpg">
+				<img class="pie-chart-img" src="../image/static-pie-chart.png">
 				<div class="point-list">
 					<div class="item">
 						<div class="item-number-one item-number">1</div>
@@ -124,12 +137,12 @@
 			<div class="infographic-block second-info-block">
 				<h3>Multi-layered diversification</h3>
 				<p>Each portfolio is comprised of domestic and global mutual funds and ETFs drawn from AGF’s fund lineup with multilayered diversification across: asset class, geography, sector, securities and more.</p>
-				<img class="global-img" src="./Image/global.jpg">
+				<img class="global-img" src="../image/global.png">
 			</div>
 			<div class="infographic-block third-info-block">
 				<h3>Active <br /> management</h3>
 				<p>AGF Elements Portfolios are rebalanced regularly to capitalize on long-term, strategic opportunities and through the use of ETFs, the portfolios are able to facilitate a shorter-term, tactical approach to asset allocation.</p>
-				<img class="flow-chart-img" src="./Image/flow-chart.jpg">
+				<img class="flow-chart-img" src="../image/flow-chart.png">
 			</div>
 		</div>
 		</div>
@@ -139,29 +152,90 @@
 	<!-- Fourth Page -->
 	<div class="fourth-page page">
 		<div class="header">
-		<div class="logo">
-			<img src="./Image/IPS_Elements_Logo.jpg" alt="Elements Logo">
-		</div>
-		<div class="header-line">
+			<div class="logo">
+				<img src="../image/IPS_Elements_Logo.png" alt="Elements Logo">
+			</div>
+			<div class="header-line">
+				<div class="header-line-purple"></div>
+			<div class="header-line-pink"></div>
+			<div class="header-line-orange"></div>
+			<div class="header-line-light-orange"></div>
 			<div class="header-line-yellow"></div>
-			<div class="header-line-blue"></div>
-			<div class="header-line-grey"></div>
+			</div>
+		</div>
+		<div class="content">
+			<script type="text/javascript" src="dataBinding.js"></script>
+			<script type="text/javascript" src="report-dynamic-data.json"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+			<div id="report-protofolio-type" class="title"></div>
+			<div class="up-section">
+				<div class="left-section">
+					<div class="pie-chart-section">
+						<div id="pie-chart-date-0"></div>
+						<div id="pir-chart-note">(Actual percentages may vary)</div>
+						<div id="pie-chart-holder-0">
+							<canvas id="pie-chart-0"></canvas>
+						</div>
+					</div>
+					<div class="key-benefits">
+						<div class="title">Key benefits:</div>
+						<ul id="benefit-list"></ul>
+					</div>
+				</div>
+				<div class="right-section">
+					<div id="table-section-0"></div>
+				</div>
+			</div>
+			<div class="bottom-section">
+				<ol id="foot-note"></ol>
+				<p>For more information on the underlying funds and the portfolio managers that manage them, please refer to AGF.com.</p>
+			</div>
 		</div>
 		</div>
-	</div>
+
 	<div class="page-break"></div>
 
 	<!-- Fifth Page -->
 	<div class="fifth-page page">
 		<div class="header">
 		<div class="logo">
-			<img src="./Image/IPS_Elements_Logo.jpg" alt="Elements Logo">
+			<img src="../image/IPS_Elements_Logo.png" alt="Elements Logo">
 		</div>
 		<div class="header-line">
+			<div class="header-line-purple"></div>
+			<div class="header-line-pink"></div>
+			<div class="header-line-orange"></div>
+			<div class="header-line-light-orange"></div>
 			<div class="header-line-yellow"></div>
-			<div class="header-line-blue"></div>
-			<div class="header-line-grey"></div>
 		</div>
+		</div>
+		<div class="content">
+			<div class="equity-section">
+				<div class="equity-title">Equity and fixed income sector diversification</div>
+				<div class="data-section">
+				<div class="pie-chart-section-1">
+					<div id="pie-chart-holder-1">
+						<canvas id="pie-chart-1"></canvas>
+					</div>
+				</div>
+				<div id="table-section-1"></div>
+				</div>
+			</div>
+			<div class="geographic-section">
+				<div class="geographic-title">Geographic diversification</div>
+				<div class="data-section">
+				<div class="pie-chart-section-2">
+					<div id="pie-chart-holder-2">
+						<canvas id="pie-chart-2"></canvas>
+					</div>
+				</div>
+				<div id="table-section-2"></div>
+				</div>
+			</div>
+			<div class="bottom-section">
+				<ol id="foot-note"></ol>
+				<p>For more information on the underlying funds and the portfolio managers that manage them, please refer to AGF.com.</p>
+			</div>
 		</div>
 	</div>
 	<div class="page-break"></div>
@@ -170,12 +244,14 @@
 	<div class="sixth-page page">
 		<div class="header">
 		<div class="logo">
-			<img src="./Image/IPS_Elements_Logo.jpg" alt="Elements Logo">
+			<img src="../image/IPS_Elements_Logo.png" alt="Elements Logo">
 		</div>
 		<div class="header-line">
+			<div class="header-line-purple"></div>
+			<div class="header-line-pink"></div>
+			<div class="header-line-orange"></div>
+			<div class="header-line-light-orange"></div>
 			<div class="header-line-yellow"></div>
-			<div class="header-line-blue"></div>
-			<div class="header-line-grey"></div>
 		</div>
 		</div>
 		<div class="content">
@@ -192,7 +268,7 @@
 			<h4>Accepted by:</h4>
 			<div class="signature investor">
 				<div class="print-name">
-					<div class="empty-line"></div>
+					<div class="empty-line" id="user-name-signature"></div>
 					<div class="signature-instruction">Please print name</div>
 				</div>
 				<div class="sign-name">
@@ -200,7 +276,7 @@
 					<div class="signature-instruction">Signature of investor</div>
 				</div>
 				<div class="date">
-					<div class="empty-line-date"></div>
+					<div class="empty-line-date" id="date-0"></div>
 					<div class="signature-instruction">Date</div>
 				</div>
 			</div>
@@ -220,15 +296,15 @@
 			</div>
 			<div class="signature advisor">
 				<div class="print-name">
-					<div class="empty-line"></div>
+					<div class="empty-line" id="advisor-name-signature"></div>
 					<div class="signature-instruction">Please print name</div>
 				</div>
 				<div class="sign-name">
 					<div class="empty-line"></div>
-					<div class="signature-instruction">Signature of investor</div>
+					<div class="signature-instruction">Signature of Advisor</div>
 				</div>
 				<div class="date">
-					<div class="empty-line-date"></div>
+					<div class="empty-line-date" id="date-1"></div>
 					<div class="signature-instruction">Date</div>
 				</div>
 			</div>
@@ -241,12 +317,14 @@
 	<div class="seventh-page page">
 		<div class="header">
 		<div class="logo">
-			<img src="./Image/IPS_Elements_Logo.jpg" alt="Elements Logo">
+			<img src="../image/IPS_Elements_Logo.png" alt="Elements Logo">
 		</div>
 		<div class="header-line">
+			<div class="header-line-purple"></div>
+			<div class="header-line-pink"></div>
+			<div class="header-line-orange"></div>
+			<div class="header-line-light-orange"></div>
 			<div class="header-line-yellow"></div>
-			<div class="header-line-blue"></div>
-			<div class="header-line-grey"></div>
 		</div>
 		</div>
 		<div class="content disclaimer">
