@@ -1,5 +1,10 @@
 @media screen
 {
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #203232;
+    }
+
     .main-header .header-line {
 		display:inline;
 	}
@@ -50,7 +55,6 @@
     }
     .report-name1 {
         color: #ED5A36;
-        font-family: Foboto;
         font-weight: bold;
         margin-bottom: 0;
     }
@@ -81,21 +85,24 @@
     }
 
     .title {
-        color: #0b2e66;
+        color: #ED5A36;
         font-size: 20px;
+        font-weight: bold;
     }
 
     .sub-title {
-        color:#1489c9;
+        color:#D02259;
+        font-weight: bold;
     }
 
     .statement .check-box {
         height: 14px;
         width: 14px;
-        border: 1px solid #1489c9;
         float:left;
         margin-right: 10px;
         line-height: 14px;
+        background-color: #E3E6E6;
+        margin-top:4px;
     }
 
     .type-select {
@@ -144,15 +151,15 @@
     }
 
     .item-number-one {
-        background-color: #848690;
+        background-color: #D02259;
     }
 
     .item-number-two {
-        background-color: #F1B820;
+        background-color: #ED5A36;
     }
 
     .item-number-three {
-        background-color: #15289C;
+        background-color: #FFB819;
     }
 
     .pie-chart-img {
@@ -205,12 +212,12 @@
     }
 
     .advisor-comment h3 {
-        color: #0b2e66;
+        color: #ED5A36;
         margin-bottom: 0px;
     }
 
     .comment-block {
-        border: 1px solid #0b2e66;
+        border: 1px solid #ED5A36;
         height: 100px;
         width: 100%;
         margin-top:5px;
@@ -223,7 +230,7 @@
     }
 
     .acceptance h4 {
-        color: #1489c9;
+        color: #D02259;
         margin-bottom: 5px;
         margin-top: 35px;
     }
@@ -235,7 +242,7 @@
     }
 
     .accepted-by h4{
-            color: #358cff;
+            color: #7C4496;
     }
 
     .disclaimer p,h5 {
@@ -391,7 +398,7 @@
     .key-benefits {
         margin-top: 50px;
         padding: 20px;
-        background-color: #dbdfdf; 
+        background-color: #E3E6E6; 
         width:90%;
     }
     #table-section-0 {
