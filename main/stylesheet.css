@@ -26,6 +26,29 @@ p {
     font-size: 16px;
 }
 
+#funds {
+    text-align: left;
+    margin-left: 195px;
+    margin-top: -250px;
+    width: 53%;
+
+    color: #203232;
+    font-family: arial;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 12px;
+}
+
+#funds p {
+    color: #203232;
+    font-family: arial;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 10px;
+}
+
 .previous, .next, #move-dropDown, .drop-down {
     background-color: #203232;
     border: none;
@@ -67,6 +90,31 @@ p {
     padding-left: -2px;
 }
 
+input[type="text"], input[type="date"] {
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 3px;
+
+/*    border: none;
+    border-bottom: 2px solid red;*/
+
+    color: #203232;
+}
+
+input[type="text"]:focus {
+    border: 2px solid black;
+    border: x;
+}
+
+input {
+    outline: none;
+}
+
+
+
+
+
+
 /*input {
     position: absolute;
     opacity: 0;
@@ -82,7 +130,6 @@ p {
     border-radius: 50%;
 }*/
 
-
 body {
     margin: 10px; 
     width: 800px;
@@ -91,13 +138,13 @@ body {
 }
 
 #frame{
-    width: 800px; 
-    height: 400px; 
+    width: 800px;
+    height: 400px;
     overflow: hidden;
 }
 
 #queue {
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }
 
@@ -259,14 +306,6 @@ label {
     font-size: @size + 2;
 }
 
-#funds {
-    font-size: 9.5px;
-    text-align: left;
-    margin-left: 195px;
-    margin-top: -250px;
-    width: 53%;
-    font-family: verdana;
-}
 /*results slide styling --- ends */
 
 
