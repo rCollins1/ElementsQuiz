@@ -582,11 +582,29 @@ $.getJSON("https://api.myjson.com/bins/11m84z", function(json) {
 	    $("#queue").animate({marginLeft: "-=800px"}, 500); // mover the margin to left for 800px (the width of one slide)
 	    currSlide++;
 	    $("#pagination" + currSlide).removeAttr("disabled"); // enable the pagination of current slide 
+
+
+		var $bar = $(".ProgressBar");
+
+  		if ($bar.children(".is-current").length > 0) {
+    		$bar.children(".is-current").removeClass("is-current").addClass("is-complete").next().addClass("is-current");
+  		} else {
+    		$bar.children().first().addClass("is-current");
+  		}
 	});
 
     $(".previous").click(function(){ // move to previous slide 
         $("#queue").animate({marginLeft: "+=800px"}, 500);
         currSlide--;
+
+
+		var $bar = $(".ProgressBar");
+
+  		if ($bar.children(".is-current").length > 0) {
+    		$bar.children(".is-current").removeClass("is-current").prev().removeClass("is-complete").addClass("is-current");
+  		} else {
+    		$bar.children(".is-complete").last().removeClass("is-complete").addClass("is-current");
+  		}
     });
 
 
@@ -674,7 +692,10 @@ $.getJSON("https://api.myjson.com/bins/11m84z", function(json) {
 
 
 
-/*Progress Bar*/
+
+
+
+/*function.js for progress bar*/
 
  $.getJSON("data.json", function(json) {
 
@@ -842,7 +863,7 @@ $.getJSON("https://api.myjson.com/bins/11m84z", function(json) {
 		footer.appendChild(pagination);*/
 		
 	 }
-
+/*
 	// functions of PREVIOUS and NEXT button 
 	var currSlide = 0; // starts from the coverPage with id 0
 	$(".next").click(function(){ 
@@ -897,7 +918,7 @@ $.getJSON("https://api.myjson.com/bins/11m84z", function(json) {
         
     });
 
-
+*/
 
 
 

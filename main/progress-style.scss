@@ -50,12 +50,12 @@ $white: #FFFFFF;
 }
 
 .ProgressBar-icon {
-  width: 1.5em;
-  height: 1.5em;
+  /*width: 1.5em;*/
+  /*height: 1.5em;*/
   background-color: $gray;
   fill: $gray;
   border-radius: 50%;
-  padding: 0.5em;
+  padding: 0.1em;
   max-width: 100%;
   z-index: 10;
   position: relative;
@@ -94,11 +94,3 @@ $white: #FFFFFF;
     color: $blue;
   }
 }
-
-//FOR CODEPEN FORMATTING
-.wrapper {
-  max-width: 1000px;
-  margin: 4em auto;
-  font-size: 16px;
-}
-//END CODEPEN FORMATTING
